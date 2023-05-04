@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.scene.image.Image;
+import static javafxmlapplication.RegistryController.Main;
 
 
 /**
@@ -38,6 +39,10 @@ public class MainStageController  implements Initializable {
     private ImageView logo;
     @FXML
     private ImageView court;
+    
+    public static Stage SignUp;
+    public static Stage Main;
+    public static Stage Fields;
     
 
     /**
@@ -59,6 +64,8 @@ public class MainStageController  implements Initializable {
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("SignUp.fxml"));
         Parent root = loader.load();
         Scene escena = new Scene(root);
+        nuevaVentana.setTitle("SignUp");
+        nuevaVentana.setResizable(false);
         nuevaVentana.setScene(escena);
         nuevaVentana.show();
     }
@@ -66,18 +73,27 @@ public class MainStageController  implements Initializable {
     @FXML
     private void changeToRegister(ActionEvent event) throws Exception {
         
-        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader1 = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader1.load();
         Scene nueva = new Scene(root);
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
+        stage.show();
+        
         
     }
 
     @FXML
-    private void changeToFields(ActionEvent event) {
-    
+    private void changeToFields(ActionEvent event) throws Exception {
+        
+        /*FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = registerScene.getParentPopup().getOwnerNode();
+        Main = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.show();*/
     
     }
  
