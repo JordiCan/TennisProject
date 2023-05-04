@@ -7,18 +7,25 @@ package javafxmlapplication;
 import java.awt.Image;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
-import javax.swing.JPanel;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
 
 /**
  * FXML Controller class
  *
  * @author Alma
  */
-public class MainStageController extends javax.swing.JFrame implements Initializable {
+public class MainStageController  implements Initializable {
 
     @FXML
     private MenuItem signUpScene;
@@ -27,7 +34,6 @@ public class MainStageController extends javax.swing.JFrame implements Initializ
     @FXML
     private MenuItem fieldsScene;
     
-    FondoPanel fondo = new FondoPanel();
 
     /**
      * Initializes the controller class.
@@ -35,19 +41,36 @@ public class MainStageController extends javax.swing.JFrame implements Initializ
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        this.setContentPane(fondo);
+
     }    
 
     @FXML
-    private void changeToSignUp(ActionEvent event) {
+    private void changeToSignUp(ActionEvent event) throws Exception {
+        
+        Stage nuevaVentana = new Stage();
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("SignUp.fxml"));
+        Parent root = loader.load();
+        Scene escena = new Scene(root);
+        nuevaVentana.setScene(escena);
+        nuevaVentana.show();
     }
 
     @FXML
-    private void changeToRegister(ActionEvent event) {
+    private void changeToRegister(ActionEvent event) throws Exception {
+        
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = registerScene.getParentPopup().getOwnerNode();
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        
     }
 
     @FXML
     private void changeToFields(ActionEvent event) {
+    
+    
     }
  
     
