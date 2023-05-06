@@ -20,6 +20,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,6 +32,20 @@ import model.ClubDAOException;
  * @author ana
  */
 public class ProfileController implements Initializable {
+    
+    @FXML
+    private Button EditProfile;
+    
+    @FXML
+    private Button pic;
+    
+    @FXML
+    private Button cancel;
+    
+    @FXML
+    private Button accept;
+    
+    
     
     public static Stage Main;
 
@@ -36,10 +55,17 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-       // Image image = new Image ("/img/chaval.png");
-       // chaval.setImage(image);
-        
-    }    
+    }   
     
+    @FXML
+    public void EditProfile_Action(ActionEvent event) throws Exception{
+        //Button pic = new Button("pic");
+        //Button EditProfile = new Button ("Edit profile");
+        //pic.setVisible(false);
+        
+        pic.setVisible(true);
+        accept.setVisible(true);
+        cancel.setVisible(true);
+        
+    }
 }

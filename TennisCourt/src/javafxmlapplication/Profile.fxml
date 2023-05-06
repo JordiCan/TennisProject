@@ -16,14 +16,15 @@
    <top>
       <HBox prefHeight="213.0" prefWidth="550.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="178.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="pic" alignment="CENTER" disable="true" mnemonicParsing="false" prefHeight="24.0" prefWidth="38.0" styleClass="profile-button" text="pic" />
+            <ImageView fitHeight="175.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/chaval.png" />
                </image>
                <HBox.margin>
-                  <Insets left="20.0" top="20.0" />
+                  <Insets top="20.0" />
                </HBox.margin></ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="326.7294921875">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="324.7294921875">
                <font>
                   <Font size="72.0" />
                </font>
@@ -37,11 +38,13 @@
    <bottom>
       <Pane prefHeight="75.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER_RIGHT" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="115.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="EditProfile" alignment="CENTER_RIGHT" layoutX="421.0" layoutY="14.0" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="48.0" prefWidth="115.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
+            <Button fx:id="accept" disable="true" layoutX="50.0" layoutY="26.0" mnemonicParsing="false" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
+            <Button fx:id="cancel" disable="true" layoutX="125.0" layoutY="26.0" mnemonicParsing="false" text="Cancel" />
          </children>
       </Pane>
    </bottom>
@@ -187,7 +190,7 @@
                               <Image url="@../img/transver.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="3.0" top="5.0" />
+                              <Insets left="1.0" top="5.0" />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="50.0" prefWidth="59.0" text="SVC">
@@ -205,7 +208,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="393.0" prefWidth="269.0" />
+            <VBox prefHeight="412.0" prefWidth="150.0" />
          </children>
       </HBox>
    </center>
