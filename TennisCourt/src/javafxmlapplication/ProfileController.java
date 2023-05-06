@@ -17,9 +17,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 import javafx.scene.text.Text;
-
+import java.io.File;
+import java.io.IOException;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import static javafxmlapplication.JavaFXMLApplication.*;
+import model.*;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
@@ -101,8 +118,22 @@ public class ProfileController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         // TODO
+        
+        //variables que declarar con jordi 
+        //hago un metodo nuevo? o consigo asi con throw?
+        Club t = Club.getInstance();
+        Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
+        
+        name.setPromptText(mem.getName());
+        surname.setPromptText(mem.getSurname());
+        telephone.setPromptText(mem.getTelephone());
+        nickname.setPromptText(mem.getNickName());
+        password.setPromptText(mem.getPassword());
+        creditcard.setPromptText(mem.getCreditCard());
+        String svcString = Integer.toString(mem.getSvc());
+        svc.setPromptText(svcString);      
     }   
     
     @FXML
@@ -119,15 +150,18 @@ public class ProfileController implements Initializable {
     
     @FXML
     public void EditProfile_Pic(ActionEvent event) throws Exception{
-        //aqui tengo que poder abrir las fotos. 
+        //aqui tengo que poder abrir las fotos
+        //no va a funcionar ni de puta coña 
+        File imagenes = new File ("IPC_FXMLCore/Source Packages/img");
+        Desktop.getDesktop().open(imagenes);
     }
+   
     
     @FXML
     public void ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
         save.setOnMouseClicked(event -> {
-            
            
             //me falta ver si son numeros o letras
             if (name.getText().length() < 6 || name.getText().equals("")){
