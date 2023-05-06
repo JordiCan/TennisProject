@@ -17,6 +17,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
@@ -43,7 +46,52 @@ public class ProfileController implements Initializable {
     private Button cancel;
     
     @FXML
-    private Button accept;
+    private Button save;
+    
+    @FXML
+    private TextField name;
+    
+    @FXML
+    private TextField surname;
+    
+    @FXML
+    private TextField telephone;
+    
+    @FXML
+    private TextField nickname;
+    
+    @FXML
+    private TextField password;
+    
+    @FXML
+    private TextField creditcard;
+    
+    @FXML
+    private TextField csc;
+    
+    @FXML
+    private TextField svc;
+    
+    @FXML
+    private Text nameErr;
+    
+    @FXML
+    private Text surnErr;
+    
+    @FXML
+    private Text telErr;
+    
+    @FXML
+    private Text passErr;
+    
+    @FXML
+    private Text cardErr;
+    
+    @FXML
+    private Text cscErr;
+    
+    @FXML
+    private Text svcErr;
     
     
     
@@ -64,8 +112,52 @@ public class ProfileController implements Initializable {
         //pic.setVisible(false);
         
         pic.setVisible(true);
-        accept.setVisible(true);
+        save.setVisible(true);
         cancel.setVisible(true);
         
     }
+    
+    @FXML
+    public void EditProfile_Pic(ActionEvent event) throws Exception{
+        //aqui tengo que poder abrir las fotos. 
+    }
+    
+    @FXML
+    public void ErroresData() {
+        //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
+        //cuando click el save 
+        save.setOnMouseClicked(event -> {
+            
+           
+            //me falta ver si son numeros o letras
+            if (name.getText().length() < 6 || name.getText().equals("")){
+                nameErr.setVisible(true);
+            }
+             //me falta ver si son numeros o letras
+            if (surname.getText().equals("") || surname.getText().equals("")){
+                surnErr.setVisible(true);
+            }
+             //me falta ver si son numeros o letras
+            if (telephone.getText().equals("")){
+                telErr.setVisible(true);
+            }
+            if (password.getText().equals("") || password.getText().length() < 6){
+                passErr.setVisible(true);
+            }
+             //me falta ver si son numeros o letras
+            if (creditcard.getText().equals("") || creditcard.getText().length() != 16){
+                cardErr.setVisible(true);
+            }
+            //me falta ver que sean numeros
+            if (csc.getText().length() != 3){
+                cscErr.setVisible(true);
+            }
+             //me falta ver si son numeros o letras
+            if (svc.getText().length() != 3){
+                svcErr.setVisible(true);
+            }
+        });
+        
+        
+    } 
 }
