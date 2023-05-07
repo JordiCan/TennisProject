@@ -142,23 +142,34 @@ public class ProfileController implements Initializable {
         //Button EditProfile = new Button ("Edit profile");
         //pic.setVisible(false);
         
+        //que permita editar los text fields
+        
         pic.setVisible(true);
         save.setVisible(true);
         cancel.setVisible(true);
         
     }
+  
+    
+    
+    
     
     @FXML
     public void EditProfile_Pic(ActionEvent event) throws Exception{
-        //aqui tengo que poder abrir las fotos
-        //no va a funcionar ni de puta coña 
-        File imagenes = new File ("IPC_FXMLCore/Source Packages/img");
+        //aqui que abra su home
+        //esto está mal pero es parecido
+        File imagenes = new File ("img");
         Desktop.getDesktop().open(imagenes);
     }
    
     
+    
+    
+    
+    
+    
     @FXML
-    public void ErroresData() {
+    public void Save_ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
         save.setOnMouseClicked(event -> {
@@ -192,6 +203,13 @@ public class ProfileController implements Initializable {
             }
         });
         
+        //AHORA ADEMAS TENGO QUE HACER LO DE AÑADIR QUE SE REGISTREN LOS CAMBIOS 
+        //LO HAGO CON LO QUE SE HAGA EN EL REGISTER
+        
+    } 
+    @FXML
+    public void CancelButton() {
+        //que vuelva a escribir lo anterior
         
     } 
 }
