@@ -65,7 +65,7 @@ public class MainStageController  implements Initializable {
         Parent root = loader.load();
         Scene escena = new Scene(root);
         nuevaVentana.setTitle("SignUp");
-        nuevaVentana.setResizable(false);
+        nuevaVentana.setResizable(true);
         nuevaVentana.setScene(escena);
         nuevaVentana.show();
     }

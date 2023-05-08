@@ -86,7 +86,6 @@ public class ProfileController implements Initializable {
     @FXML
     private TextField csc;
     
-    @FXML
     private TextField svc;
     
     @FXML
@@ -107,12 +106,15 @@ public class ProfileController implements Initializable {
     @FXML
     private Text cscErr;
     
-    @FXML
     private Text svcErr;
     
     
     
     public static Stage Main;
+    @FXML
+    private TextField svc1;
+    @FXML
+    private Text svcErr1;
 
     /**
      * Initializes the controller class.
