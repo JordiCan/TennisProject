@@ -53,8 +53,6 @@ import javafx.stage.Stage;
  */
 public class ProfileController implements Initializable {
     
-    @FXML
-    private Button EditProfile;
     
     @FXML
     private Button pic;
@@ -112,9 +110,11 @@ public class ProfileController implements Initializable {
     
     public static Stage Main;
     @FXML
-    private TextField svc1;
-    @FXML
     private Text svcErr1;
+    @FXML
+    private Button EditProfile;
+    @FXML
+    private TextField svc1;
 
     /**
      * Initializes the controller class.
