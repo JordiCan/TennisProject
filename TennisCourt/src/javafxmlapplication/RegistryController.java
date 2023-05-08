@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -65,12 +66,24 @@ public class RegistryController implements Initializable {
                     FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
                     Parent root= myLoader.load();
                     Scene scene = new Scene(myLoader.load());
-                    Main = new Stage();
+                    /*Main = new Stage();
                     Main.setResizable(false);
                     Main.setTitle("Main Menu");
                     Main.setScene(scene);
                     Main.centerOnScreen();
-                    Main.show();
+                    Main.show();*/
+                    
+                    
+                        /*FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
+                        Parent root= myLoader.load();
+                        Scene scene = new Scene(myLoader.load());*/
+                        Node node = (Node) AcceptButton;
+                        Main = (Stage) node.getScene().getWindow();
+                        Main.setScene(scene);
+                        Main.show();
+
+                    
+                    
                 }
             }
         }
