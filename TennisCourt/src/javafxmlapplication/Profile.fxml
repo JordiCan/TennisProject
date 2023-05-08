@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -191,11 +192,11 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="password">
+                        <PasswordField fx:id="password" prefHeight="24.0" prefWidth="171.0">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
-                        </TextField>
+                        </PasswordField>
                         <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
