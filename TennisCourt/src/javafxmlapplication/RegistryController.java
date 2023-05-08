@@ -30,6 +30,7 @@ public class RegistryController implements Initializable {
 
     private TextField UserField;
     private PasswordField PasswordField;
+   
     
     public static Stage SignUp;
     public static Stage Main;
