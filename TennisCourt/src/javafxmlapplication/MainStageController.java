@@ -40,9 +40,7 @@ public class MainStageController  implements Initializable {
     @FXML
     private ImageView court;
     
-    public static Stage SignUp;
-    public static Stage Main;
-    public static Stage Fields;
+
     
 
     /**
@@ -60,11 +58,10 @@ public class MainStageController  implements Initializable {
     @FXML
     private void changeToSignUp(ActionEvent event) throws Exception {
         
-        Stage nuevaVentana = new Stage();
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("SignUp.fxml"));
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("SignUp.fxml"));
         Parent root = loader.load();
         Scene escena = new Scene(root);
-        nuevaVentana.setTitle("SignUp");
+        Stage nuevaVentana = new Stage();
         nuevaVentana.setResizable(true);
         nuevaVentana.setScene(escena);
         nuevaVentana.show();
@@ -73,8 +70,8 @@ public class MainStageController  implements Initializable {
     @FXML
     private void changeToRegister(ActionEvent event) throws Exception {
         
-        FXMLLoader loader1 = new  FXMLLoader(getClass().getResource("Registry.fxml"));
-        Parent root = loader1.load();
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader.load();
         Scene nueva = new Scene(root);
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
@@ -87,13 +84,13 @@ public class MainStageController  implements Initializable {
     @FXML
     private void changeToFields(ActionEvent event) throws Exception {
         
-        /*FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("CourtsView.fxml"));
         Parent root = loader.load();
         Scene nueva = new Scene(root);
         Node n = registerScene.getParentPopup().getOwnerNode();
-        Main = (Stage) n.getScene().getWindow();
+        Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
-        stage.show();*/
+        stage.show();
     
     }
  
