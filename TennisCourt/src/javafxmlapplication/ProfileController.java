@@ -213,3 +213,11 @@ public class ProfileController implements Initializable {
         
     } 
 }
+
+
+// COSAS POR ACABAR
+//Button de EditProfile: que los textfields solo puedan ser editados al pulsar
+//Button cancel: que se vuelva atrás
+//Button accept: que se registren los datos si no hay error.
+//TedtFields que muestren lo que ya está 
+//Button pic: que deje subir una foto de tu desktop
