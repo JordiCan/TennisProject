@@ -28,12 +28,22 @@ import model.ClubDAOException;
  */
 public class RegistryController implements Initializable {
 
+    @FXML
     private TextField UserField;
+    @FXML
     private PasswordField PasswordField;
    
     
     public static Stage SignUp;
     public static Stage Main;
+    @FXML
+    private Label errorMessage;
+    @FXML
+    private Button AcceptButton;
+    @FXML
+    private Button CancelButton;
+    @FXML
+    private Button SignUpButton;
 
     /**
      * Initializes the controller class.
@@ -44,6 +54,7 @@ public class RegistryController implements Initializable {
         
     }    
 
+    @FXML
     private void handleAcceptOnAction(ActionEvent event) throws ClubDAOException, IOException{
 
             Club c= Club.getInstance();
@@ -64,6 +75,7 @@ public class RegistryController implements Initializable {
             }
         }
 
+    @FXML
     private void handleCancelOnAction(ActionEvent event) throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
         Parent root= myLoader.load();
@@ -78,6 +90,7 @@ public class RegistryController implements Initializable {
         
     }
 
+    @FXML
     private void handleSignUpOnAction(ActionEvent event) throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
         Scene scene = new Scene(myLoader.load());
