@@ -157,8 +157,8 @@ public class ProfileController implements Initializable {
     @FXML
     public void EditProfile_Pic(ActionEvent event) throws Exception{
         //aqui que abra su home
-        //esto está mal pero es parecido
-        File imagenes = new File ("img");
+        //ACABAR EL PATH
+        File imagenes = new File ("/home");
         Desktop.getDesktop().open(imagenes);
     }
    
