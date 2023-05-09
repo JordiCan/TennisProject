@@ -14,8 +14,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -39,6 +42,10 @@ public class CourtsViewController implements Initializable {
     private ImageView pista6;
     @FXML
     private Button homeButton;
+    @FXML
+    private MenuItem lastCall;
+    @FXML
+    private Text informationMessage;
 
     /**
      * Initializes the controller class.
@@ -58,6 +65,7 @@ public class CourtsViewController implements Initializable {
         pista5.setImage(image5);
         Image image6 = new Image("/img/mario tennislabuena.jpg");
         pista6.setImage(image6);
+        informationMessage.setVisible(false);
     
     
     }    
@@ -73,6 +81,13 @@ public class CourtsViewController implements Initializable {
         stage.setScene(nueva);
         stage.show();
     
+    
+    }
+
+    @FXML
+    private void showInformationMessage(ActionEvent event) {
+
+        informationMessage.setVisible(true);
     
     }
     
