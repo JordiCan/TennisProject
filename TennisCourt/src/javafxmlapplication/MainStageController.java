@@ -62,7 +62,7 @@ public class MainStageController  implements Initializable {
         Parent root = loader.load();
         Scene escena = new Scene(root);
         Stage nuevaVentana = new Stage();
-        nuevaVentana.setResizable(true);
+        nuevaVentana.setResizable(false);
         nuevaVentana.setScene(escena);
         nuevaVentana.show();
     }
