@@ -4,15 +4,30 @@
  */
 package javafxmlapplication;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import model.Club;
+import model.ClubDAOException;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -61,6 +76,8 @@ public class SignUpController implements Initializable {
     private Button pictureButton;
     @FXML
     private Button LoginButton;
+    @FXML
+    private ImageView Image;
 
     /**
      * Initializes the controller class.
@@ -74,31 +91,103 @@ public class SignUpController implements Initializable {
 
 
     @FXML
-    private void CancelButton(ActionEvent event) {
+    private void CancelButton(ActionEvent event) throws IOException {
+        
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    private void SelectPicture(ActionEvent event) {
+    private void SelectPicture(ActionEvent event) throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select images");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File file = fileChooser.showOpenDialog(pictureButton.getScene().getWindow());
+        if (file != null) {
+            FileInputStream fis = new FileInputStream(file);
+            Image avatar = new Image(fis);
+            Image.imageProperty().setValue(avatar);
+        }
     }
 
     @FXML
-    private void LaunchLogin(ActionEvent event) {
-        
+    private void LaunchLogin(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        Stage stageprev = (Stage) LoginButton.getScene().getWindow();
+        stageprev.close();
+        stage.show(); 
     }
 
     @FXML
-    private void CreateProfile(ActionEvent event) {
-        if(!nameField.getText().equals("")){}
-        else{nameField.setText(""); nameErr.setVisible(true);}
+    private void CreateProfile(ActionEvent event) throws ClubDAOException, IOException {
         
-        if(){}
-        else
+        Club c= Club.getInstance();
         
-        if(){}
-        else{}
+        if(!Utils.checkUser(nameField.getText())){
+            nameErr.setVisible(true);
+            nameField.setText("");
+        }
+        else{nameErr.setVisible(false);}
         
-        if(){}
-        else{}
+        if(!Utils.checkSurname(surnameField.getText())){
+            surnErr.setVisible(true);
+            surnameField.setText("");
+        }
+        else{surnErr.setVisible(false);}
+        
+        if(!Utils.checkTelephone(telephoneField.getText())){
+            telErr.setVisible(true);
+            telephoneField.setText("");
+        }
+        else{
+            telErr.setVisible(false);
+        }
+        
+        if(!Utils.checkNickname(nicknameField.getText())){
+            nameErr1.setVisible(true);
+            nicknameField.setText("");
+        }
+        if(c.existsLogin(nicknameField.getText())){
+            nameErr1.setText("Name already in use");
+        }
+        //else{nameErr1.setVisible(false);}
+            
+        if(!Utils.checkPassword(passwordField.getText())){
+            passErr.setVisible(true);
+            passwordField.setText("");
+        }
+        else{passErr.setVisible(false);}
+        
+        if(!Utils.checkCard(creditcardField.getText())){
+            cardErr.setVisible(true);
+            creditcardField.setText("");
+        }
+        else{cardErr.setVisible(false);}
+        
+        if(Utils.checkUser(nameField.getText()) && Utils.checkSurname(surnameField.getText()) && 
+        Utils.checkTelephone(telephoneField.getText()) && Utils.checkNickname(nicknameField.getText()) && Utils.checkNickname(nicknameField.getText())&& 
+        !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())) //Falta CSC SVC)
+        {
+            Member m;
+            if(!Utils.checkSVC(svc.getText())){
+                m= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
+                        passwordField.getText(), creditcardField.getText(), -1, avatar);
+            }
+            else{
+                m= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
+                        passwordField.getText(), creditcardField.getText(), Integer.parseInt(svc.getText()), avatar);
+ 
+            }
+        }
+        
+        
+        
+        
     }
     
 }
