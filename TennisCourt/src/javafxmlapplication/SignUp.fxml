@@ -19,7 +19,7 @@
          <children>
             <VBox alignment="BOTTOM_RIGHT" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="130.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Image" fitHeight="130.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/chaval.png" />
                      </image>
@@ -27,7 +27,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button fx:id="pictureButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#SelectPicture" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="Select" />
+                  <Button fx:id="pictureButton" alignment="CENTER" mnemonicParsing="false" onAction="#SelectPicture" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="Select" />
                </children>
             </VBox>
             <VBox prefHeight="140.0" prefWidth="325.0">
@@ -223,7 +223,7 @@
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
                         </TextField>
-                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
+                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 16 digits" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
@@ -322,8 +322,8 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="321.0">
                      <children>
-                        <Button fx:id="save" disable="true" mnemonicParsing="false" onAction="#CreateProfile" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
-                        <Button fx:id="cancel" disable="true" mnemonicParsing="false" onAction="#CancelButton" text="Cancel">
+                        <Button fx:id="save" mnemonicParsing="false" onAction="#CreateProfile" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
+                        <Button fx:id="cancel" mnemonicParsing="false" onAction="#CancelButton" text="Cancel">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
