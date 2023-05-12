@@ -153,18 +153,47 @@ public class ProfileController implements Initializable {
         
         //variables que declarar con jordi 
         //hago un metodo nuevo? o consigo asi con throw?
-        Club t = Club.getInstance();
-        Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
+       // Club t = Club.getInstance();
+        //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
-        name.setPromptText(mem.getName());
-        surname.setPromptText(mem.getSurname());
-        telephone.setPromptText(mem.getTelephone());
-        nickname.setPromptText(mem.getNickName());
-        password.setPromptText(mem.getPassword());
-        creditcard.setPromptText(mem.getCreditCard());
-        String svcString = Integer.toString(mem.getSvc());
-        svc.setPromptText(svcString);      
+        //name.setPromptText(mem.getName());
+        //surname.setPromptText(mem.getSurname());
+        //telephone.setPromptText(mem.getTelephone());
+        //nickname.setPromptText(mem.getNickName());
+        //password.setPromptText(mem.getPassword());
+        //creditcard.setPromptText(mem.getCreditCard());
+        //String svcString = Integer.toString(mem.getSvc());
+        //svc.setPromptText(svcString);      
     }   
+    
+    
+               
+    @FXML
+    public void CancelButton() {
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
+    } 
+    
+    @FXML
+    public void EditProfile_Pic(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select images");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File file = fileChooser.showOpenDialog(pic.getScene().getWindow());
+        if (file != null) {
+            FileInputStream fis = new FileInputStream(file);
+            Image avatar = new Image(fis);
+            Image.imageProperty().setValue(avatar);
+        }
+    }  
+    
+    
+    
+    
+    
+    
+    
     
     @FXML
     public void EditProfile_Action(ActionEvent event) throws Exception{
@@ -220,33 +249,11 @@ public class ProfileController implements Initializable {
         //LO HAGO CON LO QUE SE HAGA EN EL REGISTER
         
     } 
-    
-    
-    
-    @FXML
-    public void CancelButton() {
-        Stage stage = (Stage) cancel.getScene().getWindow();
-        stage.close();
-    } 
-    
-    
-    @FXML
-    public void EditProfile_Pic(ActionEvent event) throws Exception{
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select images");
-        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
-        fileChooser.getExtensionFilters().add(imageFilter);
-        File file = fileChooser.showOpenDialog(pic.getScene().getWindow());
-        if (file != null) {
-            FileInputStream fis = new FileInputStream(file);
-            Image avatar = new Image(fis);
-            Image.imageProperty().setValue(avatar);
-        }
-    }   
 }
 
 
 // COSAS POR ACABAR
 //Button de EditProfile: que los textfields solo puedan ser editados al pulsar
-//Button accept: que se registren los datos si no hay error.
-//TextFields que muestren lo que ya está, es decir que podamos acceder a datos
+//Button accept: que se registren los datos si no hay error. Acceder base de datos. 
+//TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
+//metodo que me mire si son numeros o letras. 
