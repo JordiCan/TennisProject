@@ -16,24 +16,30 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ProfileController">
    <top>
-      <HBox prefHeight="194.0" prefWidth="550.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="164.0" prefWidth="550.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="pic" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="24.0" prefWidth="38.0" styleClass="profile-button" text="pic" />
-            <ImageView fitHeight="202.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/chaval.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin></ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="324.7294921875">
-               <font>
-                  <Font size="72.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="55.0" />
-               </HBox.margin>
-            </Text>
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="164.0" prefWidth="177.0">
+               <children>
+                  <ImageView fx:id="Image" fitHeight="130.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/chaval.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button fx:id="pic" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="pic" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="387.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="409.7294921875">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </top>
