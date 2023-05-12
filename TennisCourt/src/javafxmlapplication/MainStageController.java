@@ -15,11 +15,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import static javafxmlapplication.RegistryController.Main;
+import model.Member;
 
 
 /**
@@ -39,6 +45,10 @@ public class MainStageController  implements Initializable {
     private ImageView logo;
     @FXML
     private ImageView court;
+    @FXML
+    private TextArea memberProfile;
+    
+    public Member member;
     
 
     
@@ -53,7 +63,16 @@ public class MainStageController  implements Initializable {
         logo.setImage(image);
         Image im = new Image("/img/upv pista.jpeg");
         court.setImage(im);
-    }    
+        
+        
+       /* if(member.getName() != null){
+            memberProfile.setVisible(true);
+            memberProfile.setText(member.getName() + " "+ member.getSurname());
+        }
+        else{
+            memberProfile.setVisible(false);
+        }*/
+    }   
 
     @FXML
     private void changeToSignUp(ActionEvent event) throws Exception {
@@ -91,6 +110,21 @@ public class MainStageController  implements Initializable {
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
         stage.show();
+    
+    }
+
+    
+    @FXML
+    private void changeToProfile(MouseEvent event) throws Exception {
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = memberProfile.getParent();
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.show();
+    
+    
     
     }
  
