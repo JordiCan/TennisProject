@@ -224,44 +224,59 @@ public class ProfileController implements Initializable {
         //cuando click el save 
         save.setOnMouseClicked(event -> {
            
-            //me falta ver si son numeros o letras
-            if (name.getText().length() < 6 || name.getText().equals("")){
+           if (!Utils.checkUser(name.getText())){
                 nameErr.setVisible(true);
+                name.setText(""); //AQUI QUIERO QUE ME PONGA LA ORIGINAL 
             }
-             //me falta ver si son numeros o letras
-            if (surname.getText().equals("") || surname.getText().equals("")){
+           else{nameErr.setVisible(false);}
+           
+            if (!Utils.checkSurname(surname.getText())){
                 surnErr.setVisible(true);
+                surname.setText("");
             }
-             //me falta ver si son numeros o letras
-            if (telephone.getText().equals("")){
+            else {surnErr.setVisible(false);}
+            
+            if (!Utils.checkTelephone(telephone.getText())){
                 telErr.setVisible(true);
+                telephone.setText("");
             }
-            if (password.getText().equals("") || password.getText().length() < 6){
+            else {telErr.setVisible(false);}
+            
+            if (!Utils.checkPassword(password.getText())){
                 passErr.setVisible(true);
+                password.setText("");
             }
-             //me falta ver si son numeros o letras
-            if (creditcard.getText().equals("") || creditcard.getText().length() != 16){
+            else {passErr.setVisible(false);}
+
+            if (!Utils.checkCard(creditcard.getText())){
                 cardErr.setVisible(true);
+                creditcard.setText("");
             }
-            //me falta ver que sean numeros
-            if (csc.getText().length() != 3){
+            else {cardErr.setVisible(false);}
+            
+            if (!Utils.checkCSC(csc.getText())){
                 cscErr.setVisible(true);
+                csc.setText("");
             }
+            else {cscErr.setVisible(false);}
+            
              //me falta ver si son numeros o letras
-            if (svc.getText().length() != 3){
+            if (!Utils.checkSVC(svc.getText())){
                 svcErr.setVisible(true);
+                svc.setText("");
             }
+            else {svcErr.setVisible(false);}
         });       
     } 
 }
 
 
-// COSAS POR ACABAR
-//Button de EditProfile: que los textfields solo puedan ser editados al pulsar
+// DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
-//metodo que me mire si son numeros o letras. 
-//no me fuciona el boton de Edit. 
-//por que no me acepta el hacer en enable al clicar edit
 //por que al hacer el cancel me sale de todo??
-//lo de que aparezca desde el principio lo pongo en el principio no?
+//lo de que aparezca desde el principio lo pongo en el metodo inicial no?
+
+//hacer
+//QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD
+//Ademas la original tm si hay algun error, para que al hacer save 

@@ -78,6 +78,22 @@ public class Utils {
         return true;
     } 
    
+    public static Boolean checkCSC(String input){
+        if (input.length() != 3 ){
+            return false;
+        } 
+        if(input.equals("")){
+          return true; 
+        }
+        // Invalid characters
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Pattern pattern = Pattern.compile(regex);
+        // Match ReGex with value to check
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
+        
+     
+    }
    
     
 }
