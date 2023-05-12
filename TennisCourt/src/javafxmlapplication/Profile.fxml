@@ -52,7 +52,7 @@
                </font>
             </Button>
             <Button fx:id="save" layoutX="38.0" layoutY="11.0" mnemonicParsing="false" onAction="#Save_ErroresData" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
-            <Button fx:id="cancel" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#CancelButton" text="Cancel" visible="false" />
+            <Button fx:id="cancel" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#CancelButton" text="Cancel" />
          </children>
       </Pane>
    </bottom>
