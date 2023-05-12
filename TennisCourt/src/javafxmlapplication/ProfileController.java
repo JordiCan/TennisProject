@@ -251,11 +251,7 @@ public class ProfileController implements Initializable {
             if (svc.getText().length() != 3){
                 svcErr.setVisible(true);
             }
-        });
-        
-        //AHORA ADEMAS TENGO QUE HACER LO DE AÑADIR QUE SE REGISTREN LOS CAMBIOS 
-        //LO HAGO CON LO QUE SE HAGA EN EL REGISTER
-        
+        });       
     } 
 }
 
@@ -266,3 +262,6 @@ public class ProfileController implements Initializable {
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 //metodo que me mire si son numeros o letras. 
 //no me fuciona el boton de Edit. 
+//por que no me acepta el hacer en enable al clicar edit
+//por que al hacer el cancel me sale de todo??
+//lo de que aparezca desde el principio lo pongo en el principio no?
