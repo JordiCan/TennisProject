@@ -79,6 +79,7 @@ public class SignUpController implements Initializable {
     @FXML
     private ImageView Image;
 
+    Image avatar= null;
     /**
      * Initializes the controller class.
      */
@@ -106,7 +107,7 @@ public class SignUpController implements Initializable {
         File file = fileChooser.showOpenDialog(pictureButton.getScene().getWindow());
         if (file != null) {
             FileInputStream fis = new FileInputStream(file);
-            Image avatar = new Image(fis);
+            avatar = new Image(fis);
             Image.imageProperty().setValue(avatar);
         }
     }
