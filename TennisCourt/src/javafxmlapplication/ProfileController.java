@@ -5,11 +5,37 @@
 package javafxmlapplication;
 
 import java.net.URL;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import model.Club;
+import model.ClubDAOException;
+import model.Member;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,6 +47,7 @@ import javafx.scene.text.Text;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Desktop;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -106,7 +133,8 @@ public class ProfileController implements Initializable {
     
     private Text svcErr;
     
-    
+    @FXML
+    private ImageView Image;
     
     public static Stage Main;
     @FXML
@@ -151,23 +179,6 @@ public class ProfileController implements Initializable {
         cancel.setVisible(true);
         
     }
-  
-    
-    
-    
-    
-    @FXML
-    public void EditProfile_Pic(ActionEvent event) throws Exception{
-        //aqui que abra su home
-        //esto está mal pero es parecido
-        File imagenes = new File ("img");
-        Desktop.getDesktop().open(imagenes);
-    }
-   
-    
-    
-    
-    
     
     
     @FXML
@@ -209,18 +220,33 @@ public class ProfileController implements Initializable {
         //LO HAGO CON LO QUE SE HAGA EN EL REGISTER
         
     } 
+    
+    
+    
     @FXML
     public void CancelButton() {
-        //que vuelva a escribir lo anterior
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     } 
+    
+    
+    @FXML
+    public void EditProfile_Pic(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select images");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File file = fileChooser.showOpenDialog(pic.getScene().getWindow());
+        if (file != null) {
+            FileInputStream fis = new FileInputStream(file);
+            Image avatar = new Image(fis);
+            Image.imageProperty().setValue(avatar);
+        }
+    }   
 }
 
 
 // COSAS POR ACABAR
 //Button de EditProfile: que los textfields solo puedan ser editados al pulsar
-//Button cancel: que se vuelva atrás
 //Button accept: que se registren los datos si no hay error.
-//TedtFields que muestren lo que ya está 
-//Button pic: que deje subir una foto de tu desktop
+//TextFields que muestren lo que ya está, es decir que podamos acceder a datos
