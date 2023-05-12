@@ -206,6 +206,14 @@ public class ProfileController implements Initializable {
         pic.setVisible(true);
         save.setVisible(true);
         cancel.setVisible(true);
+        name.setEditable(true);
+        surname.setEditable(true);
+        telephone.setEditable(true);
+        nickname.setEditable(true);
+        password.setEditable(true);
+        creditcard.setEditable(true);
+        csc.setEditable(true);
+        svc.setEditable(true);
         
     }
     
@@ -257,3 +265,4 @@ public class ProfileController implements Initializable {
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 //metodo que me mire si son numeros o letras. 
+//no me fuciona el boton de Edit. 
