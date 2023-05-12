@@ -212,7 +212,8 @@ public class ProfileController implements Initializable {
     @FXML
     public void CancelButton() {
         //que vuelva a escribir lo anterior
-        
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
     } 
 }
 
