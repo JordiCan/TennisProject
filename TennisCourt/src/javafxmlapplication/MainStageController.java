@@ -45,10 +45,10 @@ public class MainStageController  implements Initializable {
     private ImageView logo;
     @FXML
     private ImageView court;
-    @FXML
-    private TextArea memberProfile;
     
     public Member member;
+    @FXML
+    private Text prueba;
     
 
     
@@ -59,6 +59,9 @@ public class MainStageController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        /*prueba.setUnderline(false);*/
+
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
         Image im = new Image("/img/upv pista.jpeg");
@@ -81,8 +84,8 @@ public class MainStageController  implements Initializable {
         Parent root = loader.load();
         Scene escena = new Scene(root);
         Stage nuevaVentana = new Stage();
-        nuevaVentana.setResizable(false);
         nuevaVentana.setScene(escena);
+        nuevaVentana.setResizable(true);
         nuevaVentana.show();
     }
 
@@ -95,6 +98,7 @@ public class MainStageController  implements Initializable {
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
+        stage.setResizable(true);
         stage.show();
         
         
@@ -109,23 +113,50 @@ public class MainStageController  implements Initializable {
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
+        stage.setResizable(true);
         stage.show();
     
     }
 
     
-    @FXML
     private void changeToProfile(MouseEvent event) throws Exception {
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
         Parent root = loader.load();
         Scene nueva = new Scene(root);
-        Node n = memberProfile.getParent();
+        Node n = prueba.getParent();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
+        stage.setResizable(true);
         stage.show();
     
     
     
+    }
+
+    @FXML
+    private void click(MouseEvent event) throws Exception {
+    
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = prueba.getParent();
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.show();
+    
+    }
+
+    @FXML
+    private void subrayarTexto(MouseEvent event) {
+        prueba.setUnderline(true);
+    }
+
+  
+
+    @FXML
+    private void quitarSubrayado(MouseEvent event) {
+                 prueba.setUnderline(false);
+
     }
  
     
