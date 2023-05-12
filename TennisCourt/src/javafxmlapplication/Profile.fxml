@@ -28,7 +28,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button fx:id="pic" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="pic" />
+                  <Button fx:id="pic" alignment="CENTER" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="pic" visible="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="164.0" prefWidth="387.0">
@@ -44,15 +44,15 @@
       </HBox>
    </top>
    <bottom>
-      <Pane prefHeight="45.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="60.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="EditProfile" alignment="CENTER_RIGHT" layoutX="402.0" layoutY="7.0" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="save" disable="true" layoutX="38.0" layoutY="11.0" mnemonicParsing="false" onAction="#Save_ErroresData" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
-            <Button fx:id="cancel" disable="true" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#CancelButton" text="Cancel" />
+            <Button fx:id="save" layoutX="38.0" layoutY="11.0" mnemonicParsing="false" onAction="#Save_ErroresData" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
+            <Button fx:id="cancel" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#CancelButton" text="Cancel" visible="false" />
          </children>
       </Pane>
    </bottom>
@@ -77,7 +77,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" disable="true">
+                        <TextField fx:id="name" alignment="TOP_LEFT" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -89,7 +89,7 @@
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="5.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="50.0">
@@ -107,7 +107,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="surname" disable="true">
+                        <TextField fx:id="surname" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -140,7 +140,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="telephone" disable="true">
+                        <TextField fx:id="telephone" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -170,7 +170,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="nickname" disable="true">
+                        <TextField fx:id="nickname" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -198,7 +198,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <PasswordField fx:id="password" disable="true" prefHeight="24.0" prefWidth="171.0">
+                        <PasswordField fx:id="password" editable="false" prefHeight="24.0" prefWidth="171.0">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -231,7 +231,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="creditcard" disable="true">
+                        <TextField fx:id="creditcard" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -264,7 +264,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="csc" disable="true" prefHeight="24.0" prefWidth="181.0">
+                        <TextField fx:id="csc" editable="false" prefHeight="24.0" prefWidth="181.0">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -297,7 +297,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="svc1" disable="true">
+                        <TextField fx:id="svc1" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
