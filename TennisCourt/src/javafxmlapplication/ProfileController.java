@@ -206,6 +206,14 @@ public class ProfileController implements Initializable {
         pic.setVisible(true);
         save.setVisible(true);
         cancel.setVisible(true);
+        name.setEditable(true);
+        surname.setEditable(true);
+        telephone.setEditable(true);
+        nickname.setEditable(true);
+        password.setEditable(true);
+        creditcard.setEditable(true);
+        csc.setEditable(true);
+        svc.setEditable(true);
         
     }
     
