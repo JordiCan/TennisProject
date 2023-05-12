@@ -153,6 +153,7 @@ public class ProfileController implements Initializable {
         
         //variables que declarar con jordi 
         //hago un metodo nuevo? o consigo asi con throw?
+        
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
@@ -205,7 +206,7 @@ public class ProfileController implements Initializable {
         
         pic.setVisible(true);
         save.setVisible(true);
-        cancel.setVisible(true);
+        //cancel.setVisible(true);
         name.setEditable(true);
         surname.setEditable(true);
         telephone.setEditable(true);
@@ -274,11 +275,10 @@ public class ProfileController implements Initializable {
 // DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
-//por que al hacer el cancel me sale de todo??
-//lo de que aparezca desde el principio lo pongo en el metodo inicial no?
+//por que al hacer el cancel me sale del todo??
 //por que a alma le sale bien el size inicial y a mi no 
 
 //hacer
-//QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD
+//QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
 //Ademas la original tm si hay algun error, para que al hacer save 
 //me falta chequear si ese tio ya esta registrado
