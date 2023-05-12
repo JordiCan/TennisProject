@@ -276,7 +276,9 @@ public class ProfileController implements Initializable {
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 //por que al hacer el cancel me sale de todo??
 //lo de que aparezca desde el principio lo pongo en el metodo inicial no?
+//por que a alma le sale bien el size inicial y a mi no 
 
 //hacer
 //QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD
 //Ademas la original tm si hay algun error, para que al hacer save 
+//me falta chequear si ese tio ya esta registrado
