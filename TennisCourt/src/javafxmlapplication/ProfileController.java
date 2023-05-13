@@ -170,9 +170,14 @@ public class ProfileController implements Initializable {
     
                
     @FXML
-    public void CancelButton() {
+    public void CancelButton() throws Exception {
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = (Node) cancel;
         Stage stage = (Stage) cancel.getScene().getWindow();
-        stage.close();
+        stage.setScene(nueva);
+        stage.show();
     } 
     
     @FXML
