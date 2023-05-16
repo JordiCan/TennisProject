@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -46,6 +47,8 @@ public class CourtsViewController implements Initializable {
     private MenuItem lastCall;
     @FXML
     private Text informationMessage;
+    @FXML
+    private Text accountProfile;
 
     /**
      * Initializes the controller class.
@@ -66,6 +69,10 @@ public class CourtsViewController implements Initializable {
         Image image6 = new Image("/img/mario tennislabuena.jpg");
         pista6.setImage(image6);
         informationMessage.setVisible(false);
+        accountProfile.setUnderline(false);
+        
+       
+
     
     
     }    
@@ -79,6 +86,7 @@ public class CourtsViewController implements Initializable {
         Node n = (Node) homeButton;
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
+        stage.setResizable(true);
         stage.show();
     
     
@@ -88,6 +96,29 @@ public class CourtsViewController implements Initializable {
     private void showInformationMessage(ActionEvent event) {
 
         informationMessage.setVisible(true);
+    
+    }
+
+    @FXML
+    private void quitarSubrayarTexto(MouseEvent event) {
+            accountProfile.setUnderline(false);
+    }
+
+    @FXML
+    private void subrayarTexto(MouseEvent event) {
+            accountProfile.setUnderline(true);
+    }
+
+    @FXML
+    private void irAlRegister(MouseEvent event) throws Exception {
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = (Node) homeButton;
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.setResizable(true);
+        stage.show();
     
     }
     

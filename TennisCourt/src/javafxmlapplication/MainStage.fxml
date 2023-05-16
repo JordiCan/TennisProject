@@ -35,7 +35,7 @@
                         <Insets top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <Text fx:id="prueba" fill="#bcbcbc" onMouseClicked="#click" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayado" strokeType="OUTSIDE" strokeWidth="0.0" text="You must register in order to access your profile" textAlignment="CENTER" wrappingWidth="80.05602216720581">
+                  <Text fx:id="accountInfo" fill="#bcbcbc" onMouseClicked="#click" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayado" strokeType="OUTSIDE" strokeWidth="0.0" text="You must register in order to access your profile" textAlignment="CENTER" wrappingWidth="80.05602216720581">
                      <HBox.margin>
                         <Insets left="15.0" top="20.0" />
                      </HBox.margin>

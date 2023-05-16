@@ -8,6 +8,9 @@ import java.net.URL;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
+import javafx.scene.effect.BlendMode;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -149,7 +152,7 @@ public class ProfileController implements Initializable {
     @FXML
     private TextField svc1;
     
-    @FXML
+    /*@FXML
     private Text nameText;
     
     @FXML
@@ -171,8 +174,8 @@ public class ProfileController implements Initializable {
     private Text cscText;
     
     @FXML
-    private Text svcText;
-
+   private Text svcText;
+ */
     
     
     
@@ -188,11 +191,19 @@ public class ProfileController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         // TODO
         
-           
-          
+                    
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
+         //CUANDO JORDI HAGA ESA MIERDA
+        //name.setText(mem.getName());
+        //surname.setText(mem.getSurname());
+        //telephone.setText(mem.getTelephone());
+        //nickname.setText(mem.getNickName());
+        //password.setText(mem.getPassword());
+        //creditcard.setText(mem.getCreditCard());
+        //String svcString = Integer.toString(mem.getSvc());
+        //svc1.setText(svcString);  
         
         
             
@@ -240,46 +251,38 @@ public class ProfileController implements Initializable {
         
         //que permita editar los text fields
         
+        name.setBlendMode(BlendMode.SRC_OVER);
+        
         
         pic.setVisible(true);
         save.setVisible(true);
-        nameText.setVisible(false);
-        name.setVisible(true);
+        name.setBlendMode(BlendMode.SRC_OVER);
+        //name.setVisible(true);
         name.setEditable(true);
-        surnameText.setVisible(false);
-        surname.setVisible(true);
+        surname.setBlendMode(BlendMode.SRC_OVER);
+        //surname.setVisible(true);
         surname.setEditable(true);
-        telephoneText.setVisible(false);
-        telephone.setVisible(true);
+        telephone.setBlendMode(BlendMode.SRC_OVER);
+        //telephone.setVisible(true);
         telephone.setEditable(true);
-        nickText.setVisible(false);
-        nickname.setVisible(true);
-        nickname.setEditable(true);
-        passText.setVisible(false);
-        password.setVisible(true);
+        //nickname.setBlendMode(BlendMode.SRC_OVER); AL NO PODERSE EDITAR LO DEJO SIN TOCAR?
+        //nickname.setEditable(true); NO SE PUEDE EDITAR 
+        password.setBlendMode(BlendMode.SRC_OVER);
+        //password.setVisible(true);
         password.setEditable(true);
-        cardText.setVisible(false);
-        creditcard.setVisible(true);
+        creditcard.setBlendMode(BlendMode.SRC_OVER);
+        //creditcard.setVisible(true);
         creditcard.setEditable(true);
-        cscText.setVisible(false);
-        csc.setVisible(true);
+        csc.setBlendMode(BlendMode.SRC_OVER);
+        //csc.setVisible(true);
         csc.setEditable(true);
-        svcText.setVisible(false);
-        svc1.setVisible(true);
+        svc1.setBlendMode(BlendMode.SRC_OVER);
+        //svc1.setVisible(true);
         svc1.setEditable(true);
         
-        //CUANDO JORDI HAGA ESA MIERDA
-        //name.setText(mem.getName());
-        //surname.setText(mem.getSurname());
-        //telephone.setText(mem.getTelephone());
-        //nickname.setText(mem.getNickName());
-        //password.setText(mem.getPassword());
-        //creditcard.setText(mem.getCreditCard());
-        //String svcString = Integer.toString(mem.getSvc());
-        //svc1.setText(svcString);  
+       
         
       
-        //name.setStyle("-fx-background-color: white;");
         
         
         
@@ -340,10 +343,7 @@ public class ProfileController implements Initializable {
 }
 
 //DUDAS
-//Button accept: que se registren los datos si no hay error. Acceder base de datos. 
+//Button SAVE: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
-
-//hacer
-//QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
-//Ademas la original tm si hay algun error, para que al hacer save 
+//Tengo que poner listeners
 //me falta chequear si ese tio ya esta registrado

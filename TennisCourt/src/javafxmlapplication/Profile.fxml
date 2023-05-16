@@ -77,15 +77,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="name" alignment="TOP_LEFT" editable="false" prefHeight="33.0" prefWidth="177.0" visible="false">
+                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" cache="true" editable="false" prefHeight="33.0" prefWidth="177.0">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="10.0" />
                            </HBox.margin>
@@ -118,15 +110,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="surnameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="surname" editable="false" visible="false">
+                        <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -162,15 +146,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="telephoneText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="telephone" editable="false" visible="false">
+                        <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -203,15 +179,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="nickText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                        </Text>
-                        <TextField fx:id="nickname" editable="false" visible="false">
+                        <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
@@ -242,15 +210,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="passText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <PasswordField fx:id="password" editable="false" prefHeight="24.0" prefWidth="171.0" visible="false">
+                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="24.0" prefWidth="171.0">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -286,15 +246,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="cardText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="creditcard" editable="false" visible="false">
+                        <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -330,15 +282,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="cscText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="csc" editable="false" prefHeight="24.0" prefWidth="181.0" visible="false">
+                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="24.0" prefWidth="181.0">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
@@ -374,15 +318,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Text fx:id="svcText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="svc1" editable="false" visible="false">
+                        <TextField fx:id="svc1" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
