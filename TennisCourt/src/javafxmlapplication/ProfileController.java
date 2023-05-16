@@ -157,14 +157,14 @@ public class ProfileController implements Initializable {
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
-        //name.setPromptText(mem.getName());
-        //surname.setPromptText(mem.getSurname());
-        //telephone.setPromptText(mem.getTelephone());
-        //nickname.setPromptText(mem.getNickName());
-        //password.setPromptText(mem.getPassword());
-        //creditcard.setPromptText(mem.getCreditCard());
+        //name.setText(mem.getName());
+        //surname.setText(mem.getSurname());
+        //telephone.setText(mem.getTelephone());
+        //nickname.setText(mem.getNickName());
+        //password.setText(mem.getPassword());
+        //creditcard.setText(mem.getCreditCard());
         //String svcString = Integer.toString(mem.getSvc());
-        //svc.setPromptText(svcString);      
+        //svc.setText(svcString);      
     }   
     
     
@@ -276,8 +276,8 @@ public class ProfileController implements Initializable {
     } 
 }
 
-
-// DUDAS
+//memergeas o me mergeas
+//DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 //por que al hacer el cancel me sale del todo??
