@@ -18,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
@@ -48,13 +50,16 @@ public class RegistryController implements Initializable {
     private Button SignUpButton;
 
     public Member m;
+    @FXML
+    private ImageView pelotazas;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        Image im = new Image("/img/pelotazasazules.png");
+        pelotazas.setImage(im);
     }    
 
     @FXML
