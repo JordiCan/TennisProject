@@ -10,7 +10,24 @@ import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.fxml.FXML;
+import java.net.URL;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,6 +69,8 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Desktop;
 import java.io.FileInputStream;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -158,6 +177,7 @@ public class ProfileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb){   
+        
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
@@ -202,13 +222,6 @@ public class ProfileController implements Initializable {
         }
     }  
     
-    
-    
-    
-    
-    
-    
-    
     @FXML
     public void EditProfile_Action(ActionEvent event) throws Exception{
         //Button pic = new Button("pic");
@@ -236,16 +249,7 @@ public class ProfileController implements Initializable {
         csc.setEditable(true);
         svc1.setBlendMode(BlendMode.SRC_OVER);
         svc1.setEditable(true);
-        
-          
-        
-      
-        
-        
-        
-       
     }
-    
     
     @FXML
     public void Save_ErroresData() {
@@ -295,6 +299,26 @@ public class ProfileController implements Initializable {
                 svc.setText("");
             }
             else {svcErr1.setVisible(false);}
+            
+            
+            //HASTQ AQUI VEMOS QUE ESTEN CORRECTOS LOS CAMPOS
+            //AHORA VAMOS CON EL LISTENER
+            
+         
+            //ActionListener oyente = new ActionListener(){
+                
+            //    @Overrride
+            //    public void actionPerformed(ActionEvent e){
+                    //AQUI HAREMOS QUE ESE SE GUARDE
+            //    }
+            //}
+            //name.addActionListener(oyente);
+            
+            
+            
+            
+            
+            
         });       
     } 
 }

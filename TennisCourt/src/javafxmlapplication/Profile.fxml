@@ -78,7 +78,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false">
+                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
