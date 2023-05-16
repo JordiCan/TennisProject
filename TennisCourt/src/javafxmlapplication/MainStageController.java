@@ -24,9 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
-import model.Club;
 import model.Member;
 
 
@@ -35,7 +33,7 @@ import model.Member;
  *
  * @author Alma
  */
-public class MainStageController  implements Initializable{
+public class MainStageController  implements Initializable {
 
     @FXML
     private MenuItem signUpScene;
@@ -48,12 +46,9 @@ public class MainStageController  implements Initializable{
     @FXML
     private ImageView court;
     
-    
-    public Member member ;
+    public Member member;
     @FXML
-    private Text accountInfo;
-
-    
+    private Text prueba;
     
 
     
@@ -65,27 +60,21 @@ public class MainStageController  implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+        /*prueba.setUnderline(false);*/
 
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
         Image im = new Image("/img/upv pista.jpeg");
         court.setImage(im);
         
-        try{
-        Club club = Club.getInstance();
-        }
-        catch(Exception e){}
         
-       
-       /*
-       if(member.getName() != null){
-           accountInfo.setText(member.getName() + "  " + member.getSurname());
-       }
-       else{
-           accountInfo.setText("You must register in order to access to your profile");
-       }
-       */
-
+       /* if(member.getName() != null){
+            memberProfile.setVisible(true);
+            memberProfile.setText(member.getName() + " "+ member.getSurname());
+        }
+        else{
+            memberProfile.setVisible(false);
+        }*/
     }   
 
     @FXML
@@ -130,8 +119,19 @@ public class MainStageController  implements Initializable{
     }
 
     
-
+    private void changeToProfile(MouseEvent event) throws Exception {
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = prueba.getParent();
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.setResizable(true);
+        stage.show();
     
+    
+    
+    }
 
     @FXML
     private void click(MouseEvent event) throws Exception {
@@ -139,29 +139,24 @@ public class MainStageController  implements Initializable{
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
         Parent root = loader.load();
         Scene nueva = new Scene(root);
-        Node n = accountInfo.getParent();
+        Node n = prueba.getParent();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
-        stage.setResizable(true);
         stage.show();
     
     }
 
     @FXML
     private void subrayarTexto(MouseEvent event) {
-        accountInfo.setUnderline(true);
+        prueba.setUnderline(true);
     }
 
   
 
     @FXML
     private void quitarSubrayado(MouseEvent event) {
-        accountInfo.setUnderline(false);
+                 prueba.setUnderline(false);
 
-    }
-    
-    public void setMember(Member member){
-        this.member = member;
     }
  
     

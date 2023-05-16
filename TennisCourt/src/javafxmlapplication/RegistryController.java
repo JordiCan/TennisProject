@@ -18,12 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
-import model.Member;
 
 /**
  * FXML Controller class
@@ -49,17 +46,13 @@ public class RegistryController implements Initializable {
     @FXML
     private Button SignUpButton;
 
-    public Member m;
-    @FXML
-    private ImageView pelotazas;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Image im = new Image("/img/pelotazasazules.png");
-        pelotazas.setImage(im);
+        
     }    
 
     @FXML
@@ -67,10 +60,9 @@ public class RegistryController implements Initializable {
 
             Club c= Club.getInstance();
             if(c.existsLogin(UserField.getText())){
-                String temp;
-                m= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
-                temp= m.getPassword();
-                if(!m.equals(null)&&temp.equals(PasswordField.getText())){
+                String temp= null;
+                temp= c.getMemberByCredentials(UserField.getText(), PasswordField.getText()).getPassword();
+                if(temp.equals(PasswordField.getText())){
                     FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
                     Parent root= myLoader.load();
                     Scene scene = new Scene(myLoader.load());
@@ -85,35 +77,21 @@ public class RegistryController implements Initializable {
                         /*FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
                         Parent root= myLoader.load();
                         Scene scene = new Scene(myLoader.load());*/
-                        /*Node node = (Node) AcceptButton;
+                        Node node = (Node) AcceptButton;
                         Main = (Stage) node.getScene().getWindow();
                         Main.setScene(scene);
                         Main.show();
-                        */
-                }
-                else{
-                    errorMessage.setVisible(true);
-                    UserField.setText("");
-                    PasswordField.setText("");
+
+                    
+                    
                 }
             }
-            else{
-                errorMessage.setVisible(true);
-                UserField.setText("");
-                PasswordField.setText("");
-                }
         }
 
     @FXML
     private void handleCancelOnAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
-        Parent root = loader.load();
-        Scene nueva = new Scene(root);
-        Node n = (Node) CancelButton;
-        Stage stage = (Stage) n.getScene().getWindow();
-        stage.setScene(nueva);
-        stage.setResizable(true);
-        stage.show();
+        Stage stage = (Stage) CancelButton.getScene().getWindow();
+        stage.close();
         
         
         

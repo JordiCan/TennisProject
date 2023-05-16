@@ -35,7 +35,7 @@ public class Utils {
         if((input.length())<8){return false;}
     
        // Invalid characters
-        String regex = "^[0-9]{6,9}$";
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Pattern pattern = Pattern.compile(regex);
         // Match ReGex with value to check
         Matcher matcher = pattern.matcher(input);
@@ -53,12 +53,15 @@ public class Utils {
     {   if(input.equals("")){
           return false; 
         }
+        //Check password length
+        if(input.length()<6){return false;}
        // Required characters
-        String regex = "^[A-Za-z0-9]{8,15}";
+        String regex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
         Pattern pattern = Pattern.compile(regex);
         // Match ReGex with value to check
         Matcher matcher = pattern.matcher(input);
-        return matcher.matches();
+        if(matcher.matches()){return true;}
+        return false;
     }
     
     public static  Boolean checkCard (String input)
