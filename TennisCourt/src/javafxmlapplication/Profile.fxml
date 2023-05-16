@@ -20,7 +20,7 @@
          <children>
             <VBox alignment="BOTTOM_RIGHT" prefHeight="169.0" prefWidth="241.0">
                <children>
-                  <ImageView fx:id="Image" fitHeight="158.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Image" fitHeight="130.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/chaval.png" />
                      </image>
@@ -33,7 +33,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="169.0" prefWidth="465.0">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="314.7294921875">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="363.7294921875">
                      <font>
                         <Font size="72.0" />
                      </font>
