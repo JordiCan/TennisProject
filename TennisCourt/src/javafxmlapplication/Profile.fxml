@@ -77,10 +77,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" editable="false">
+                        <TextField fx:id="name" alignment="TOP_LEFT" editable="false" prefHeight="33.0" prefWidth="177.0" visible="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
+                              <Insets bottom="5.0" left="5.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
                            <HBox.margin>
@@ -99,7 +102,7 @@
                               <Image url="@../img/transparent.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="83.0" text="Surname">
+                        <Label prefHeight="49.0" prefWidth="147.0" text="Surname">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -107,10 +110,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="surname" editable="false">
+                        <TextField fx:id="surname" editable="false" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
                            <HBox.margin>
@@ -132,7 +138,7 @@
                               <Insets left="3.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="40.0" prefWidth="97.0" text="Telephone">
+                        <Label prefHeight="40.0" prefWidth="176.0" text="Telephone">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -140,10 +146,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="telephone" editable="false">
+                        <TextField fx:id="telephone" editable="false" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
                            <HBox.margin>
@@ -170,10 +179,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="nickname" editable="false">
+                        <TextField fx:id="nickname" editable="false" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                      </children>
                      <VBox.margin>
@@ -198,10 +210,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <PasswordField fx:id="password" editable="false" prefHeight="24.0" prefWidth="171.0">
+                        <PasswordField fx:id="password" editable="false" prefHeight="24.0" prefWidth="171.0" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </PasswordField>
                         <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
                            <HBox.margin>
@@ -223,7 +238,7 @@
                               <Insets left="4.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="104.0" text="Credit card">
+                        <Label prefHeight="49.0" prefWidth="192.0" text="Credit card">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -231,10 +246,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="creditcard" editable="false">
+                        <TextField fx:id="creditcard" editable="false" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
                            <HBox.margin>
@@ -264,10 +282,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="csc" editable="false" prefHeight="24.0" prefWidth="181.0">
+                        <TextField fx:id="csc" editable="false" prefHeight="24.0" prefWidth="181.0" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>
@@ -289,7 +310,7 @@
                               <Insets left="1.0" top="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="38.0" text="SVC">
+                        <Label prefHeight="50.0" prefWidth="67.0" text="SVC">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -297,10 +318,13 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="svc1" editable="false">
+                        <TextField fx:id="svc1" editable="false" visible="false">
                            <HBox.margin>
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </TextField>
                         <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>

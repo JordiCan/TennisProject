@@ -15,6 +15,10 @@ import javafx.fxml.FXMLLoader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javax.swing.JTextField;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -70,6 +74,7 @@ import model.ClubDAOException;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -151,20 +156,14 @@ public class ProfileController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         // TODO
         
-        //variables que declarar con jordi 
-        //hago un metodo nuevo? o consigo asi con throw?
-        
+           
+          
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
-        //name.setPromptText(mem.getName());
-        //surname.setPromptText(mem.getSurname());
-        //telephone.setPromptText(mem.getTelephone());
-        //nickname.setPromptText(mem.getNickName());
-        //password.setPromptText(mem.getPassword());
-        //creditcard.setPromptText(mem.getCreditCard());
-        //String svcString = Integer.toString(mem.getSvc());
-        //svc.setPromptText(svcString);      
+        
+        
+            
     }   
     
     
@@ -211,16 +210,40 @@ public class ProfileController implements Initializable {
         
         pic.setVisible(true);
         save.setVisible(true);
-        //cancel.setVisible(true);
+        name.setVisible(true);
         name.setEditable(true);
+        surname.setVisible(true);
         surname.setEditable(true);
+        telephone.setVisible(true);
         telephone.setEditable(true);
+        nickname.setVisible(true);
         nickname.setEditable(true);
+        password.setVisible(true);
         password.setEditable(true);
+        creditcard.setVisible(true);
         creditcard.setEditable(true);
+        csc.setVisible(true);
         csc.setEditable(true);
-        svc.setEditable(true);
+        svc1.setVisible(true);
+        svc1.setEditable(true);
         
+        //CUANDO JORDI HAGA ESA MIERDA
+        //name.setText("Puta");
+        //name.setText(mem.getName());
+        //surname.setText(mem.getSurname());
+        //telephone.setText(mem.getTelephone());
+        //nickname.setText(mem.getNickName());
+        //password.setText(mem.getPassword());
+        //creditcard.setText(mem.getCreditCard());
+        //String svcString = Integer.toString(mem.getSvc());
+        //svc1.setText(svcString);  
+        
+      
+        //name.setStyle("-fx-background-color: white;");
+        
+        
+        
+       
     }
     
     
@@ -276,12 +299,9 @@ public class ProfileController implements Initializable {
     } 
 }
 
-
-// DUDAS
+//DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
-//por que al hacer el cancel me sale del todo??
-//por que a alma le sale bien el size inicial y a mi no 
 
 //hacer
 //QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text

@@ -101,8 +101,14 @@ public class RegistryController implements Initializable {
 
     @FXML
     private void handleCancelOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) CancelButton.getScene().getWindow();
-        stage.close();
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Node n = (Node) CancelButton;
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.setResizable(true);
+        stage.show();
         
         
         
