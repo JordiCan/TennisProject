@@ -28,7 +28,14 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="226.0" prefWidth="286.0" />
+            <VBox prefHeight="226.0" prefWidth="286.0">
+               <children>
+                  <ImageView fitHeight="300.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/pelotazasazules.png" />
+                     </image>
+                  </ImageView>
+               </children></VBox>
             <VBox prefHeight="194.0" prefWidth="313.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
