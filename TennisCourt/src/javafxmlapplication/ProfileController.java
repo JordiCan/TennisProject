@@ -148,7 +148,39 @@ public class ProfileController implements Initializable {
     private Button EditProfile;
     @FXML
     private TextField svc1;
+    
+    @FXML
+    private Text nameText;
+    
+    @FXML
+    private Text surnameText;
+    
+    @FXML
+    private Text telephoneText;
+    
+    @FXML
+    private Text nickText;
+    
+    @FXML
+    private Text passText;
+    
+    @FXML
+    private Text cardText;
+    
+    @FXML
+    private Text cscText;
+    
+    @FXML
+    private Text svcText;
 
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -208,27 +240,35 @@ public class ProfileController implements Initializable {
         
         //que permita editar los text fields
         
+        
         pic.setVisible(true);
         save.setVisible(true);
+        nameText.setVisible(false);
         name.setVisible(true);
         name.setEditable(true);
+        surnameText.setVisible(false);
         surname.setVisible(true);
         surname.setEditable(true);
+        telephoneText.setVisible(false);
         telephone.setVisible(true);
         telephone.setEditable(true);
+        nickText.setVisible(false);
         nickname.setVisible(true);
         nickname.setEditable(true);
+        passText.setVisible(false);
         password.setVisible(true);
         password.setEditable(true);
+        cardText.setVisible(false);
         creditcard.setVisible(true);
         creditcard.setEditable(true);
+        cscText.setVisible(false);
         csc.setVisible(true);
         csc.setEditable(true);
+        svcText.setVisible(false);
         svc1.setVisible(true);
         svc1.setEditable(true);
         
         //CUANDO JORDI HAGA ESA MIERDA
-        //name.setText("Puta");
         //name.setText(mem.getName());
         //surname.setText(mem.getSurname());
         //telephone.setText(mem.getTelephone());
@@ -291,10 +331,10 @@ public class ProfileController implements Initializable {
             
              //me falta ver si son numeros o letras
             if (!Utils.checkSVC(svc.getText())){
-                svcErr.setVisible(true);
+                svcErr1.setVisible(true);
                 svc.setText("");
             }
-            else {svcErr.setVisible(false);}
+            else {svcErr1.setVisible(false);}
         });       
     } 
 }
