@@ -62,8 +62,8 @@
             <VBox prefHeight="475.0" prefWidth="71.0" />
             <VBox prefHeight="426.0" prefWidth="484.0" spacing="10.0">
                <children>
-                  <HBox prefHeight="30.0" prefWidth="482.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox prefHeight="15.0" prefWidth="482.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -96,7 +96,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -129,7 +129,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -165,7 +165,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -193,7 +193,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -229,7 +229,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -265,7 +265,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -301,7 +301,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
