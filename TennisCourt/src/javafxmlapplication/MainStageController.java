@@ -24,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
 import model.Club;
 import model.Member;
@@ -129,7 +130,7 @@ public class MainStageController  implements Initializable{
     }
 
     
-   
+
     
 
     @FXML

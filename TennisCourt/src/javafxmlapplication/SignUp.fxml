@@ -190,7 +190,7 @@
                               <Insets left="5.0" top="15.0" />
                            </HBox.margin>
                         </PasswordField>
-                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 6 characters or numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
+                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 8 characters, including at least a capital letter and a number" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
                            <HBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </HBox.margin>

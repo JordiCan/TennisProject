@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -46,6 +47,7 @@ public class RegistryController implements Initializable {
     @FXML
     private Button SignUpButton;
 
+    public Member m;
     /**
      * Initializes the controller class.
      */
@@ -60,9 +62,10 @@ public class RegistryController implements Initializable {
 
             Club c= Club.getInstance();
             if(c.existsLogin(UserField.getText())){
-                String temp= null;
-                temp= c.getMemberByCredentials(UserField.getText(), PasswordField.getText()).getPassword();
-                if(temp.equals(PasswordField.getText())){
+                String temp;
+                m= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
+                temp= m.getPassword();
+                if(!m.equals(null)&&temp.equals(PasswordField.getText())){
                     FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
                     Parent root= myLoader.load();
                     Scene scene = new Scene(myLoader.load());
@@ -77,15 +80,23 @@ public class RegistryController implements Initializable {
                         /*FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
                         Parent root= myLoader.load();
                         Scene scene = new Scene(myLoader.load());*/
-                        Node node = (Node) AcceptButton;
+                        /*Node node = (Node) AcceptButton;
                         Main = (Stage) node.getScene().getWindow();
                         Main.setScene(scene);
                         Main.show();
-
-                    
-                    
+                        */
+                }
+                else{
+                    errorMessage.setVisible(true);
+                    UserField.setText("");
+                    PasswordField.setText("");
                 }
             }
+            else{
+                errorMessage.setVisible(true);
+                UserField.setText("");
+                PasswordField.setText("");
+                }
         }
 
     @FXML

@@ -65,7 +65,7 @@
                   </HBox>
                   <HBox prefHeight="72.0" prefWidth="314.0">
                      <children>
-                        <Label fx:id="errorMessage" prefHeight="22.0" prefWidth="321.0" text="The user or password are wrong, please try again." textFill="RED">
+                        <Label fx:id="errorMessage" prefHeight="22.0" prefWidth="321.0" text="The user or password are wrong, please try again." textFill="RED" visible="false">
                            <padding>
                               <Insets top="5.0" />
                            </padding>
