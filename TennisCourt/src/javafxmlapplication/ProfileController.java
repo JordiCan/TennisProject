@@ -70,6 +70,9 @@ import static javafxmlapplication.JavaFXMLApplication.*;
 import model.*;
 import javafx.stage.Stage;
 import model.Club;
+import javafx.scene.effect.BlendMode;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import model.ClubDAOException;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -148,53 +151,27 @@ public class ProfileController implements Initializable {
     private Button EditProfile;
     @FXML
     private TextField svc1;
-    
-    @FXML
-    private Text nameText;
-    
-    @FXML
-    private Text surnameText;
-    
-    @FXML
-    private Text telephoneText;
-    
-    @FXML
-    private Text nickText;
-    
-    @FXML
-    private Text passText;
-    
-    @FXML
-    private Text cardText;
-    
-    @FXML
-    private Text cscText;
-    
-    @FXML
-    private Text svcText;
 
-    
-    
-    
-    
-    
-    
-    
     
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb){
-        // TODO
-        
-           
-          
+    public void initialize(URL url, ResourceBundle rb){   
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
-        
-        
+        //CUANDO HAGAMOS LO DE QUE SEA PUBLICO
+        name.setText("EJEMPLO");
+        nickname.setText("EJEMPLO2");
+        //name.setText(mem.getName());
+        //surname.setText(mem.getSurname());
+        //telephone.setText(mem.getTelephone());
+        //nickname.setText(mem.getNickName());
+        //password.setText(mem.getPassword());
+        //creditcard.setText(mem.getCreditCard());
+        //String svcString = Integer.toString(mem.getSvc());
+        //svc1.setText(svcString);
             
     }   
     
@@ -243,43 +220,26 @@ public class ProfileController implements Initializable {
         
         pic.setVisible(true);
         save.setVisible(true);
-        nameText.setVisible(false);
-        name.setVisible(true);
+        
+        name.setBlendMode(BlendMode.SRC_OVER);
         name.setEditable(true);
-        surnameText.setVisible(false);
-        surname.setVisible(true);
+        surname.setBlendMode(BlendMode.SRC_OVER);
         surname.setEditable(true);
-        telephoneText.setVisible(false);
-        telephone.setVisible(true);
+        telephone.setBlendMode(BlendMode.SRC_OVER);
         telephone.setEditable(true);
-        nickText.setVisible(false);
-        nickname.setVisible(true);
-        nickname.setEditable(true);
-        passText.setVisible(false);
-        password.setVisible(true);
+        //nickname.setEditable(true); NO ES EDITABLE
+        password.setBlendMode(BlendMode.SRC_OVER);
         password.setEditable(true);
-        cardText.setVisible(false);
-        creditcard.setVisible(true);
+        creditcard.setBlendMode(BlendMode.SRC_OVER);
         creditcard.setEditable(true);
-        cscText.setVisible(false);
-        csc.setVisible(true);
+        csc.setBlendMode(BlendMode.SRC_OVER);
         csc.setEditable(true);
-        svcText.setVisible(false);
-        svc1.setVisible(true);
+        svc1.setBlendMode(BlendMode.SRC_OVER);
         svc1.setEditable(true);
         
-        //CUANDO JORDI HAGA ESA MIERDA
-        //name.setText(mem.getName());
-        //surname.setText(mem.getSurname());
-        //telephone.setText(mem.getTelephone());
-        //nickname.setText(mem.getNickName());
-        //password.setText(mem.getPassword());
-        //creditcard.setText(mem.getCreditCard());
-        //String svcString = Integer.toString(mem.getSvc());
-        //svc1.setText(svcString);  
+          
         
       
-        //name.setStyle("-fx-background-color: white;");
         
         
         
