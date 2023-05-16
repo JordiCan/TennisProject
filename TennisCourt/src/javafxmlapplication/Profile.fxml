@@ -16,11 +16,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ProfileController">
    <top>
-      <HBox prefHeight="164.0" prefWidth="550.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="169.0" prefWidth="555.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="BOTTOM_RIGHT" prefHeight="164.0" prefWidth="177.0">
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="169.0" prefWidth="241.0">
                <children>
-                  <ImageView fx:id="Image" fitHeight="130.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Image" fitHeight="158.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/chaval.png" />
                      </image>
@@ -31,9 +31,9 @@
                   <Button fx:id="pic" alignment="CENTER" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="pic" visible="false" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="387.0">
+            <VBox alignment="CENTER" prefHeight="169.0" prefWidth="465.0">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="409.7294921875">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE" textAlignment="CENTER" wrappingWidth="314.7294921875">
                      <font>
                         <Font size="72.0" />
                      </font>
@@ -44,7 +44,7 @@
       </HBox>
    </top>
    <bottom>
-      <Pane prefHeight="60.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="54.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="EditProfile" alignment="CENTER_RIGHT" layoutX="402.0" layoutY="7.0" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -52,34 +52,35 @@
                </font>
             </Button>
             <Button fx:id="save" layoutX="38.0" layoutY="11.0" mnemonicParsing="false" onAction="#Save_ErroresData" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
-            <Button fx:id="cancel" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#CancelButton" text="Cancel" />
+            <Button fx:id="cancel" layoutX="109.0" layoutY="15.0" mnemonicParsing="false" onAction="#CancelButton" prefHeight="10.0" prefWidth="62.0" text="Cancel" />
          </children>
       </Pane>
    </bottom>
    <center>
-      <HBox prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <VBox prefHeight="476.0" prefWidth="127.0" />
-            <VBox prefHeight="476.0" prefWidth="526.0">
+            <VBox prefHeight="475.0" prefWidth="71.0" />
+            <VBox prefHeight="426.0" prefWidth="489.0" spacing="10.0">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="484.0">
+                  <HBox prefHeight="15.0" prefWidth="484.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transparent.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="49.0" prefWidth="98.0" text="Name">
+                        <Label prefHeight="48.0" prefWidth="65.0" text="Name">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="177.0">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -87,32 +88,32 @@
                         </TextField>
                         <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transparent.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="49.0" prefWidth="195.0" text="Surname">
+                        <Label prefHeight="43.0" prefWidth="157.0" text="Surname">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -120,35 +121,35 @@
                         </TextField>
                         <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="5.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="40.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transPhone.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="3.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="40.0" prefWidth="201.0" text="Telephone">
+                        <Label prefHeight="43.0" prefWidth="170.0" text="Telephone">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -156,32 +157,32 @@
                         </TextField>
                         <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="5.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transparent.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="49.0" prefWidth="98.0" text="Nickname">
+                        <Label prefHeight="50.0" prefWidth="98.0" text="Nickname">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -189,17 +190,17 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transkey.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="2.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="50.0" prefWidth="147.0" text="Password">
@@ -207,12 +208,12 @@
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="24.0" prefWidth="171.0">
                            <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -220,35 +221,35 @@
                         </PasswordField>
                         <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transcard.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="4.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="49.0" prefWidth="229.0" text="Credit card">
+                        <Label prefHeight="50.0" prefWidth="229.0" text="Credit card">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
                         <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -256,22 +257,22 @@
                         </TextField>
                         <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="5.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transcard.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="1.0" top="5.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="50.0" prefWidth="261.0" text="CSC (optional)">
@@ -284,7 +285,7 @@
                         </Label>
                         <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="24.0" prefWidth="181.0">
                            <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -292,22 +293,22 @@
                         </TextField>
                         <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/transver.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="1.0" top="5.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="50.0" prefWidth="128.0" text="SVC">
@@ -320,7 +321,7 @@
                         </Label>
                         <TextField fx:id="svc1" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -328,11 +329,12 @@
                         </TextField>
                         <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>
-                              <Insets left="5.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </Text>
                      </children>
                   </HBox>
+                  <HBox prefHeight="29.0" prefWidth="484.0" />
                </children>
             </VBox>
          </children>
