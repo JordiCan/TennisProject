@@ -52,7 +52,7 @@
                </font>
             </Button>
             <Button fx:id="save" layoutX="38.0" layoutY="11.0" mnemonicParsing="false" onAction="#Save_ErroresData" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
-            <Button fx:id="cancel" layoutX="109.0" layoutY="15.0" mnemonicParsing="false" onAction="#CancelButton" prefHeight="10.0" prefWidth="62.0" text="Cancel" />
+            <Button fx:id="cancel" layoutX="109.0" layoutY="15.0" mnemonicParsing="false" onAction="#CancelButton" prefHeight="24.0" prefWidth="74.0" text="Cancel" />
          </children>
       </Pane>
    </bottom>
@@ -60,9 +60,9 @@
       <HBox prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox prefHeight="475.0" prefWidth="71.0" />
-            <VBox prefHeight="426.0" prefWidth="489.0" spacing="10.0">
+            <VBox prefHeight="426.0" prefWidth="484.0" spacing="10.0">
                <children>
-                  <HBox prefHeight="15.0" prefWidth="484.0" />
+                  <HBox prefHeight="30.0" prefWidth="482.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -334,7 +334,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox prefHeight="29.0" prefWidth="484.0" />
+                  <HBox prefHeight="15.0" prefWidth="482.0" />
                </children>
             </VBox>
          </children>
