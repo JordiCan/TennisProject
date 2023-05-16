@@ -65,9 +65,9 @@
                   <HBox prefHeight="30.0" prefWidth="482.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/transparent.png" />
+                              <Image url="@../img/chaval.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="48.0" prefWidth="65.0" text="Name">
@@ -98,9 +98,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/transparent.png" />
+                              <Image url="@../img/chaval.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="43.0" prefWidth="157.0" text="Surname">
@@ -167,9 +167,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/transparent.png" />
+                              <Image url="@../img/chaval.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="50.0" prefWidth="98.0" text="Nickname">
