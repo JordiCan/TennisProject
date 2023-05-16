@@ -25,33 +25,50 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Text>
-            <VBox prefHeight="95.0" prefWidth="335.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="335.0">
                <children>
-                  <DatePicker>
-                     <VBox.margin>
-                        <Insets left="140.0" top="20.0" />
-                     </VBox.margin>
-                  </DatePicker>
-                  <SplitMenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="Hours">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="9:00 - 10:00" />
-                      <MenuItem mnemonicParsing="false" text="10:00 - 11:00" />
-                        <MenuItem mnemonicParsing="false" text="11:00 - 12:00" />
-                        <MenuItem mnemonicParsing="false" text="12:00 - 13:00" />
-                        <MenuItem mnemonicParsing="false" text="13:00 - 14:00" />
-                        <MenuItem mnemonicParsing="false" text="14:00 - 15:00" />
-                        <MenuItem mnemonicParsing="false" text="15:00 - 16:00" />
-                        <MenuItem mnemonicParsing="false" text="16:00 - 17:00" />
-                        <MenuItem mnemonicParsing="false" text="17:00 - 18:00" />
-                        <MenuItem mnemonicParsing="false" text="18:00 - 19:00" />
-                        <MenuItem mnemonicParsing="false" text="19:00 - 20:00" />
-                        <MenuItem mnemonicParsing="false" text="20:00 - 21:00" />
-                        <MenuItem fx:id="lastCall" mnemonicParsing="false" onAction="#showInformationMessage" text="21:00 - 22:00" />
-                    </items>
-                     <VBox.margin>
-                        <Insets left="240.0" top="20.0" />
-                     </VBox.margin>
-                  </SplitMenuButton>
+                  <HBox alignment="BASELINE_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker>
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="291.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Text fx:id="informationMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="The facilities are open until 22:45" textAlignment="CENTER" visible="false">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <SplitMenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Hours">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="9:00 - 10:00" />
+                            <MenuItem mnemonicParsing="false" text="10:00 - 11:00" />
+                              <MenuItem mnemonicParsing="false" text="11:00 - 12:00" />
+                              <MenuItem mnemonicParsing="false" text="12:00 - 13:00" />
+                              <MenuItem mnemonicParsing="false" text="13:00 - 14:00" />
+                              <MenuItem mnemonicParsing="false" text="14:00 - 15:00" />
+                              <MenuItem mnemonicParsing="false" text="15:00 - 16:00" />
+                              <MenuItem mnemonicParsing="false" text="16:00 - 17:00" />
+                              <MenuItem mnemonicParsing="false" text="17:00 - 18:00" />
+                              <MenuItem mnemonicParsing="false" text="18:00 - 19:00" />
+                              <MenuItem mnemonicParsing="false" text="19:00 - 20:00" />
+                              <MenuItem mnemonicParsing="false" text="20:00 - 21:00" />
+                              <MenuItem fx:id="lastCall" mnemonicParsing="false" onAction="#showInformationMessage" text="21:00 - 22:00" />
+                          </items>
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" />
+                           </HBox.margin>
+                        </SplitMenuButton>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
@@ -157,28 +174,36 @@
       </HBox>
    </center>
    <bottom>
-      <HBox BorderPane.alignment="CENTER_RIGHT">
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="TOP_RIGHT">
          <BorderPane.margin>
             <Insets bottom="5.0" right="10.0" />
          </BorderPane.margin>
          <children>
-            <Text fx:id="informationMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="The facilities are open until 22:45" textAlignment="CENTER" visible="false">
+            <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="540.0">
+               <children>
+                  <Text fx:id="accountProfile" fill="#716d6d" onMouseClicked="#irAlRegister" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayarTexto" strokeType="OUTSIDE" strokeWidth="0.0" text="You want to make a reservation? Log in!" textAlignment="CENTER" wrappingWidth="250.13673782348633">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox>
                <HBox.margin>
-                  <Insets left="30.0" />
+                  <Insets />
                </HBox.margin>
-            </Text>
-            <Button fx:id="homeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleActionGoMainStage" prefHeight="14.0" prefWidth="14.0" style="-fx-background-color: #3b95c1;" textAlignment="CENTER" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="370.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/white-home%20la%20buena.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+               <children>
+                  <Button fx:id="homeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleActionGoMainStage" prefHeight="14.0" prefWidth="14.0" style="-fx-background-color: #3b95c1;" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/white-home%20la%20buena.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </HBox>
    </bottom>
