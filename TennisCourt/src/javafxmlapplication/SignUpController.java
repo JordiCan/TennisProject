@@ -80,6 +80,7 @@ public class SignUpController implements Initializable {
     private ImageView Image;
 
     Image avatar= null;
+    Member m;
     /**
      * Initializes the controller class.
      */
@@ -174,8 +175,7 @@ public class SignUpController implements Initializable {
         Utils.checkTelephone(telephoneField.getText()) && Utils.checkNickname(nicknameField.getText()) && Utils.checkNickname(nicknameField.getText())&& 
         !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())) //Falta CSC SVC)
         {
-            Member m;
-            if(!Utils.checkSVC(svc.getText())){
+            if(svc.getText().equals("")){
                 m= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
                         passwordField.getText(), creditcardField.getText(), -1, avatar);
             }
@@ -186,6 +186,8 @@ public class SignUpController implements Initializable {
             }
         }
         
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
         
         
         

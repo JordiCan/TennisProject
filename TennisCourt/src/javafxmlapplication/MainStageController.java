@@ -24,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
 import model.Member;
 
@@ -127,8 +128,10 @@ public class MainStageController  implements Initializable {
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
         stage.setResizable(true);
-        stage.show();
-    
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+        //Debería de bloquearse pero no va 
+        
     
     
     }
