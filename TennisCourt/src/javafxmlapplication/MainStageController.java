@@ -76,13 +76,14 @@ public class MainStageController  implements Initializable{
         catch(Exception e){}
         
        
-       
+       /*
        if(member.getName() != null){
            accountInfo.setText(member.getName() + "  " + member.getSurname());
        }
        else{
            accountInfo.setText("You must register in order to access to your profile");
        }
+       */
 
     }   
 
