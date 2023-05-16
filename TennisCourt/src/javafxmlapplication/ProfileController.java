@@ -276,7 +276,7 @@ public class ProfileController implements Initializable {
     } 
 }
 
-
+//memergeas o me mergeas
 //DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
