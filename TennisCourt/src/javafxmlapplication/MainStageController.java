@@ -49,7 +49,7 @@ public class MainStageController  implements Initializable{
     private ImageView court;
     
     
-    public Member member ;
+    private Member member = null ;
     @FXML
     private Text accountInfo;
 
@@ -77,14 +77,14 @@ public class MainStageController  implements Initializable{
         catch(Exception e){}
         
        
-       /*
-       if(member.getName() != null){
+       
+       if(member != null){
            accountInfo.setText(member.getName() + "  " + member.getSurname());
        }
        else{
            accountInfo.setText("You must register in order to access to your profile");
        }
-       */
+       
 
     }   
 
