@@ -81,7 +81,7 @@
                <children>
                   <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="30.0" top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/wiilabuena.png" />
@@ -111,7 +111,7 @@
                <children>
                   <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets left="50.0" top="30.0" />
+                        <Insets left="50.0" top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista5labuena.jpg" />
@@ -141,7 +141,7 @@
                <children>
                   <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="30.0" top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista6labuena.jpeg" />
