@@ -5,11 +5,13 @@
 package javafxmlapplication;
 
 import java.net.URL;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ActionListener;
 import javafx.fxml.FXML;
 import java.net.URL;
@@ -21,7 +23,6 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,7 +40,6 @@ import java.awt.FlowLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -70,11 +70,9 @@ import java.io.IOException;
 import java.awt.Desktop;
 import java.io.FileInputStream;
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -192,6 +190,9 @@ public class ProfileController implements Initializable {
         //creditcard.setText(mem.getCreditCard());
         //String svcString = Integer.toString(mem.getSvc());
         //svc1.setText(svcString);
+        
+        
+           
             
     }   
     
@@ -303,31 +304,24 @@ public class ProfileController implements Initializable {
             
             //HASTQ AQUI VEMOS QUE ESTEN CORRECTOS LOS CAMPOS
             //AHORA VAMOS CON EL LISTENER
-            
-         
-            //ActionListener oyente = new ActionListener(){
-                
-            //    @Overrride
-            //    public void actionPerformed(ActionEvent e){
-                    //AQUI HAREMOS QUE ESE SE GUARDE
-            //    }
-            //}
-            //name.addActionListener(oyente);
-            
-            
-            
-            
-            
-            
-        });       
-    } 
+        });  
+    }
 }
 
 //DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 
+    //ActionListener oyente = new ActionListener(){
+                
+                //@Overrride
+                //public void actionPerformed(ActionEvent e){
+                //}
+            //}
+        //}); 
+    
 //hacer
 //QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
 //Ademas la original tm si hay algun error, para que al hacer save 
 //me falta chequear si ese tio ya esta registrado
+//listener
