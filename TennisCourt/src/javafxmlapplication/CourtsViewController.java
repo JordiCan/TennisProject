@@ -21,6 +21,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Club;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -49,6 +51,8 @@ public class CourtsViewController implements Initializable {
     private Text informationMessage;
     @FXML
     private Text accountProfile;
+    
+    private Member m = null;
 
     /**
      * Initializes the controller class.
@@ -56,6 +60,11 @@ public class CourtsViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       try{
+        Club club = Club.getInstance();
+        }
+        catch(Exception e){}
+        
         Image image1 = new Image("/img/wiilabuena.png");
         pista1.setImage(image1);
         Image image2 = new Image("/img/pista3labuena.jpg");
@@ -70,7 +79,13 @@ public class CourtsViewController implements Initializable {
         pista6.setImage(image6);
         informationMessage.setVisible(false);
         accountProfile.setUnderline(false);
-        
+       
+        if(m == null){
+            accountProfile.setText(m.getNickName());
+        }
+        else{
+            accountProfile.setText("You want to make a reservation? Log In!");
+        }
        
 
     
@@ -122,4 +137,8 @@ public class CourtsViewController implements Initializable {
     
     }
     
+     public void setMember(Member member){
+        this.m = member;
+    }
+ 
 }
