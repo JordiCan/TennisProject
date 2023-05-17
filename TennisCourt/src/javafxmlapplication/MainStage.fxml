@@ -53,7 +53,7 @@
          <children>
             <SplitMenuButton mnemonicParsing="false" text="Home" textFill="#3b95c1">
               <items>
-                <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Sign Up" />
+                <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Log In" />
                 <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Register" />
                   <MenuItem fx:id="fieldsScene" mnemonicParsing="false" onAction="#changeToFields" text="View Courts" />
               </items>

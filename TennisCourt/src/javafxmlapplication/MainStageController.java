@@ -23,6 +23,7 @@ import javafx.stage.Window;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
@@ -90,7 +91,6 @@ public class MainStageController  implements Initializable{
 
     @FXML
     private void changeToSignUp(ActionEvent event) throws Exception {
-        
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("SignUp.fxml"));
         Parent root = loader.load();
         Scene escena = new Scene(root);
@@ -135,15 +135,31 @@ public class MainStageController  implements Initializable{
 
     @FXML
     private void click(MouseEvent event) throws Exception {
-    
-        FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
-        Parent root = loader.load();
-        Scene nueva = new Scene(root);
-        Node n = accountInfo.getParent();
-        Stage stage = (Stage) n.getScene().getWindow();
-        stage.setScene(nueva);
-        stage.setResizable(true);
-        stage.show();
+        if(member == null){
+            accountInfo.setFill(Color.BLUE);
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
+            Parent root = loader.load();
+            Scene nueva = new Scene(root);
+            Node n = accountInfo.getParent();
+            Stage stage = (Stage) n.getScene().getWindow();
+            stage.setScene(nueva);
+            stage.setResizable(true);
+            stage.show();
+      }
+        else{
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
+            Parent root = loader.load();
+            Scene nueva = new Scene(root);
+            Node n = accountInfo.getParent();
+            Stage stage = (Stage) n.getScene().getWindow();
+            stage.setScene(nueva);
+            stage.setResizable(true);
+            stage.show();
+
+        
+        
+        
+        }
     
     }
 
