@@ -79,7 +79,7 @@ public class SignUpController implements Initializable {
     @FXML
     private ImageView Image;
 
-    Image avatar= null;
+    Image avatar= new Image("/img/default.png");
     Member m;
     /**
      * Initializes the controller class.
