@@ -29,7 +29,7 @@
                <children>
                   <HBox alignment="BASELINE_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <DatePicker>
+                        <DatePicker fx:id="day">
                            <HBox.margin>
                               <Insets right="10.0" top="10.0" />
                            </HBox.margin>
@@ -40,14 +40,14 @@
                      <children>
                         <HBox>
                            <children>
-                              <Text fx:id="informationMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="The facilities are open until 22:45" textAlignment="CENTER" visible="false">
+                              <Text fx:id="informationMessage" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The facilities are open until 22:45" textAlignment="CENTER" visible="false">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Text>
                            </children>
                         </HBox>
-                        <SplitMenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Hours">
+                        <SplitMenuButton fx:id="splitMenuButtons" alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Hours">
                           <items>
                             <MenuItem mnemonicParsing="false" text="9:00 - 10:00" />
                             <MenuItem mnemonicParsing="false" text="10:00 - 11:00" />
@@ -79,7 +79,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista1" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="30.0" top="30.0" />
                      </VBox.margin>
@@ -92,7 +92,7 @@
                         <Insets left="85.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista4" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="30.0" top="20.0" />
                      </VBox.margin>
@@ -109,7 +109,7 @@
             </VBox>
             <VBox prefHeight="300.0" prefWidth="224.0">
                <children>
-                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista2" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="50.0" top="30.0" />
                      </VBox.margin>
@@ -122,7 +122,7 @@
                         <Insets left="110.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista5" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="50.0" top="20.0" />
                      </VBox.margin>
@@ -139,7 +139,7 @@
             </VBox>
             <VBox prefHeight="300.0" prefWidth="202.0">
                <children>
-                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista3" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="30.0" top="30.0" />
                      </VBox.margin>
@@ -152,7 +152,7 @@
                         <Insets left="90.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista6" fitHeight="100.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista6" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista6" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="30.0" top="20.0" />
                      </VBox.margin>
@@ -179,12 +179,15 @@
             <Insets bottom="5.0" right="10.0" />
          </BorderPane.margin>
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="540.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="570.0">
                <children>
-                  <Text fx:id="accountProfile" fill="#716d6d" onMouseClicked="#irAlRegister" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayarTexto" strokeType="OUTSIDE" strokeWidth="0.0" text="You want to make a reservation? Log in!" textAlignment="CENTER" wrappingWidth="250.13673782348633">
+                  <Text fx:id="accountProfile" fill="#716d6d" onMouseClicked="#irAlRegister" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayarTexto" strokeType="OUTSIDE" strokeWidth="0.0" text="You want to make a reservation? Log in!" textAlignment="CENTER" wrappingWidth="218.1367530822754">
                      <HBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
                   </Text>
                </children>
             </HBox>
@@ -201,6 +204,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>
