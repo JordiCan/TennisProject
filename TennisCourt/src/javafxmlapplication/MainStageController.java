@@ -78,13 +78,13 @@ public class MainStageController  implements Initializable{
         
        
        
-       if(member != null){
-           accountInfo.setText(member.getName() + "  " + member.getSurname());
+       /*if(member != null){
+           
        }
        else{
            accountInfo.setText("You must register in order to access to your profile");
        }
-       
+       */
 
     }   
 
@@ -162,6 +162,7 @@ public class MainStageController  implements Initializable{
     
     public void setMember(Member member){
         this.member = member;
+        accountInfo.setText(member.getName() + "  " + member.getSurname());
     }
  
     
