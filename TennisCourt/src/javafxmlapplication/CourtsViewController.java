@@ -91,9 +91,9 @@ public class CourtsViewController implements Initializable {
     
     private static final PseudoClass SELECTED_PSEUDO_CLASS = PseudoClass.getPseudoClass("selected");
 
-    private List<TimeSlotMenuItem> timeSlots = new ArrayList<>(); //Para varias columnas List<List<TimeSolt>>
+    //private List<TimeSlotMenuItem> timeSlots = new ArrayList<>(); //Para varias columnas List<List<TimeSolt>>
 
-    private ObjectProperty<TimeSlotMenuItem> timeSlotSelected;
+    //private ObjectProperty<TimeSlotMenuItem> timeSlotSelected;
     
     private LocalDate daySelected;
     @FXML
@@ -101,7 +101,11 @@ public class CourtsViewController implements Initializable {
     @FXML
     private SplitMenuButton splitMenuButtons;
     
-    private Connection con;
+    
+    private int value;
+    private MenuItem selected;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -112,15 +116,14 @@ public class CourtsViewController implements Initializable {
         try{
         Club club = Club.getInstance();
         
-        con = connectSqlite("/Libraries/sqlite-jdb-3.41.2.1.jar");
         }
         catch(Exception e){}
         
-        timeSlotSelected = new SimpleObjectProperty<>();
+        //timeSlotSelected = new SimpleObjectProperty<>();
         //cambia los SlotTime al cambiar de dia
-        day.valueProperty().addListener((a, b, c) -> {
-            setTimesSlotsMenuItem(c);
-        });
+        //day.valueProperty().addListener((a, b, c) -> {
+            //setTimesSlotsMenuItem(c);
+        //});
         
         //---------------------------------------------------------------------
         //inicializa el DatePicker al dia actual
@@ -128,7 +131,7 @@ public class CourtsViewController implements Initializable {
 
         //---------------------------------------------------------------------
         // pinta los SlotTime en el grid
-        setTimesSlotsMenuItem(day.getValue());
+        //setTimesSlotsMenuItem(day.getValue());
 
         
         Image image1 = new Image("/img/wiilabuena.png");
@@ -145,14 +148,14 @@ public class CourtsViewController implements Initializable {
         pista6.setImage(image6);
         informationMessage.setVisible(false);
         accountProfile.setUnderline(false);
-        /*
-        if(m == null){
+        
+        if(m != null){
             accountProfile.setText(m.getNickName()); 
         }
         else{
             accountProfile.setText("You want to make a reservation? Sign Up!");
         }
-        */
+        
        
 
     
@@ -239,6 +242,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista4(MouseEvent event) {
         court = "court 4";
+        c = club.getCourt(court);
 
     
     
@@ -247,6 +251,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista2(MouseEvent event) {
         court = "court 2";
+        c = club.getCourt(court);
 
     
     
@@ -255,6 +260,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista5(MouseEvent event) {
         court = "court 5";
+        c = club.getCourt(court);
 
     
     
@@ -263,6 +269,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista3(MouseEvent event) {
         court = "court 3";
+        c = club.getCourt(court);
 
     
     
@@ -271,132 +278,13 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista6(MouseEvent event) {
         court = "court 6";
+        c = club.getCourt(court);
 
     
     
     }
     
-    private void setTimesSlotsMenuItem(LocalDate date){
-        timeSlotSelected.setValue(null);
-        
-        splitMenuButtons.getItems().clear();
-        timeSlots.clear();
-        
-        for(LocalDateTime startTime = date.atTime(firstSlotStart);
-                !startTime.isAfter(date.atTime(lastSlotStart));
-                startTime = startTime.plus(slotLength)){
-            
-            TimeSlotMenuItem timeSlot = new TimeSlotMenuItem(startTime, slotLength);
-            timeSlots.add(timeSlot);
-            
-            registerHandlers(timeSlot);
-        }
-        
-    
-    
-    
-    }
-    
-    private void registerHandlers(TimeSlotMenuItem timeSlot){
-    
-
-        timeSlot.getView().setOnMousePressed((MouseEvent event) -> {
-            //---------------------------------------------slot----------------------------
-            //solamente puede estar seleccionado un slot dentro de la lista de slot
-            timeSlots.forEach(slot -> {
-                slot.setSelected(slot == timeSlot);
-            });
-
-            //----------------------------------------------------------------
-            //actualizamos el label Dia-Hora, esto es ad hoc,  para mi diseño
-            timeSlotSelected.setValue(timeSlot);
-            //----------------------------------------------------------------
-            // si es un doubleClik  vamos a mostrar una alerta y cambiar el estilo de la celda
-            if (event.getClickCount() > 1) {
-                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-                alerta.setTitle("SlotTime");
-                alerta.setHeaderText("Confirma la selección");
-                alerta.setContentText("Has seleccionat: "
-                        + timeSlot.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)) + ", "
-                        + timeSlot.getTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)));
-                Optional<ButtonType> result = alerta.showAndWait();
-                if (result.isPresent() && result.get() == ButtonType.OK) {
-                    ObservableList<String> styles = timeSlot.getView().getStyleClass();
-                    if (styles.contains("time-slot")) {
-                        styles.remove("time-slot");
-                        styles.add("time-slot-libre");
-                    } else {
-                        styles.remove("time-slot-libre");
-                        styles.add("time-slot");
-                    }
-                }
-            }
-        });
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-public class TimeSlotMenuItem {
-
-private final LocalDateTime start;
-    private final Duration duration;
-    protected final Pane view;
-
-    private final BooleanProperty selected = new SimpleBooleanProperty();
-
-    private final PseudoClass SELECTED_PSEUDO_CLASS =
-            PseudoClass.getPseudoClass("selected");
-
-    public final BooleanProperty selectedProperty() {
-        return selected;
-    }
-
-    public final boolean isSelected() {
-        return selectedProperty().get();
-    }
-
-    public final void setSelected(boolean selected) {
-        selectedProperty().set(selected);
-    }
-
-    public TimeSlotMenuItem(LocalDateTime start, Duration duration) {
-        this.start = start;
-        this.duration = duration;
-        view = new Pane();
-        view.getStyleClass().add("time-slot");
-
-        selectedProperty().addListener((obs, wasSelected, isSelected) ->
-                view.pseudoClassStateChanged(SELECTED_PSEUDO_CLASS, isSelected));
-
-    }
-
-    public LocalDateTime getStart() {
-        return start;
-    }
-
-    public LocalTime getTime() {
-        return start.toLocalTime();
-    }
-
-    public LocalDate getDate() {
-        return start.toLocalDate();
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public Pane getView() {
-        return view;
-    }
-
-    }
-
+ 
 }
 
 
