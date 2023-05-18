@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -78,13 +81,26 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo">
+                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" styleClass="profile-button" text="Ejemplo">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
                            <HBox.margin>
@@ -118,6 +134,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
                            <HBox.margin>
@@ -154,6 +180,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
                            <HBox.margin>
@@ -187,6 +223,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                      </children>
                      <VBox.margin>
@@ -218,6 +264,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </PasswordField>
                         <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
                            <HBox.margin>
@@ -254,6 +310,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
                            <HBox.margin>
@@ -290,6 +356,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>
@@ -326,6 +402,16 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </TextField>
                         <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
                            <HBox.margin>

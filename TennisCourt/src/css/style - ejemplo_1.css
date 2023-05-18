@@ -17,3 +17,7 @@
 .text-field2{
     -fx-background-color: white;
 }
+
+.textfieldLetras{
+    -fx-font-color: #92C1F0;
+}
