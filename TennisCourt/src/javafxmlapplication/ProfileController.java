@@ -5,12 +5,30 @@
 package javafxmlapplication;
 
 import java.net.URL;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionListener;
 import javafx.fxml.FXML;
+import java.net.URL;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +40,6 @@ import java.awt.FlowLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,10 +69,10 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Desktop;
 import java.io.FileInputStream;
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -70,6 +87,9 @@ import static javafxmlapplication.JavaFXMLApplication.*;
 import model.*;
 import javafx.stage.Stage;
 import model.Club;
+import javafx.scene.effect.BlendMode;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import model.ClubDAOException;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -148,53 +168,33 @@ public class ProfileController implements Initializable {
     private Button EditProfile;
     @FXML
     private TextField svc1;
-    
-    @FXML
-    private Text nameText;
-    
-    @FXML
-    private Text surnameText;
-    
-    @FXML
-    private Text telephoneText;
-    
-    @FXML
-    private Text nickText;
-    
-    @FXML
-    private Text passText;
-    
-    @FXML
-    private Text cardText;
-    
-    @FXML
-    private Text cscText;
-    
-    @FXML
-    private Text svcText;
 
-    
-    
-    
-    
-    
-    
-    
     
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb){
-        // TODO
+    public void initialize(URL url, ResourceBundle rb){   
         
-           
-          
+        //stage.minHeight();
+        
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
+        //CUANDO HAGAMOS LO DE QUE SEA PUBLICO
+        name.setText("EJEMPLO");
+        nickname.setText("EJEMPLO2");
+        //name.setText(mem.getName());
+        //surname.setText(mem.getSurname());
+        //telephone.setText(mem.getTelephone());
+        //nickname.setText(mem.getNickName());
+        //password.setText(mem.getPassword());
+        //creditcard.setText(mem.getCreditCard());
+        //String svcString = Integer.toString(mem.getSvc());
+        //svc1.setText(svcString);
         
         
+           
             
     }   
     
@@ -225,13 +225,6 @@ public class ProfileController implements Initializable {
         }
     }  
     
-    
-    
-    
-    
-    
-    
-    
     @FXML
     public void EditProfile_Action(ActionEvent event) throws Exception{
         //Button pic = new Button("pic");
@@ -243,54 +236,37 @@ public class ProfileController implements Initializable {
         
         pic.setVisible(true);
         save.setVisible(true);
-        nameText.setVisible(false);
-        name.setVisible(true);
+        
+        name.setBlendMode(BlendMode.SRC_OVER);
         name.setEditable(true);
-        surnameText.setVisible(false);
-        surname.setVisible(true);
+        surname.setBlendMode(BlendMode.SRC_OVER);
         surname.setEditable(true);
-        telephoneText.setVisible(false);
-        telephone.setVisible(true);
+        telephone.setBlendMode(BlendMode.SRC_OVER);
         telephone.setEditable(true);
-        nickText.setVisible(false);
-        nickname.setVisible(true);
-        nickname.setEditable(true);
-        passText.setVisible(false);
-        password.setVisible(true);
+        //nickname.setEditable(true); NO ES EDITABLE
+        password.setBlendMode(BlendMode.SRC_OVER);
         password.setEditable(true);
-        cardText.setVisible(false);
-        creditcard.setVisible(true);
+        creditcard.setBlendMode(BlendMode.SRC_OVER);
         creditcard.setEditable(true);
-        cscText.setVisible(false);
-        csc.setVisible(true);
+        csc.setBlendMode(BlendMode.SRC_OVER);
         csc.setEditable(true);
-        svcText.setVisible(false);
-        svc1.setVisible(true);
+        svc1.setBlendMode(BlendMode.SRC_OVER);
         svc1.setEditable(true);
-        
-        //CUANDO JORDI HAGA ESA MIERDA
-        //name.setText(mem.getName());
-        //surname.setText(mem.getSurname());
-        //telephone.setText(mem.getTelephone());
-        //nickname.setText(mem.getNickName());
-        //password.setText(mem.getPassword());
-        //creditcard.setText(mem.getCreditCard());
-        //String svcString = Integer.toString(mem.getSvc());
-        //svc1.setText(svcString);  
-        
-      
-        //name.setStyle("-fx-background-color: white;");
-        
-        
-        
-       
     }
-    
     
     @FXML
     public void Save_ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
+        
+        
+        
+        
+       /* name.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (newValue != oldValue && Utils.checkUser()){
+            System.out.println("ok");
+        }}); */
+    
         save.setOnMouseClicked(event -> {
            
            if (!Utils.checkUser(name.getText())){
@@ -335,15 +311,29 @@ public class ProfileController implements Initializable {
                 svc.setText("");
             }
             else {svcErr1.setVisible(false);}
-        });       
-    } 
+            
+            
+            //HASTQ AQUI VEMOS QUE ESTEN CORRECTOS LOS CAMPOS
+            //AHORA VAMOS CON EL LISTENER
+        });  
+    }
 }
 
 //DUDAS
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 
+ /*   ActionListener oyente = new ActionListener(){
+                
+                @Overrride
+                public void actionPerformed(ActionEvent e){
+                }
+            }
+        }); */ 
+    
 //hacer
 //QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
 //Ademas la original tm si hay algun error, para que al hacer save 
 //me falta chequear si ese tio ya esta registrado
+//listener
+//duda stage.min
