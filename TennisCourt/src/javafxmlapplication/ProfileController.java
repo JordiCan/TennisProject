@@ -1,3 +1,8 @@
+
+//Hacr jordi estetica
+//Lo del password y todo eso 
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
@@ -192,10 +197,6 @@ public class ProfileController implements Initializable {
         //creditcard.setText(mem.getCreditCard());
         //String svcString = Integer.toString(mem.getSvc());
         //svc1.setText(svcString);
-        
-        
-           
-            
     }   
     
     
@@ -265,7 +266,8 @@ public class ProfileController implements Initializable {
        /* name.textProperty().addListener((observable, oldValue, newValue) -> {
         if (newValue != oldValue && Utils.checkUser()){
             System.out.println("ok");
-        }}); */
+            }
+        }); */
     
         save.setOnMouseClicked(event -> {
            
