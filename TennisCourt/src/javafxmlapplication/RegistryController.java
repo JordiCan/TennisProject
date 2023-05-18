@@ -67,29 +67,26 @@ public class RegistryController implements Initializable {
 
             Club c= Club.getInstance();
             if(c.existsLogin(UserField.getText())){
+                System.out.println("Entra");
                 String temp;
                 m= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
+                                System.out.println("Entra2");
                 temp= m.getPassword();
+                                System.out.println(temp);
                 if(!m.equals(null)&&temp.equals(PasswordField.getText())){
-                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
-                    Parent root= myLoader.load();
-                    Scene scene = new Scene(myLoader.load());
-                    /*Main = new Stage();
-                    Main.setResizable(false);
-                    Main.setTitle("Main Menu");
-                    Main.setScene(scene);
-                    Main.centerOnScreen();
-                    Main.show();*/
-                    
-                    
-                        /*FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
-                        Parent root= myLoader.load();
-                        Scene scene = new Scene(myLoader.load());*/
-                        /*Node node = (Node) AcceptButton;
-                        Main = (Stage) node.getScene().getWindow();
-                        Main.setScene(scene);
-                        Main.show();
-                        */
+                   
+                    System.out.println("Funciona");
+                           FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+                           Parent root = loader.load();
+                           MainStageController controlador=  loader.getController(); 
+                           controlador.setMember(m);
+                           
+                            Scene nueva = new Scene(root);
+                            Node n = (Node) AcceptButton;
+                            Stage stage = (Stage) n.getScene().getWindow();
+                            stage.setScene(nueva);
+                            stage.setResizable(true);
+                            stage.show();
                 }
                 else{
                     errorMessage.setVisible(true);
