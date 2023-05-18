@@ -176,6 +176,8 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){   
         
+        //stage.minHeight();
+        
        // Club t = Club.getInstance();
         //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
         
@@ -334,3 +336,4 @@ public class ProfileController implements Initializable {
 //Ademas la original tm si hay algun error, para que al hacer save 
 //me falta chequear si ese tio ya esta registrado
 //listener
+//duda stage.min
