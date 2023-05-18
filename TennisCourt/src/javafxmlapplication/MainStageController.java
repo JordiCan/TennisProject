@@ -71,6 +71,9 @@ public class MainStageController  implements Initializable{
         Image im = new Image("/img/upv pista.jpeg");
         court.setImage(im);
         
+        court.setPreserveRatio(true);
+        court.setSmooth(true);
+        
         try{
         Club club = Club.getInstance();
         }
