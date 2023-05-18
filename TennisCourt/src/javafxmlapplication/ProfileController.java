@@ -256,6 +256,15 @@ public class ProfileController implements Initializable {
     public void Save_ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
+        
+        
+        
+        
+       /* name.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (newValue != oldValue && Utils.checkUser()){
+            System.out.println("ok");
+        }}); */
+    
         save.setOnMouseClicked(event -> {
            
            if (!Utils.checkUser(name.getText())){
@@ -312,13 +321,13 @@ public class ProfileController implements Initializable {
 //Button accept: que se registren los datos si no hay error. Acceder base de datos. 
 //TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
 
-    //ActionListener oyente = new ActionListener(){
+ /*   ActionListener oyente = new ActionListener(){
                 
-                //@Overrride
-                //public void actionPerformed(ActionEvent e){
-                //}
-            //}
-        //}); 
+                @Overrride
+                public void actionPerformed(ActionEvent e){
+                }
+            }
+        }); */ 
     
 //hacer
 //QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
