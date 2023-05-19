@@ -60,7 +60,7 @@
       </Pane>
    </bottom>
    <center>
-      <HBox prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox prefHeight="475.0" prefWidth="71.0" />
             <VBox prefHeight="426.0" prefWidth="484.0" spacing="10.0">
