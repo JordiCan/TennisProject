@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.ResourceBundle;
+import model.Club;
 import javafx.fxml.Initializable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionListener;
@@ -56,6 +57,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.ClubDAOException;
+import model.Member;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -79,6 +82,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import model.Club;
+import model.ClubDAOException;
+import model.Member;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -166,6 +188,8 @@ public class ProfileController implements Initializable {
     private ImageView Image;
     
     public static Stage Main;
+    public static Stage SignUp;
+    
     @FXML
     private Text svcErr1;
     @FXML
@@ -174,7 +198,10 @@ public class ProfileController implements Initializable {
     private TextField svc1;
     @FXML
     private Text nameErr1;
-
+    
+    public Member m;
+    
+   
     
     /**
      * Initializes the controller class.
@@ -182,24 +209,23 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){   
         
-        //stage.minHeight();
-        
-       // Club t = Club.getInstance();
-        //Member mem = t.getMemberByCredentials(variableXori1, gvariableXori2);
-        
-        //CUANDO HAGAMOS LO DE QUE SEA PUBLICO
-        name.setText("EJEMPLO");
-        //nickname.setText("EJEMPLO2");
-        //name.setText(mem.getName());
-        //surname.setText(mem.getSurname());
-        //telephone.setText(mem.getTelephone());
-        //nickname.setText(mem.getNickName());
-        //password.setText(mem.getPassword());
-        //creditcard.setText(mem.getCreditCard());
-        //String svcString = Integer.toString(mem.getSvc());
-        //svc1.setText(svcString);
+        try {
+            Club c = Club.getInstance();
+            //m = c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
+            
+            name.setText(m.getName());
+            surname.setText(m.getSurname());
+            telephone.setText(m.getTelephone());
+            nickname.setText(m.getNickName());
+            password.setText(m.getPassword());
+            creditcard.setText(m.getCreditCard());
+            String svcString = Integer.toString(m.getSvc());
+            svc1.setText(svcString);
+            
+        } catch (Exception e) {
+            name.setText("");
+        }
     }   
-    
     
                
     @FXML
@@ -313,9 +339,7 @@ public class ProfileController implements Initializable {
             }
             else {svcErr1.setVisible(false);}
             
-            
-            //HASTQ AQUI VEMOS QUE ESTEN CORRECTOS LOS CAMPOS
-            //AHORA VAMOS CON EL LISTENER
+           
         });  
     }
 
@@ -345,4 +369,3 @@ public class ProfileController implements Initializable {
 //Ademas la original tm si hay algun error, para que al hacer save 
 //me falta chequear si ese tio ya esta registrado
 //listener
-//duda stage.min
