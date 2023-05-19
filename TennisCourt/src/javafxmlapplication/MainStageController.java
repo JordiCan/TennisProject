@@ -107,6 +107,9 @@ public class MainStageController  implements Initializable{
         nuevaVentana.setScene(escena);
         nuevaVentana.setResizable(true);
         nuevaVentana.show();
+        
+        nuevaVentana.setMinHeight(400);
+        nuevaVentana.setMinWidth(200);
     }
 
     @FXML
@@ -120,6 +123,9 @@ public class MainStageController  implements Initializable{
         stage.setScene(nueva);
         stage.setResizable(true);
         stage.show();
+        
+        stage.setMinWidth(400);
+        stage.setMinHeight(200);
         
         
     }
@@ -135,6 +141,9 @@ public class MainStageController  implements Initializable{
         stage.setScene(nueva);
         stage.setResizable(true);
         stage.show();
+        
+        stage.setMinHeight(200);
+        stage.setMinWidth(400);
     
     }
 
@@ -153,6 +162,9 @@ public class MainStageController  implements Initializable{
         stage.setScene(nueva);
         stage.setResizable(true);
         stage.show();
+        
+        stage.setMinHeight(400);
+        stage.setMinWidth(200);
     
     }
 
