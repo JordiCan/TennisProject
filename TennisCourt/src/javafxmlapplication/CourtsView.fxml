@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CourtsViewController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="TOP_RIGHT">
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="TOP_CENTER">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Courts" textAlignment="RIGHT" wrappingWidth="243.78753662109375">
                <font>
@@ -25,7 +25,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Text>
-            <VBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="335.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="95.0" prefWidth="335.0">
                <children>
                   <HBox alignment="BASELINE_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -74,7 +74,7 @@
       </HBox>
    </top>
    <center>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
