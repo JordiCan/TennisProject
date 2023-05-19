@@ -23,6 +23,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -111,7 +112,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private CheckMenuItem prova;
     
-    private ObservableList<CheckMenuItem> ol;
+    private ObservableList<CheckMenuItem> ol = FXCollections.observableArrayList();
     
     
     
@@ -141,6 +142,9 @@ public class CourtsViewController implements Initializable {
     private CheckMenuItem prova10;
     @FXML
     private CheckMenuItem prova11;
+    
+    
+    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
@@ -148,7 +152,7 @@ public class CourtsViewController implements Initializable {
         
         }
         catch(Exception e){}
-        
+       
         ol.add(prova);
         ol.add(prova1);
         ol.add(prova2);
@@ -161,16 +165,119 @@ public class CourtsViewController implements Initializable {
         ol.add(prova9);
         ol.add(prova10);
         ol.add(prova11);
-
         
         
         
 
-        
+        prova.setOnAction(e ->{
          if(prova.isSelected()){
              timeBegin = firstSlotStart;
              timeEnd = LocalTime.of(10,0);
+             unselectOtherItems(prova);
          }
+        });
+         
+        prova1.setOnAction(e->{
+        if(prova1.isSelected()){
+             timeBegin = LocalTime.of(10,0);
+             timeEnd = LocalTime.of(11,0);
+             unselectOtherItems(prova1);
+             
+         }
+        });
+        
+        
+        prova2.setOnAction(e->{
+         if(prova2.isSelected()){
+             timeBegin = LocalTime.of(11,0);
+             timeEnd = LocalTime.of(12,0);
+             unselectOtherItems(prova2);
+            
+         }
+        });
+        
+        prova3.setOnAction(e->{
+
+         if(prova3.isSelected()){
+             timeBegin = LocalTime.of(12,0);
+             timeEnd = LocalTime.of(13,0);
+             unselectOtherItems(prova3);
+             
+         }});
+
+        prova4.setOnAction(e->{
+        
+         if(prova4.isSelected()){
+             timeBegin = LocalTime.of(13,0);
+             timeEnd = LocalTime.of(14,0);
+             unselectOtherItems(prova4);
+             
+         }});
+
+        prova5.setOnAction(e->{
+        
+         if(prova5.isSelected()){
+             timeBegin = LocalTime.of(14,0);
+             timeEnd = LocalTime.of(15,0);
+             unselectOtherItems(prova5);
+             
+         }});
+        
+        prova6.setOnAction(e->{
+        
+         if(prova6.isSelected()){
+             timeBegin = LocalTime.of(15,0);
+             timeEnd = LocalTime.of(16,0);
+             unselectOtherItems(prova6);
+             
+         }
+        });
+        
+        prova7.setOnAction(e->{
+        
+         if(prova7.isSelected()){
+             timeBegin = LocalTime.of(16,0);
+             timeEnd = LocalTime.of(17,0);
+             unselectOtherItems(prova7);
+             
+         }});
+        
+        prova8.setOnAction(e->{
+        
+         if(prova8.isSelected()){
+             timeBegin = LocalTime.of(17,0);
+             timeEnd = LocalTime.of(18,0);
+             unselectOtherItems(prova8);
+             
+         }});
+        
+        prova1.setOnAction(e->{
+        
+         if(prova9.isSelected()){
+             timeBegin = LocalTime.of(18,0);
+             timeEnd = LocalTime.of(19,0);
+             unselectOtherItems(prova9);
+             
+         }});
+        
+        prova10.setOnAction(e->{
+        
+         if(prova10.isSelected()){
+             timeBegin = LocalTime.of(19,0);
+             timeEnd = LocalTime.of(20,0);
+             unselectOtherItems(prova10);
+             
+         }});
+        
+        prova11.setOnAction(e->{
+        
+         if(prova11.isSelected()){
+             timeBegin = LocalTime.of(20,0);
+             timeEnd = LocalTime.of(21,0);
+             unselectOtherItems(prova11);
+             
+         }});
+
         //timeSlotSelected = new SimpleObjectProperty<>();
         //cambia los SlotTime al cambiar de dia
         //day.valueProperty().addListener((a, b, c) -> {
