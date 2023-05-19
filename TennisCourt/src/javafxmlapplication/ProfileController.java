@@ -143,7 +143,6 @@ public class ProfileController implements Initializable {
     
     private TextField svc;
     
-    @FXML
     private Text nameErr;
     
     @FXML
@@ -173,6 +172,8 @@ public class ProfileController implements Initializable {
     private Button EditProfile;
     @FXML
     private TextField svc1;
+    @FXML
+    private Text nameErr1;
 
     
     /**
@@ -212,7 +213,6 @@ public class ProfileController implements Initializable {
         stage.show();
     } 
     
-    @FXML
     public void EditProfile_Pic(ActionEvent event) throws Exception{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select images");
@@ -226,7 +226,6 @@ public class ProfileController implements Initializable {
         }
     }  
     
-    @FXML
     public void EditProfile_Action(ActionEvent event) throws Exception{
         //Button pic = new Button("pic");
         //Button EditProfile = new Button ("Edit profile");
@@ -318,6 +317,14 @@ public class ProfileController implements Initializable {
             //HASTQ AQUI VEMOS QUE ESTEN CORRECTOS LOS CAMPOS
             //AHORA VAMOS CON EL LISTENER
         });  
+    }
+
+    @FXML
+    private void EditProfile_Pic(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void EditProfile_Action(javafx.event.ActionEvent event) {
     }
 }
 
