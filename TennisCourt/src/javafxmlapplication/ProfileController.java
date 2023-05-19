@@ -183,7 +183,7 @@ public class ProfileController implements Initializable {
         
         //CUANDO HAGAMOS LO DE QUE SEA PUBLICO
         name.setText("EJEMPLO");
-        nickname.setText("EJEMPLO2");
+        //nickname.setText("EJEMPLO2");
         //name.setText(mem.getName());
         //surname.setText(mem.getSurname());
         //telephone.setText(mem.getTelephone());
