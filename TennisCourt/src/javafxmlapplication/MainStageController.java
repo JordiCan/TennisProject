@@ -23,6 +23,7 @@ import javafx.stage.Window;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
@@ -49,9 +50,16 @@ public class MainStageController  implements Initializable{
     private ImageView court;
     
     
-    private Member member = null ;
     @FXML
     private Text accountInfo;
+    @FXML
+    private ImageView imageProfile;
+    @FXML
+    private HBox hbox;
+    @FXML
+    private MenuItem bookings;
+    
+    private Member m = null;
 
     
     
@@ -65,7 +73,7 @@ public class MainStageController  implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-
+        bookings.setDisable(true);
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
         Image im = new Image("/img/upv pista.jpeg");
@@ -74,6 +82,7 @@ public class MainStageController  implements Initializable{
         court.setPreserveRatio(true);
         court.setSmooth(true);
         
+        
         try{
         Club club = Club.getInstance();
         }
@@ -81,13 +90,8 @@ public class MainStageController  implements Initializable{
         
        
        
-       /*if(member != null){
-           
-       }
-       else{
-           accountInfo.setText("You must register in order to access to your profile");
-       }
-       */
+
+
 
     }   
 
@@ -97,7 +101,9 @@ public class MainStageController  implements Initializable{
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("SignUp.fxml"));
         Parent root = loader.load();
         Scene escena = new Scene(root);
-        Stage nuevaVentana = new Stage();
+     
+        Node n = (Node) signUpScene.getParentPopup().getOwnerNode();
+        Stage nuevaVentana = (Stage) n.getScene().getWindow();
         nuevaVentana.setScene(escena);
         nuevaVentana.setResizable(true);
         nuevaVentana.show();
@@ -164,8 +170,37 @@ public class MainStageController  implements Initializable{
     }
     
     public void setMember(Member member){
-        this.member = member;
-        accountInfo.setText(member.getName() + "  " + member.getSurname());
+        this.m = member;
+        accountInfo.setVisible(true);
+        accountInfo.setText(member.getNickName());
+        Image jiji = member.getImage();
+        imageProfile.setImage(jiji);
+        bookings.setDisable(false);
+
+    }
+
+    @FXML
+    private void changeToBooking(ActionEvent event) throws Exception {
+        if(m != null){
+
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Bookings.fxml"));
+            Parent root = loader.load();
+            Scene nueva = new Scene(root);
+            Node n = bookings.getParentPopup().getOwnerNode();
+            Stage stage = (Stage) n.getScene().getWindow();
+            stage.setScene(nueva);
+            stage.setResizable(true);
+            stage.show();
+
+        
+        
+        
+        
+        
+        
+        }
+        
+        
     }
  
     

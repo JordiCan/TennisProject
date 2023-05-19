@@ -35,14 +35,26 @@
                         <Insets top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <Text fx:id="accountInfo" fill="#bcbcbc" onMouseClicked="#click" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayado" strokeType="OUTSIDE" strokeWidth="0.0" text="You must register in order to access your profile" textAlignment="CENTER" wrappingWidth="80.05602216720581">
+                  <VBox alignment="CENTER" prefHeight="102.0" prefWidth="95.0">
                      <HBox.margin>
-                        <Insets left="15.0" top="20.0" />
+                        <Insets left="15.0" />
                      </HBox.margin>
-                     <font>
-                        <Font name="Franklin Gothic Medium" size="11.0" />
-                     </font>
-                  </Text>
+                     <children>
+                        <ImageView fx:id="imageProfile" fitHeight="61.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets top="-1.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Text fx:id="accountInfo" fill="#9ad6f2" onMouseClicked="#click" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayado" strokeType="OUTSIDE" strokeWidth="0.0" text="Hola" textAlignment="CENTER" visible="false" wrappingWidth="86.45604658126831">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </children>
@@ -56,6 +68,7 @@
                 <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Sign Up" />
                 <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Register" />
                   <MenuItem fx:id="fieldsScene" mnemonicParsing="false" onAction="#changeToFields" text="View Courts" />
+                  <MenuItem fx:id="bookings" mnemonicParsing="false" onAction="#changeToBooking" text="Bookings" />
               </items>
                <font>
                   <Font size="14.0" />

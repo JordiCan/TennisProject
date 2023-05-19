@@ -35,7 +35,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.Image;
@@ -71,8 +73,6 @@ public class CourtsViewController implements Initializable {
     @FXML
     private Button homeButton;
     @FXML
-    private MenuItem lastCall;
-    @FXML
     private Text informationMessage;
     @FXML
     private Text accountProfile;
@@ -96,6 +96,9 @@ public class CourtsViewController implements Initializable {
     //private ObjectProperty<TimeSlotMenuItem> timeSlotSelected;
     
     private LocalDate daySelected;
+    private LocalTime timeBegin;
+    private LocalTime timeEnd;
+    
     @FXML
     private DatePicker day;
     @FXML
@@ -105,12 +108,39 @@ public class CourtsViewController implements Initializable {
     private int value;
     private MenuItem selected;
     
+    @FXML
+    private CheckMenuItem prova;
+    
+    private ObservableList<CheckMenuItem> ol;
+    
+    
     
 
     /**
      * Initializes the controller class.
      */
-    @Override
+    @FXML
+    private CheckMenuItem prova1;
+    @FXML
+    private CheckMenuItem prova2;
+    @FXML
+    private CheckMenuItem prova3;
+    @FXML
+    private CheckMenuItem prova4;
+    @FXML
+    private CheckMenuItem prova5;
+    @FXML
+    private CheckMenuItem prova6;
+    @FXML
+    private CheckMenuItem prova7;
+    @FXML
+    private CheckMenuItem prova8;
+    @FXML
+    private CheckMenuItem prova9;
+    @FXML
+    private CheckMenuItem prova10;
+    @FXML
+    private CheckMenuItem prova11;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
@@ -119,6 +149,28 @@ public class CourtsViewController implements Initializable {
         }
         catch(Exception e){}
         
+        ol.add(prova);
+        ol.add(prova1);
+        ol.add(prova2);
+        ol.add(prova3);
+        ol.add(prova4);
+        ol.add(prova5);
+        ol.add(prova6);
+        ol.add(prova7);
+        ol.add(prova8);
+        ol.add(prova9);
+        ol.add(prova10);
+        ol.add(prova11);
+
+        
+        
+        
+
+        
+         if(prova.isSelected()){
+             timeBegin = firstSlotStart;
+             timeEnd = LocalTime.of(10,0);
+         }
         //timeSlotSelected = new SimpleObjectProperty<>();
         //cambia los SlotTime al cambiar de dia
         //day.valueProperty().addListener((a, b, c) -> {
@@ -156,6 +208,8 @@ public class CourtsViewController implements Initializable {
             accountProfile.setText("You want to make a reservation? Sign Up!");
         }
         
+        
+        
        
 
     
@@ -177,7 +231,6 @@ public class CourtsViewController implements Initializable {
     
     }
 
-    @FXML
     private void showInformationMessage(ActionEvent event) {
 
         informationMessage.setVisible(true);
@@ -283,6 +336,17 @@ public class CourtsViewController implements Initializable {
     
     
     }
+    
+    private void unselectOtherItems(CheckMenuItem selectedItem){
+       for(CheckMenuItem menuItem : ol) {
+           if(menuItem != selectedItem){
+               menuItem.setSelected(false);
+           }
+
+       }
+
+    }
+    
     
  
 }
