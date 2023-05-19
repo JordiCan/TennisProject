@@ -12,18 +12,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ProfileController">
    <top>
-      <HBox prefHeight="169.0" prefWidth="555.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="169.0" prefWidth="555.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="BOTTOM_RIGHT" prefHeight="169.0" prefWidth="241.0">
                <children>
-                  <ImageView fx:id="Image" fitHeight="130.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Image" fitHeight="151.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/chaval.png" />
                      </image>
@@ -46,24 +45,11 @@
          </children>
       </HBox>
    </top>
-   <bottom>
-      <Pane prefHeight="54.0" prefWidth="550.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="EditProfile" alignment="CENTER_RIGHT" layoutX="402.0" layoutY="7.0" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="save" layoutX="61.0" layoutY="15.0" mnemonicParsing="false" onAction="#Save_ErroresData" prefHeight="24.0" prefWidth="71.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
-            <Button fx:id="cancel" layoutX="149.0" layoutY="15.0" mnemonicParsing="false" onAction="#CancelButton" prefHeight="24.0" prefWidth="74.0" text="Cancel" />
-         </children>
-      </Pane>
-   </bottom>
    <center>
-      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
+      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <VBox prefHeight="475.0" prefWidth="71.0" />
-            <VBox prefHeight="426.0" prefWidth="484.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="475.0" prefWidth="71.0" />
+            <VBox alignment="CENTER" prefHeight="426.0" prefWidth="484.0" spacing="10.0">
                <children>
                   <HBox prefHeight="15.0" prefWidth="482.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
@@ -114,7 +100,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="43.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/chaval.png" />
                            </image>
@@ -292,7 +278,7 @@
                               <Image url="@../img/transcard.png" />
                            </image>
                            <HBox.margin>
-                              <Insets />
+                              <Insets left="1.0" />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="46.0" prefWidth="168.0" text="Credit card">
@@ -338,7 +324,7 @@
                               <Image url="@../img/transcard.png" />
                            </image>
                            <HBox.margin>
-                              <Insets />
+                              <Insets left="1.0" />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)">
@@ -349,7 +335,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false">
+                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -426,4 +412,25 @@
          </children>
       </HBox>
    </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="43.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="178.0">
+               <children>
+                  <Button fx:id="save" mnemonicParsing="false" onAction="#Save_ErroresData" prefHeight="24.0" prefWidth="71.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="cancel" alignment="CENTER" mnemonicParsing="false" onAction="#CancelButton" prefHeight="24.0" prefWidth="74.0" text="Cancel" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <Button fx:id="EditProfile" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
