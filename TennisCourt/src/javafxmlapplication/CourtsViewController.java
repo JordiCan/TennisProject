@@ -37,6 +37,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -47,6 +48,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Booking;
 import model.Club;
 import model.Court;
 import model.Member;
@@ -114,6 +116,7 @@ public class CourtsViewController implements Initializable {
     
     private ObservableList<CheckMenuItem> ol = FXCollections.observableArrayList();
     
+    private ObservableList<Booking> books = FXCollections.observableArrayList();
     
     
 
@@ -148,7 +151,7 @@ public class CourtsViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
-        Club club = Club.getInstance();
+         club = Club.getInstance();
         
         }
         catch(Exception e){}
@@ -166,7 +169,10 @@ public class CourtsViewController implements Initializable {
         ol.add(prova10);
         ol.add(prova11);
         
-        
+        //---------------------------------------------------------------------
+        //inicializa el DatePicker al dia actual
+        day.setValue(LocalDate.now());        
+
         
 
         prova.setOnAction(e ->{
@@ -277,16 +283,58 @@ public class CourtsViewController implements Initializable {
              unselectOtherItems(prova11);
              
          }});
-
-        //timeSlotSelected = new SimpleObjectProperty<>();
-        //cambia los SlotTime al cambiar de dia
-        //day.valueProperty().addListener((a, b, c) -> {
-            //setTimesSlotsMenuItem(c);
-        //});
         
-        //---------------------------------------------------------------------
-        //inicializa el DatePicker al dia actual
-        day.setValue(LocalDate.now());        
+        pista1.imageProperty().addListener(e ->{
+            
+            List<Booking> list1 = club.getCourtBookings("court 1",daySelected);
+            if(!containsDate(list1,timeBegin)){
+                Image p1 = new Image("/img/wiibuenaBooked");
+                pista1.setImage(p1);
+            }
+        });
+
+        pista2.imageProperty().addListener(e ->{
+            
+            List<Booking> list2 = club.getCourtBookings("court 2",daySelected);
+            if(!containsDate(list2,timeBegin)){
+                Image p2 = new Image("/img/pista3labuenaBooked");
+                pista2.setImage(p2);
+            }
+        });
+        pista3.imageProperty().addListener(e ->{
+            
+            List<Booking> list3 = club.getCourtBookings("court 3",daySelected);
+            if(!containsDate(list3,timeBegin)){
+                Image p3 = new Image("/img/pista5labuenaBooked");
+                pista3.setImage(p3);
+            }
+        });
+        pista4.imageProperty().addListener(e ->{
+            
+            List<Booking> list4 = club.getCourtBookings("court 4",daySelected);
+            if(!containsDate(list4,timeBegin)){
+                Image p4 = new Image("/img/pista2labuenaBooked");
+                pista4.setImage(p4);
+            }
+        });
+        pista5.imageProperty().addListener(e ->{
+            
+            List<Booking> list5 = club.getCourtBookings("court 5",daySelected);
+            if(!containsDate(list5,timeBegin)){
+                Image p5 = new Image("/img/pista6labuenaBooked");
+                pista5.setImage(p5);
+            }
+        });
+        pista6.imageProperty().addListener(e ->{
+            
+            List<Booking> list6 = club.getCourtBookings("court 6",daySelected);
+            if(!containsDate(list6,timeBegin)){
+                Image p6 = new Image("/img/pistaMarioReservada");
+                pista6.setImage(p6);
+            }
+        });
+        
+        
 
         //---------------------------------------------------------------------
         // pinta los SlotTime en el grid
@@ -315,6 +363,17 @@ public class CourtsViewController implements Initializable {
             accountProfile.setText("You want to make a reservation? Sign Up!");
         }
         
+        day.setDayCellFactory((DatePicker picker) -> {
+            return new DateCell() {
+                @Override 
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0 );
+                }             };
+        });
+        
+        daySelected = day.valueProperty().get();
         
         
        
@@ -454,6 +513,16 @@ public class CourtsViewController implements Initializable {
 
     }
     
+    private boolean containsDate(List l, LocalTime t ){
+    
+       Booking[] ba = (Booking[]) l.toArray();
+       for(int i = 0; i < ba.length; i++){
+           if(ba[i].getFromTime().equals(t)){
+               return true;
+           }
+       }
+    return false;
+    }
     
  
 }
