@@ -206,7 +206,6 @@ public class ProfileController implements Initializable {
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
         Parent root = loader.load();
         Scene nueva = new Scene(root);
-        Node n = (Node) cancel;
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.setScene(nueva);
         stage.show();
@@ -223,6 +222,7 @@ public class ProfileController implements Initializable {
             FileInputStream fis = new FileInputStream(file);
             Image avatar = new Image(fis);
             Image.imageProperty().setValue(avatar);
+        
         }
     }  
     

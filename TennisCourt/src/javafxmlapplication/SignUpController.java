@@ -78,6 +78,7 @@ public class SignUpController implements Initializable {
     private Button LoginButton;
     @FXML
     private ImageView Image;
+    
 
     Image avatar= new Image("/img/default.png");
     Member m;
@@ -95,8 +96,13 @@ public class SignUpController implements Initializable {
     @FXML
     private void CancelButton(ActionEvent event) throws IOException {
         
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        Scene escena = new Scene(root);
         Stage stage = (Stage) cancel.getScene().getWindow();
-        stage.close();
+        stage.setResizable(true);
+        stage.show();
+        
     }
 
     @FXML
