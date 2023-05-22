@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.RegistryController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="TOP_CENTER">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in" textAlignment="CENTER" wrappingWidth="599.7875366210938">
                <font>
@@ -26,17 +26,20 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="226.0" prefWidth="286.0">
+            <VBox alignment="TOP_CENTER" prefHeight="226.0" prefWidth="286.0">
                <children>
                   <ImageView fx:id="pelotazas" fitHeight="300.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/pelotazasazules.png" />
                      </image>
+                     <VBox.margin>
+                        <Insets left="-5.0" />
+                     </VBox.margin>
                   </ImageView>
                </children></VBox>
-            <VBox prefHeight="194.0" prefWidth="313.0">
+            <VBox alignment="TOP_CENTER" prefHeight="194.0" prefWidth="313.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>

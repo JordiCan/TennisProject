@@ -197,8 +197,7 @@ public class SignUpController implements Initializable {
         stage.setResizable(true);
         stage.show();
         }
-        
-
+<
         
         
         

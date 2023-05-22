@@ -121,14 +121,16 @@ public class RegistryController implements Initializable {
 
     @FXML
     private void handleSignUpOnAction(ActionEvent event) throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
-        Scene scene = new Scene(myLoader.load());
-        SignUp = new Stage();
-        SignUp.setResizable(false);
-        SignUp.setTitle("Sign Up");
-        SignUp.setScene(scene);
-        SignUp.show();
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("SignUp.fxml"));
+        Parent root = loader.load();
+        Scene escena = new Scene(root);
+     
+        Stage nuevaVentana = (Stage) SignUpButton.getScene().getWindow();
+        nuevaVentana.setScene(escena);
+        nuevaVentana.setResizable(true);
+        nuevaVentana.show();
     }
+    
       
                 
 }
