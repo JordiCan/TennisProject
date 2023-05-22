@@ -84,7 +84,7 @@ public class CourtsViewController implements Initializable {
     
     private String court;
     
-    private Court c;
+    private Court c ;
     
     private Club club;
 
@@ -98,9 +98,9 @@ public class CourtsViewController implements Initializable {
 
     //private ObjectProperty<TimeSlotMenuItem> timeSlotSelected;
     
-    private LocalDate daySelected;
-    private LocalTime timeBegin;
-    private LocalTime timeEnd;
+    private LocalDate daySelected = LocalDate.now();
+    private LocalTime timeBegin = firstSlotStart;
+    private LocalTime timeEnd = lastSlotStart;
     
     @FXML
     private DatePicker day;
@@ -117,6 +117,8 @@ public class CourtsViewController implements Initializable {
     private ObservableList<CheckMenuItem> ol = FXCollections.observableArrayList();
     
     private ObservableList<Booking> books = FXCollections.observableArrayList();
+    
+    private List<Booking> list = FXCollections.observableArrayList();
     
     
 
@@ -172,22 +174,24 @@ public class CourtsViewController implements Initializable {
         //---------------------------------------------------------------------
         //inicializa el DatePicker al dia actual
         day.setValue(LocalDate.now());        
+        daySelected = day.valueProperty().get();
 
-        
+        List<Booking> mecaguentot = club.getForDayBookings(daySelected);
+        System.out.println(mecaguentot.size());
 
         prova.setOnAction(e ->{
          if(prova.isSelected()){
+             unselectOtherItems(prova);
              timeBegin = firstSlotStart;
              timeEnd = LocalTime.of(10,0);
-             unselectOtherItems(prova);
          }
         });
          
         prova1.setOnAction(e->{
         if(prova1.isSelected()){
-             timeBegin = LocalTime.of(10,0);
-             timeEnd = LocalTime.of(11,0);
              unselectOtherItems(prova1);
+            timeBegin = LocalTime.of(10,0);
+             timeEnd = LocalTime.of(11,0);
              
          }
         });
@@ -195,9 +199,9 @@ public class CourtsViewController implements Initializable {
         
         prova2.setOnAction(e->{
          if(prova2.isSelected()){
+             unselectOtherItems(prova2);
              timeBegin = LocalTime.of(11,0);
              timeEnd = LocalTime.of(12,0);
-             unselectOtherItems(prova2);
             
          }
         });
@@ -205,36 +209,36 @@ public class CourtsViewController implements Initializable {
         prova3.setOnAction(e->{
 
          if(prova3.isSelected()){
+             unselectOtherItems(prova3);
              timeBegin = LocalTime.of(12,0);
              timeEnd = LocalTime.of(13,0);
-             unselectOtherItems(prova3);
              
          }});
 
         prova4.setOnAction(e->{
         
          if(prova4.isSelected()){
+             unselectOtherItems(prova4);
              timeBegin = LocalTime.of(13,0);
              timeEnd = LocalTime.of(14,0);
-             unselectOtherItems(prova4);
              
          }});
 
         prova5.setOnAction(e->{
         
          if(prova5.isSelected()){
+             unselectOtherItems(prova5);
              timeBegin = LocalTime.of(14,0);
              timeEnd = LocalTime.of(15,0);
-             unselectOtherItems(prova5);
              
          }});
         
         prova6.setOnAction(e->{
         
          if(prova6.isSelected()){
+             unselectOtherItems(prova6);
              timeBegin = LocalTime.of(15,0);
              timeEnd = LocalTime.of(16,0);
-             unselectOtherItems(prova6);
              
          }
         });
@@ -242,52 +246,52 @@ public class CourtsViewController implements Initializable {
         prova7.setOnAction(e->{
         
          if(prova7.isSelected()){
+             unselectOtherItems(prova7);
              timeBegin = LocalTime.of(16,0);
              timeEnd = LocalTime.of(17,0);
-             unselectOtherItems(prova7);
              
          }});
         
         prova8.setOnAction(e->{
         
          if(prova8.isSelected()){
+             unselectOtherItems(prova8);
              timeBegin = LocalTime.of(17,0);
              timeEnd = LocalTime.of(18,0);
-             unselectOtherItems(prova8);
              
          }});
         
         prova1.setOnAction(e->{
         
          if(prova9.isSelected()){
+             unselectOtherItems(prova9);
              timeBegin = LocalTime.of(18,0);
              timeEnd = LocalTime.of(19,0);
-             unselectOtherItems(prova9);
              
          }});
         
         prova10.setOnAction(e->{
         
          if(prova10.isSelected()){
+             unselectOtherItems(prova10);
              timeBegin = LocalTime.of(19,0);
              timeEnd = LocalTime.of(20,0);
-             unselectOtherItems(prova10);
              
          }});
         
         prova11.setOnAction(e->{
         
          if(prova11.isSelected()){
+             unselectOtherItems(prova11);
              timeBegin = LocalTime.of(20,0);
              timeEnd = LocalTime.of(21,0);
-             unselectOtherItems(prova11);
              
          }});
         
-        pista1.imageProperty().addListener(e ->{
+        pista1.imageProperty().addListener((observable, newValue, oldvalue) ->{
             
-            List<Booking> list1 = club.getCourtBookings("court 1",daySelected);
-            if(!containsDate(list1,timeBegin)){
+            list = club.getCourtBookings("court 1",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p1 = new Image("/img/wiibuenaBooked");
                 pista1.setImage(p1);
             }
@@ -295,40 +299,40 @@ public class CourtsViewController implements Initializable {
 
         pista2.imageProperty().addListener(e ->{
             
-            List<Booking> list2 = club.getCourtBookings("court 2",daySelected);
-            if(!containsDate(list2,timeBegin)){
+            list = club.getCourtBookings("court 2",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p2 = new Image("/img/pista3labuenaBooked");
                 pista2.setImage(p2);
             }
         });
         pista3.imageProperty().addListener(e ->{
             
-            List<Booking> list3 = club.getCourtBookings("court 3",daySelected);
-            if(!containsDate(list3,timeBegin)){
+            list = club.getCourtBookings("court 3",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p3 = new Image("/img/pista5labuenaBooked");
                 pista3.setImage(p3);
             }
         });
         pista4.imageProperty().addListener(e ->{
             
-            List<Booking> list4 = club.getCourtBookings("court 4",daySelected);
-            if(!containsDate(list4,timeBegin)){
+            list = club.getCourtBookings("court 4",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p4 = new Image("/img/pista2labuenaBooked");
                 pista4.setImage(p4);
             }
         });
         pista5.imageProperty().addListener(e ->{
             
-            List<Booking> list5 = club.getCourtBookings("court 5",daySelected);
-            if(!containsDate(list5,timeBegin)){
+            list = club.getCourtBookings("court 5",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p5 = new Image("/img/pista6labuenaBooked");
                 pista5.setImage(p5);
             }
         });
         pista6.imageProperty().addListener(e ->{
             
-            List<Booking> list6 = club.getCourtBookings("court 6",daySelected);
-            if(!containsDate(list6,timeBegin)){
+            list = club.getCourtBookings("court 6",daySelected);
+            if(!containsDate(list,timeBegin)){
                 Image p6 = new Image("/img/pistaMarioReservada");
                 pista6.setImage(p6);
             }
@@ -373,7 +377,6 @@ public class CourtsViewController implements Initializable {
                 }             };
         });
         
-        daySelected = day.valueProperty().get();
         
         
        
@@ -452,7 +455,14 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void reservaPista1(MouseEvent event) {
         court = "court 1";
-        c = club.getCourt(court);
+        try{
+        c = club.getInstance().getCourt(court);
+        }
+        catch(Exception e){}
+        Image image = pista1.getImage();
+        Image image1 = new Image("/img/wiilabuena.png");
+        if(image.equals(image1)){
+        }
         
         
     
@@ -514,13 +524,17 @@ public class CourtsViewController implements Initializable {
     }
     
     private boolean containsDate(List l, LocalTime t ){
-    
-       Booking[] ba = (Booking[]) l.toArray();
-       for(int i = 0; i < ba.length; i++){
-           if(ba[i].getFromTime().equals(t)){
-               return true;
-           }
+       
+       try{ 
+       club = Club.getInstance();
        }
+       catch(Exception e){}
+       Booking[] ba = (Booking[]) l.toArray();
+        for (Booking ba1 : ba) {
+            if (ba1.getFromTime().equals(t)) {
+                return true;
+            }
+        }
     return false;
     }
     
