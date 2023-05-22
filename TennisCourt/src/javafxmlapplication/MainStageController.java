@@ -6,6 +6,7 @@ package javafxmlapplication;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,9 @@ import javafx.stage.Window;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import static javafxmlapplication.RegistryController.Main;
@@ -55,11 +58,15 @@ public class MainStageController  implements Initializable{
     @FXML
     private ImageView imageProfile;
     @FXML
-    private HBox hbox;
-    @FXML
     private MenuItem bookings;
     
     private Member m = null;
+    private HBox hrealbox;
+    private GridPane gridpane;
+    @FXML
+    private HBox hbox;
+    @FXML
+    private VBox vbox;
 
     
     
@@ -81,6 +88,9 @@ public class MainStageController  implements Initializable{
         
         court.setPreserveRatio(true);
         court.setSmooth(true);
+        
+        court.fitWidthProperty().bind(vbox.widthProperty());
+        court.fitWidthProperty().bind(vbox.heightProperty());
         
         
         try{
