@@ -190,15 +190,18 @@ public class SignUpController implements Initializable {
                         passwordField.getText(), creditcardField.getText(), Integer.parseInt(svc.getText()), avatar);
  
             }
+
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+            Parent root = loader.load();
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) cancel.getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+                
+        
         }
        
-        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
-        Parent root = loader.load();
-        Scene escena = new Scene(root);
-        Stage stage = (Stage) cancel.getScene().getWindow();
-        stage.setScene(escena);
-        stage.show();
-        
+
         
         
     }
