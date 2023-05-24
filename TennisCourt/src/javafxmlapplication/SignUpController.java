@@ -98,8 +98,9 @@ public class SignUpController implements Initializable {
         
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
         Parent root = loader.load();
-        Scene escena = new Scene(root);
+        Scene scene = new Scene(root);
         Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
         
