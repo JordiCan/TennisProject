@@ -10,9 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Member;
 
 
 public class JavaFXMLApplication extends Application {
+    
+    public static Member member;
     
     @Override
     public void start(Stage stage) throws Exception {
