@@ -23,37 +23,38 @@ public class JavaFXMLApplication extends Application {
     public void start(Stage stage) throws Exception {
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("MainStage.fxml"));
-        Parent root = loader.load();
-        stage.setResizable(true);
+
 
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
-        Scene scene = new Scene(root);
         //======================================================================
         // 3- asiganación de la escena al Stage que recibe el metodo 
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
-        stage.setScene(scene);
-        stage.setTitle("MainStage");
+
         
         Club club = Club.getInstance();
         
         
         List<Court> courts = club.getCourts();
         ObservableList<Court> courtOb = FXCollections.observableList(courts);
-        for(int i = 1; i <7; i++){
+        /*for(int i = 1; i <7; i++){
            courtOb.get(i).setName("pista "+i);
         
-        }        
+        } */       
+ 
         
-        Club c = Club.getInstance();
+        club.setInitialData();
         
-        c.setInitialData();
-        
-        c.addSimpleData();
+        club.addSimpleData();
         
         
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        stage.setResizable(true);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("MainStage");
         
 
         stage.show();

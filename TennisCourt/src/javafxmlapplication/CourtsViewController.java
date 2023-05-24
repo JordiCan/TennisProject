@@ -336,6 +336,7 @@ public class CourtsViewController implements Initializable {
                                     
                                     Image i6 = new Image("/img/pistaMarioReservada");
                                     pista2.setImage(i6);
+                                    System.out.println("xs");
                                 break;                                 
                             }
                         
