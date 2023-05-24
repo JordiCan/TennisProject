@@ -2,9 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -52,18 +53,22 @@
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
                            <items>
-                              <CheckMenuItem fx:id="prova" mnemonicParsing="false" text="9:00 - 10:00" />
-                              <CheckMenuItem fx:id="prova1" mnemonicParsing="false" text="10:00 - 11:00" />
-                              <CheckMenuItem fx:id="prova2" mnemonicParsing="false" text="11:00 - 12:00" />
-                              <CheckMenuItem fx:id="prova3" mnemonicParsing="false" text="12:00 - 13:00" />
-                              <CheckMenuItem fx:id="prova4" mnemonicParsing="false" text="13:00 - 14:00" />
-                              <CheckMenuItem fx:id="prova5" mnemonicParsing="false" text="14:00 - 15:00" />
-                              <CheckMenuItem fx:id="prova6" mnemonicParsing="false" text="15:00 - 16:00" />
-                              <CheckMenuItem fx:id="prova7" mnemonicParsing="false" text="16:00 - 17:00" />
-                              <CheckMenuItem fx:id="prova8" mnemonicParsing="false" text="17:00 - 18:00" />
-                              <CheckMenuItem fx:id="prova9" mnemonicParsing="false" text="18:00 - 19:00" />
-                              <CheckMenuItem fx:id="prova10" mnemonicParsing="false" text="19:00 - 20:00" />
-                              <CheckMenuItem fx:id="prova11" mnemonicParsing="false" text="20:00 - 21:00" />
+                              <RadioMenuItem fx:id="nueveadiez" mnemonicParsing="false" text="9:00 - 10:00">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="MenuItems" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="diezaonce" mnemonicParsing="false" text="10:00 - 11:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="onceadoce" mnemonicParsing="false" text="11:00 - 12:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="doceauna" mnemonicParsing="false" text="12:00- 13:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="unaados" mnemonicParsing="false" text="13:00 - 14:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="unaatres" mnemonicParsing="false" text="14:00 - 15:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="tresacuatro" mnemonicParsing="false" text="15:00 - 16:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="cuatroacinco" mnemonicParsing="false" text="16:00 - 17:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="cincoaseis" mnemonicParsing="false" text="17:00 - 18:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="seisasiete" mnemonicParsing="false" text="18:00 - 19:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="sieteaocho" mnemonicParsing="false" text="19:00 - 20:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="ochoanueve" mnemonicParsing="false" text="20:00 - 21:00" toggleGroup="$MenuItems" />
                            </items>
                         </SplitMenuButton>
                      </children>
