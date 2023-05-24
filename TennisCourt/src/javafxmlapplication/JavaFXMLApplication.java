@@ -40,12 +40,7 @@ public class JavaFXMLApplication extends Application {
         Club club = Club.getInstance();
         
         
-        List<Court> courts = club.getCourts();
-        ObservableList<Court> courtOb = FXCollections.observableList(courts);
-        /*for(int i = 1; i <7; i++){
-           courtOb.get(i).setName("pista "+i);
-        
-        } */       
+       
  
         
         club.setInitialData();

@@ -180,6 +180,87 @@ public class CourtsViewController implements Initializable {
         day.valueProperty().addListener((observable, oldvalue, newvalue)->{
             daySelected = newvalue;
             System.out.print(daySelected.getDayOfMonth());
+//AQUI VIENE LO TOCHO
+            
+            System.out.println("Que esta pasando");
+                    l = club.getForDayBookings(daySelected);
+                    books = FXCollections.observableArrayList(l);
+                    System.out.print(l.size());
+                    List<Court> courts = club.getCourts();
+                    for(int i = 0; i <6; i++){
+                       courts.get(i).setName("p"+i);
+
+                    }
+                    Image i1 = new Image("/img/wiilabuena.png");
+                    pista1.setImage(i1);
+                    Image i2 = new Image("/img/pista3labuena.jpg");
+                    pista2.setImage(i2);
+                    Image i3 = new Image("/img/pista5labuena.jpg");
+                    pista3.setImage(i3);
+                    Image i4 = new Image("/img/pista2labuena.jpg");
+                    pista4.setImage(i4);
+                    Image i5 = new Image("/img/pista6labuena.jpeg");
+                    pista5.setImage(i5);
+                    Image i6 = new Image("/img/mario tennislabuena.jpg");
+                    pista6.setImage(i6);                    
+                    for(int i =0; i < l.size(); i++){
+                        String courtname = books.get(i).getCourt().getName();
+                        LocalTime begin = books.get(i).getFromTime();
+                        System.out.println("Memuero");
+                        
+                        if(begin.equals(timeBegin)){
+                            System.out.println("Hasta aqui bien");
+                            switch(courtname){
+                                case "p0":
+                                    i1 = new Image("/img/wiilabuenaBooked.png");
+                                    pista1.setImage(i1);
+                                break;
+                                case "p1":
+                                    System.out.println("falla p1");                                    
+                                    i2 = new Image("/img/pista5labuenaBooked.jpg");
+                                    pista2.setImage(i2);
+                                break;
+                                case "p2":
+                                System.out.println("falla p2");
+                                    
+                                    i3 = new Image("/img/pista6labuenaBooked.jpeg");
+                                    pista2.setImage(i3);
+                                break;
+                                case "p3":
+                                System.out.println("falla p3");
+                                    
+                                    i4 = new Image("/img/pista3labuenaBooked.jpg");
+                                    pista2.setImage(i4);
+                                break;
+                                case "p4":
+                                System.out.println("falla p4");
+                                    
+                                    i5 = new Image("/img/pista2labuenaBooked.jpg");
+                                    pista2.setImage(i5);
+                                break; 
+                                case "p5":
+                                System.out.println("falla p5");
+                                    
+                                    i6 = new Image("/img/pistaMarioReservada.jpg");
+                                    pista6.setImage(i6);
+                                    System.out.println("xs");
+                                break;                                 
+                            }
+                        
+                        
+                        
+                        
+                    
+                    
+                    
+                    
+                        }
+                    
+                    
+                    
+                    
+                
+                }            
         });
         
         MenuItems.selectedToggleProperty().addListener((observable, oldvalue, newvalue)->{
@@ -271,23 +352,7 @@ public class CourtsViewController implements Initializable {
          
 
         
-    /*    pista1.imageProperty().addListener((observable, oldvalue, newvalue) ->{
-            if(MenuItems.selectedToggleProperty() != null || day.valueProperty() != null){
-            l = club.getCourtBookings("court 1",daySelected);
-            for (int i = 0; i < books.size(); i++) {
-                if(books.get(i).getFromTime().equals(timeBegin)){                    
-                    Image i1 = new Image("/img/wiilabuenaBooked.png");
-                    pista1.setImage(i1);
-                    p1 = false;
-                    break;
-                }
-                else{p1 = true;}
-                
-            }
-            } 
-            
-        });
-        */
+
         
         
        MenuItems.selectedToggleProperty().addListener((observable, oldvalue, newvalue)->{
@@ -295,6 +360,23 @@ public class CourtsViewController implements Initializable {
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
                     System.out.print(l.size());
+                    List<Court> courts = club.getCourts();
+                    for(int i = 0; i <6; i++){
+                       courts.get(i).setName("p"+i);
+
+                    }
+                    Image i1 = new Image("/img/wiilabuena.png");
+                    pista1.setImage(i1);
+                    Image i2 = new Image("/img/pista3labuena.jpg");
+                    pista2.setImage(i2);
+                    Image i3 = new Image("/img/pista5labuena.jpg");
+                    pista3.setImage(i3);
+                    Image i4 = new Image("/img/pista2labuena.jpg");
+                    pista4.setImage(i4);
+                    Image i5 = new Image("/img/pista6labuena.jpeg");
+                    pista5.setImage(i5);
+                    Image i6 = new Image("/img/mario tennislabuena.jpg");
+                    pista6.setImage(i6);                    
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
@@ -303,39 +385,38 @@ public class CourtsViewController implements Initializable {
                         if(begin.equals(timeBegin)){
                             System.out.println("Hasta aqui bien");
                             switch(courtname){
-                                case "pista 1":
-                                    System.out.println("Lee las courts");
-                                    Image i1 = new Image("/img/wiilabuenaBooked.png");
+                                case "p0":
+                                    i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
                                 break;
-                                case "pista 2":
-                                System.out.println("Lee las courts");                                    
-                                    Image i2 = new Image("/img/pista5labuenaBooked");
+                                case "p1":
+                                    System.out.println("falla p1");                                    
+                                    i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
                                 break;
-                                case "pista 3":
-                                System.out.println("Lee las courts");
+                                case "p2":
+                                System.out.println("falla p2");
                                     
-                                    Image i3 = new Image("/img/pista6labuenaBooked");
-                                    pista2.setImage(i3);
+                                    i3 = new Image("/img/pista6labuenaBooked.jpeg");
+                                    pista3.setImage(i3);
                                 break;
-                                case "pista 4":
-                                System.out.println("Lee las courts");
+                                case "p3":
+                                System.out.println("falla p3");
                                     
-                                    Image i4 = new Image("/img/pista3labuenaBooked");
-                                    pista2.setImage(i4);
+                                    i4 = new Image("/img/pista3labuenaBooked.jpg");
+                                    pista4.setImage(i4);
                                 break;
-                                case "pista 5":
-                                System.out.println("Lee las courts");
+                                case "p4":
+                                System.out.println("falla p4");
                                     
-                                    Image i5 = new Image("/img/pista2labuenaBooked");
-                                    pista2.setImage(i5);
+                                    i5 = new Image("/img/pista2labuenaBooked.jpg");
+                                    pista5.setImage(i5);
                                 break; 
-                                case "pista 6":
-                                System.out.println("Lee las courts");
+                                case "p5":
+                                System.out.println("falla p5");
                                     
-                                    Image i6 = new Image("/img/pistaMarioReservada");
-                                    pista2.setImage(i6);
+                                    i6 = new Image("/img/pistaMarioReservada.jpg");
+                                    pista6.setImage(i6);
                                     System.out.println("xs");
                                 break;                                 
                             }
