@@ -56,7 +56,7 @@ public class BookingsController implements Initializable {
     private TableColumn<Booking, String> paidColumn;
     
     public List<Booking> arrayBooking = new ArrayList<>();
-    public ObservableList<Booking> bookingList = FXCollections.observableArrayList();
+    public ObservableList<Booking> bookingList = FXCollections.observableArrayList(arrayBooking);
     @FXML
     private Button homeButton;
     @FXML
@@ -97,13 +97,10 @@ public class BookingsController implements Initializable {
         paidColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getPaid().toString()));
         
         TableView.setItems(bookingList);
-        /*cancelButton.disableProperty().bind(Bindings.or(
-                Bindings.or(
-                Utils.checkTime(TableView.getSelectionModel.getSelectedItem().getBookingDate())
-                bookingList.size().isEqualTo(0)))),
-                TableView.getSelectionModel().selectedIndexProperty().isEqualTo(-1))
+        cancelButton.disableProperty().bind(Bindings.or(
+                new SimpleBooleanProperty(bookingList.isEmpty()),Bindings.equal(TableView.getSelectionModel().selectedIndexProperty(), -1))
         );
-        */
+        // new SimpleBooleanProperty(Utils.checkTime(TableView.getSelectionModel().getSelectedItem().getBookingDate())
         
         
     }    
