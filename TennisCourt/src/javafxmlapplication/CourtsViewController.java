@@ -34,6 +34,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
@@ -52,6 +53,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
+import model.ClubDAOException;
 import model.Court;
 import model.Member;
 import static model.sub.SqliteConnection.connectSqlite;
@@ -94,7 +96,6 @@ public class CourtsViewController implements Initializable {
     private final Duration slotLength = Duration.ofMinutes(60);
     private final LocalTime lastSlotStart = LocalTime.of(21, 0);
     
-    private static final PseudoClass SELECTED_PSEUDO_CLASS = PseudoClass.getPseudoClass("selected");
 
     //private List<TimeSlotMenuItem> timeSlots = new ArrayList<>(); //Para varias columnas List<List<TimeSolt>>
 
@@ -103,6 +104,7 @@ public class CourtsViewController implements Initializable {
     private LocalDate daySelected;
     private LocalTime timeBegin;
     private LocalTime timeEnd;
+    private LocalDateTime now = LocalDateTime.of(LocalDate.now(),LocalTime.now());
     
     @FXML
     private DatePicker day;
@@ -122,6 +124,11 @@ public class CourtsViewController implements Initializable {
     private ObservableList<Booking> books = FXCollections.observableArrayList();
     
     private boolean p1 = true;
+    private boolean p2 = true;
+    private boolean p3 = true;
+    private boolean p4 = true;
+    private boolean p5 = true;
+    private boolean p6 = true;
     
     
 
@@ -157,6 +164,15 @@ public class CourtsViewController implements Initializable {
     private RadioMenuItem ochoanueve;
     
     private int max1 = 0;
+    private int max2 = 0;
+    private int max3 = 0;
+    private int max4 = 0;
+    private int max5 = 0;
+    private int max6 = 0;
+    @FXML
+    private RadioMenuItem nueveadiezpm;
+    @FXML
+    private ToggleGroup MenuItems1;
     
     
     
@@ -170,7 +186,13 @@ public class CourtsViewController implements Initializable {
         
         }
         catch(Exception e){}
-       
+ //ponemos el max time a 0
+        int max1 = 0;
+        int max2 = 0;
+        int max3 = 0;
+        int max4 = 0;
+        int max5 = 0;
+        int max6 = 0;
         
         
         //---------------------------------------------------------------------
@@ -186,11 +208,15 @@ public class CourtsViewController implements Initializable {
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
                     System.out.print(l.size());
+                    
+//poner nombre a las pistas                    
                     List<Court> courts = club.getCourts();
                     for(int i = 0; i <6; i++){
                        courts.get(i).setName("p"+i);
 
                     }
+//poner las imagenes bien para luego cambiarlas
+
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
                     Image i2 = new Image("/img/pista3labuena.jpg");
@@ -202,7 +228,19 @@ public class CourtsViewController implements Initializable {
                     Image i5 = new Image("/img/pista6labuena.jpeg");
                     pista5.setImage(i5);
                     Image i6 = new Image("/img/mario tennislabuena.jpg");
-                    pista6.setImage(i6);                    
+                    pista6.setImage(i6);  
+                    
+                    
+//poner a true todas las variables otra vez
+                    p1 = true;
+                    p2 = true;
+                    p3 = true;
+                    p4 = true;
+                    p5 = true;
+                    p6 = true;
+
+
+
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
@@ -214,29 +252,34 @@ public class CourtsViewController implements Initializable {
                                 case "p0":
                                     i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    p1 = false;
                                 break;
                                 case "p1":
                                     System.out.println("falla p1");                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
+                                    p2 = false;
                                 break;
                                 case "p2":
                                 System.out.println("falla p2");
                                     
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
                                     pista2.setImage(i3);
+                                    p3 = false;
                                 break;
                                 case "p3":
                                 System.out.println("falla p3");
                                     
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
                                     pista2.setImage(i4);
+                                    p4 = false;
                                 break;
                                 case "p4":
                                 System.out.println("falla p4");
                                     
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
                                     pista2.setImage(i5);
+                                    p5 = false;
                                 break; 
                                 case "p5":
                                 System.out.println("falla p5");
@@ -244,6 +287,7 @@ public class CourtsViewController implements Initializable {
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
                                     System.out.println("xs");
+                                    p6 = false;
                                 break;                                 
                             }
                         
@@ -329,12 +373,17 @@ public class CourtsViewController implements Initializable {
             
             }            
         
-            if(nueveadiez.isSelected()){
+            if(ochoanueve.isSelected()){
                 timeBegin = LocalTime.of(20,0);
                 timeEnd = LocalTime.of(21, 0);
             
-            }            
-        
+            } 
+            
+             if(nueveadiezpm.isSelected()){
+                timeBegin = LocalTime.of(20,0);
+                timeEnd = LocalTime.of(21, 0);
+            
+            }         
         
         
         
@@ -360,11 +409,23 @@ public class CourtsViewController implements Initializable {
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
                     System.out.print(l.size());
+                   
+//poner nombre a las pistas                    
                     List<Court> courts = club.getCourts();
                     for(int i = 0; i <6; i++){
                        courts.get(i).setName("p"+i);
 
                     }
+                    
+//poner a true todas las variables otra vez
+                    p1 = true;
+                    p2 = true;
+                    p3 = true;
+                    p4 = true;
+                    p5 = true;
+                    p6 = true;
+
+//poner las imagenes al sitio                    
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
                     Image i2 = new Image("/img/pista3labuena.jpg");
@@ -462,14 +523,16 @@ public class CourtsViewController implements Initializable {
         pista5.setImage(image5);
         Image image6 = new Image("/img/mario tennislabuena.jpg");
         pista6.setImage(image6);
-        informationMessage.setVisible(false);
+       
         accountProfile.setUnderline(false);
+        
+        informationMessage.visibleProperty().bind(nueveadiezpm.selectedProperty());
         
         if(m != null){
             accountProfile.setText(m.getNickName()); 
         }
         else{
-            accountProfile.setText("You want to make a reservation? Sign Up!");
+            accountProfile.setText("You want to make a reservation? Log In!");
         }
         
         day.setDayCellFactory((DatePicker picker) -> {
@@ -506,11 +569,7 @@ public class CourtsViewController implements Initializable {
     
     }
 
-    private void showInformationMessage(ActionEvent event) {
 
-        informationMessage.setVisible(true);
-    
-    }
 
     @FXML
     private void quitarSubrayarTexto(MouseEvent event) {
@@ -559,10 +618,33 @@ public class CourtsViewController implements Initializable {
     }
 
     @FXML
-    private void reservaPista1(MouseEvent event) {
-        if(p1 && max1 != 2){
+    private void reservaPista1(MouseEvent event) throws ClubDAOException{
+        Alert a;
+        System.out.print("Hola hola holaaa");
+        if(p1 && max1 < 2 && m != null){
             max1++;
-            
+            club.registerBooking(now, daySelected, timeBegin,false, c, m);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+        
+        }
+        else if(m == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
+        }
+        else{
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        
         
         }
     }
@@ -612,26 +694,7 @@ public class CourtsViewController implements Initializable {
     
     }
     
-    private void unselectOtherItems(CheckMenuItem selectedItem){
-       for(CheckMenuItem menuItem : ol) {
-           if(menuItem != selectedItem){
-               menuItem.setSelected(false);
-           }
 
-       }
-
-    }
-    
-    private boolean containsDate(List l, LocalTime t ){
-    
-       Booking[] ba = (Booking[]) l.toArray();
-       for(int i = 0; i < ba.length; i++){
-           if(ba[i].getFromTime().equals(t)){
-               return true;
-           }
-       }
-    return false;
-    }
     
  
 }

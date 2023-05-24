@@ -69,6 +69,11 @@
                               <RadioMenuItem fx:id="seisasiete" mnemonicParsing="false" text="18:00 - 19:00" toggleGroup="$MenuItems" />
                               <RadioMenuItem fx:id="sieteaocho" mnemonicParsing="false" text="19:00 - 20:00" toggleGroup="$MenuItems" />
                               <RadioMenuItem fx:id="ochoanueve" mnemonicParsing="false" text="20:00 - 21:00" toggleGroup="$MenuItems" />
+                              <RadioMenuItem fx:id="nueveadiezpm" mnemonicParsing="false" text="21:00 - 22:00">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="MenuItems1" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
                            </items>
                         </SplitMenuButton>
                      </children>
@@ -85,7 +90,7 @@
                <children>
                   <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista1" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="25.0" top="30.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/wiilabuena.png" />
@@ -93,12 +98,12 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 1">
                      <VBox.margin>
-                        <Insets left="85.0" />
+                        <Insets left="80.0" />
                      </VBox.margin>
                   </Text>
                   <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista4" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets left="30.0" top="20.0" />
+                        <Insets left="25.0" top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista3labuena.jpg" />
@@ -106,7 +111,7 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 4">
                      <VBox.margin>
-                        <Insets left="85.0" />
+                        <Insets left="80.0" />
                      </VBox.margin>
                   </Text>
                </children>
