@@ -26,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
+import static javafxmlapplication.JavaFXMLApplication.member;
 import static javafxmlapplication.RegistryController.Main;
 import model.Club;
 import model.Member;
@@ -59,8 +60,6 @@ public class MainStageController  implements Initializable{
     @FXML
     private MenuItem bookings;
     
-    private Member m = null;
-
     
     
 
@@ -88,7 +87,13 @@ public class MainStageController  implements Initializable{
         }
         catch(Exception e){}
         
-       
+       if(member!=null){
+            accountInfo.setVisible(true);
+            accountInfo.setText(member.getNickName());
+            Image jiji = member.getImage();
+            imageProfile.setImage(jiji);
+            bookings.setDisable(false);
+       }
        
 
 
@@ -182,18 +187,18 @@ public class MainStageController  implements Initializable{
     }
     
     public void setMember(Member member){
-        this.m = member;
+        /*this.m = member;
         accountInfo.setVisible(true);
         accountInfo.setText(member.getNickName());
         Image jiji = member.getImage();
         imageProfile.setImage(jiji);
         bookings.setDisable(false);
-
+        */
     }
 
     @FXML
     private void changeToBooking(ActionEvent event) throws Exception {
-        if(m != null){
+        if(member != null){
 
             FXMLLoader loader = new  FXMLLoader(getClass().getResource("Bookings.fxml"));
             Parent root = loader.load();

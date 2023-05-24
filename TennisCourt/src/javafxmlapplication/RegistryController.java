@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import static javafxmlapplication.JavaFXMLApplication.member;
 import model.Club;
 import model.ClubDAOException;
 import model.Member;
@@ -49,7 +50,6 @@ public class RegistryController implements Initializable {
     @FXML
     private Button SignUpButton;
 
-    public Member m;
     @FXML
     private ImageView pelotazas;
     /**
@@ -69,17 +69,17 @@ public class RegistryController implements Initializable {
             if(c.existsLogin(UserField.getText())){
                 System.out.println("Entra");
                 String temp;
-                m= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
+                member= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
                                 System.out.println("Entra2");
-                temp= m.getPassword();
+                temp= member.getPassword();
                                 System.out.println(temp);
-                if(!m.equals(null)&&temp.equals(PasswordField.getText())){
+                if(!member.equals(null)&&temp.equals(PasswordField.getText())){
                    
                     System.out.println("Funciona");
                            FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
                            Parent root = loader.load();
-                           MainStageController controlador=  loader.getController(); 
-                           controlador.setMember(m);
+                           //MainStageController controlador=  loader.getController(); 
+                           //controlador.setMember(m);
                            
                             Scene nueva = new Scene(root);
                             Node n = (Node) AcceptButton;
