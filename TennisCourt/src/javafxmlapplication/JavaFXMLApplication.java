@@ -5,11 +5,16 @@
  */
 package javafxmlapplication;
 
+import java.util.List;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Club;
+import model.Court;
 
 
 public class JavaFXMLApplication extends Application {
@@ -31,6 +36,22 @@ public class JavaFXMLApplication extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("MainStage");
+        
+        Club club = Club.getInstance();
+        
+        
+        List<Court> courts = club.getCourts();
+        ObservableList<Court> courtOb = FXCollections.observableList(courts);
+        for(int i = 1; i <7; i++){
+           courtOb.get(i).setName("pista "+i);
+        
+        }        
+        
+        Club c = Club.getInstance();
+        
+        c.setInitialData();
+        
+        c.addSimpleData();
         
         
         

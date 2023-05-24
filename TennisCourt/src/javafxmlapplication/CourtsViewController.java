@@ -41,7 +41,9 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -111,40 +113,53 @@ public class CourtsViewController implements Initializable {
     private int value;
     private MenuItem selected;
     
-    @FXML
     private CheckMenuItem prova;
     
     private ObservableList<CheckMenuItem> ol = FXCollections.observableArrayList();
     
+    private List<Booking> l = new ArrayList<>();
+    
     private ObservableList<Booking> books = FXCollections.observableArrayList();
+    
+    private boolean p1 = true;
     
     
 
     /**
      * Initializes the controller class.
      */
+
     @FXML
-    private CheckMenuItem prova1;
+    private RadioMenuItem nueveadiez;
     @FXML
-    private CheckMenuItem prova2;
+    private ToggleGroup MenuItems;
     @FXML
-    private CheckMenuItem prova3;
+    private RadioMenuItem diezaonce;
     @FXML
-    private CheckMenuItem prova4;
+    private RadioMenuItem onceadoce;
     @FXML
-    private CheckMenuItem prova5;
+    private RadioMenuItem doceauna;
     @FXML
-    private CheckMenuItem prova6;
+    private RadioMenuItem unaados;
     @FXML
-    private CheckMenuItem prova7;
+    private RadioMenuItem unaatres;
     @FXML
-    private CheckMenuItem prova8;
+    private RadioMenuItem tresacuatro;
     @FXML
-    private CheckMenuItem prova9;
+    private RadioMenuItem cuatroacinco;
     @FXML
-    private CheckMenuItem prova10;
+    private RadioMenuItem cincoaseis;
     @FXML
-    private CheckMenuItem prova11;
+    private RadioMenuItem seisasiete;
+    @FXML
+    private RadioMenuItem sieteaocho;
+    @FXML
+    private RadioMenuItem ochoanueve;
+    
+    private int max1 = 0;
+    
+    
+    
     
     
     
@@ -156,189 +171,201 @@ public class CourtsViewController implements Initializable {
         }
         catch(Exception e){}
        
-        ol.add(prova);
-        ol.add(prova1);
-        ol.add(prova2);
-        ol.add(prova3);
-        ol.add(prova4);
-        ol.add(prova5);
-        ol.add(prova6);
-        ol.add(prova7);
-        ol.add(prova8);
-        ol.add(prova9);
-        ol.add(prova10);
-        ol.add(prova11);
+        
         
         //---------------------------------------------------------------------
         //inicializa el DatePicker al dia actual
         day.setValue(LocalDate.now());        
-
+        
+        day.valueProperty().addListener((observable, oldvalue, newvalue)->{
+            daySelected = newvalue;
+            System.out.print(daySelected.getDayOfMonth());
+        });
+        
+        MenuItems.selectedToggleProperty().addListener((observable, oldvalue, newvalue)->{
+            
+            if(nueveadiez.isSelected()){
+                timeBegin = LocalTime.of(9,0);
+                timeEnd = LocalTime.of(10, 0);
+                
+                System.out.println(timeBegin.getHour());
+            
+            }
+            
+            if(diezaonce.isSelected()){
+                timeBegin = LocalTime.of(10,0);
+                timeEnd = LocalTime.of(11, 0);
+            
+            }            
+            if(onceadoce.isSelected()){
+                timeBegin = LocalTime.of(11,0);
+                timeEnd = LocalTime.of(12, 0);
+            
+            }           
+            if(doceauna.isSelected()){
+                timeBegin = LocalTime.of(12,0);
+                timeEnd = LocalTime.of(13, 0);
+            
+            }            
+            if(unaados.isSelected()){
+                timeBegin = LocalTime.of(13,0);
+                timeEnd = LocalTime.of(14, 0);
+            
+            }            
+            if(unaatres.isSelected()){
+                timeBegin = LocalTime.of(14,0);
+                timeEnd = LocalTime.of(15, 0);
+            
+            }            
+            
+            if(tresacuatro.isSelected()){
+                timeBegin = LocalTime.of(15,0);
+                timeEnd = LocalTime.of(16, 0);
+            
+            }            
+            
+            if(cuatroacinco.isSelected()){
+                timeBegin = LocalTime.of(16,0);
+                timeEnd = LocalTime.of(17, 0);
+            
+            }            
+            
+            if(cincoaseis.isSelected()){
+                timeBegin = LocalTime.of(17,0);
+                timeEnd = LocalTime.of(18, 0);
+            
+            }            
+            
+            if(seisasiete.isSelected()){
+                timeBegin = LocalTime.of(18,0);
+                timeEnd = LocalTime.of(19, 0);
+            
+            }            
+            
+            if(sieteaocho.isSelected()){
+                timeBegin = LocalTime.of(19,0);
+                timeEnd = LocalTime.of(20, 0);
+            
+            }            
+        
+            if(nueveadiez.isSelected()){
+                timeBegin = LocalTime.of(20,0);
+                timeEnd = LocalTime.of(21, 0);
+            
+            }            
+        
+        
+        
+        
+        
+        
+        
+        
+        });
+        
+        
+        
         
 
-        prova.setOnAction(e ->{
-         if(prova.isSelected()){
-             timeBegin = firstSlotStart;
-             timeEnd = LocalTime.of(10,0);
-             unselectOtherItems(prova);
-         }
-        });
+        
          
-        prova1.setOnAction(e->{
-        if(prova1.isSelected()){
-             timeBegin = LocalTime.of(10,0);
-             timeEnd = LocalTime.of(11,0);
-             unselectOtherItems(prova1);
-             
-         }
-        });
-        
-        
-        prova2.setOnAction(e->{
-         if(prova2.isSelected()){
-             timeBegin = LocalTime.of(11,0);
-             timeEnd = LocalTime.of(12,0);
-             unselectOtherItems(prova2);
-            
-         }
-        });
-        
-        prova3.setOnAction(e->{
 
-         if(prova3.isSelected()){
-             timeBegin = LocalTime.of(12,0);
-             timeEnd = LocalTime.of(13,0);
-             unselectOtherItems(prova3);
-             
-         }});
+        
+    /*    pista1.imageProperty().addListener((observable, oldvalue, newvalue) ->{
+            if(MenuItems.selectedToggleProperty() != null || day.valueProperty() != null){
+            l = club.getCourtBookings("court 1",daySelected);
+            for (int i = 0; i < books.size(); i++) {
+                if(books.get(i).getFromTime().equals(timeBegin)){                    
+                    Image i1 = new Image("/img/wiilabuenaBooked.png");
+                    pista1.setImage(i1);
+                    p1 = false;
+                    break;
+                }
+                else{p1 = true;}
+                
+            }
+            } 
+            
+        });
+        */
+        
+        
+       MenuItems.selectedToggleProperty().addListener((observable, oldvalue, newvalue)->{
+                System.out.println("Que esta pasando");
+                    l = club.getForDayBookings(daySelected);
+                    books = FXCollections.observableArrayList(l);
+                    System.out.print(l.size());
+                    for(int i =0; i < l.size(); i++){
+                        String courtname = books.get(i).getCourt().getName();
+                        LocalTime begin = books.get(i).getFromTime();
+                        System.out.println("Memuero");
+                        
+                        if(begin.equals(timeBegin)){
+                            System.out.println("Hasta aqui bien");
+                            switch(courtname){
+                                case "pista 1":
+                                    System.out.println("Lee las courts");
+                                    Image i1 = new Image("/img/wiilabuenaBooked.png");
+                                    pista1.setImage(i1);
+                                break;
+                                case "pista 2":
+                                System.out.println("Lee las courts");                                    
+                                    Image i2 = new Image("/img/pista5labuenaBooked");
+                                    pista2.setImage(i2);
+                                break;
+                                case "pista 3":
+                                System.out.println("Lee las courts");
+                                    
+                                    Image i3 = new Image("/img/pista6labuenaBooked");
+                                    pista2.setImage(i3);
+                                break;
+                                case "pista 4":
+                                System.out.println("Lee las courts");
+                                    
+                                    Image i4 = new Image("/img/pista3labuenaBooked");
+                                    pista2.setImage(i4);
+                                break;
+                                case "pista 5":
+                                System.out.println("Lee las courts");
+                                    
+                                    Image i5 = new Image("/img/pista2labuenaBooked");
+                                    pista2.setImage(i5);
+                                break; 
+                                case "pista 6":
+                                System.out.println("Lee las courts");
+                                    
+                                    Image i6 = new Image("/img/pistaMarioReservada");
+                                    pista2.setImage(i6);
+                                break;                                 
+                            }
+                        
+                        
+                        
+                        
+                    
+                    
+                    
+                    
+                        }
+                    
+                    
+                    
+                    
+                
+                }
+        
+        
+        
+        });
+        
 
-        prova4.setOnAction(e->{
         
-         if(prova4.isSelected()){
-             timeBegin = LocalTime.of(13,0);
-             timeEnd = LocalTime.of(14,0);
-             unselectOtherItems(prova4);
-             
-         }});
-
-        prova5.setOnAction(e->{
-        
-         if(prova5.isSelected()){
-             timeBegin = LocalTime.of(14,0);
-             timeEnd = LocalTime.of(15,0);
-             unselectOtherItems(prova5);
-             
-         }});
-        
-        prova6.setOnAction(e->{
-        
-         if(prova6.isSelected()){
-             timeBegin = LocalTime.of(15,0);
-             timeEnd = LocalTime.of(16,0);
-             unselectOtherItems(prova6);
-             
-         }
-        });
-        
-        prova7.setOnAction(e->{
-        
-         if(prova7.isSelected()){
-             timeBegin = LocalTime.of(16,0);
-             timeEnd = LocalTime.of(17,0);
-             unselectOtherItems(prova7);
-             
-         }});
-        
-        prova8.setOnAction(e->{
-        
-         if(prova8.isSelected()){
-             timeBegin = LocalTime.of(17,0);
-             timeEnd = LocalTime.of(18,0);
-             unselectOtherItems(prova8);
-             
-         }});
-        
-        prova1.setOnAction(e->{
-        
-         if(prova9.isSelected()){
-             timeBegin = LocalTime.of(18,0);
-             timeEnd = LocalTime.of(19,0);
-             unselectOtherItems(prova9);
-             
-         }});
-        
-        prova10.setOnAction(e->{
-        
-         if(prova10.isSelected()){
-             timeBegin = LocalTime.of(19,0);
-             timeEnd = LocalTime.of(20,0);
-             unselectOtherItems(prova10);
-             
-         }});
-        
-        prova11.setOnAction(e->{
-        
-         if(prova11.isSelected()){
-             timeBegin = LocalTime.of(20,0);
-             timeEnd = LocalTime.of(21,0);
-             unselectOtherItems(prova11);
-             
-         }});
-        
-        pista1.imageProperty().addListener(e ->{
-            
-            List<Booking> list1 = club.getCourtBookings("court 1",daySelected);
-            if(!containsDate(list1,timeBegin)){
-                Image p1 = new Image("/img/wiibuenaBooked");
-                pista1.setImage(p1);
-            }
-        });
-
-        pista2.imageProperty().addListener(e ->{
-            
-            List<Booking> list2 = club.getCourtBookings("court 2",daySelected);
-            if(!containsDate(list2,timeBegin)){
-                Image p2 = new Image("/img/pista3labuenaBooked");
-                pista2.setImage(p2);
-            }
-        });
-        pista3.imageProperty().addListener(e ->{
-            
-            List<Booking> list3 = club.getCourtBookings("court 3",daySelected);
-            if(!containsDate(list3,timeBegin)){
-                Image p3 = new Image("/img/pista5labuenaBooked");
-                pista3.setImage(p3);
-            }
-        });
-        pista4.imageProperty().addListener(e ->{
-            
-            List<Booking> list4 = club.getCourtBookings("court 4",daySelected);
-            if(!containsDate(list4,timeBegin)){
-                Image p4 = new Image("/img/pista2labuenaBooked");
-                pista4.setImage(p4);
-            }
-        });
-        pista5.imageProperty().addListener(e ->{
-            
-            List<Booking> list5 = club.getCourtBookings("court 5",daySelected);
-            if(!containsDate(list5,timeBegin)){
-                Image p5 = new Image("/img/pista6labuenaBooked");
-                pista5.setImage(p5);
-            }
-        });
-        pista6.imageProperty().addListener(e ->{
-            
-            List<Booking> list6 = club.getCourtBookings("court 6",daySelected);
-            if(!containsDate(list6,timeBegin)){
-                Image p6 = new Image("/img/pistaMarioReservada");
-                pista6.setImage(p6);
-            }
-        });
         
         
 
         //---------------------------------------------------------------------
-        // pinta los SlotTime en el grid
-        //setTimesSlotsMenuItem(day.getValue());
+        
+
 
         
         Image image1 = new Image("/img/wiilabuena.png");
@@ -451,11 +478,11 @@ public class CourtsViewController implements Initializable {
 
     @FXML
     private void reservaPista1(MouseEvent event) {
-        court = "court 1";
-        c = club.getCourt(court);
+        if(p1 && max1 != 2){
+            max1++;
+            
         
-        
-    
+        }
     }
 
     @FXML
