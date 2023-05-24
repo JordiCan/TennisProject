@@ -87,6 +87,7 @@ public class MainStageController  implements Initializable{
         }
         catch(Exception e){}
         
+        //accountInfo.visbleProperty().addListener((observable,oldvalue,newvalue)->{});
        if(member!=null){
             accountInfo.setVisible(true);
             accountInfo.setText(member.getNickName());

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package javafxmlapplication;
+import static javafxmlapplication.JavaFXMLApplication.member;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -183,11 +184,11 @@ public class SignUpController implements Initializable {
         !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())) //Falta CSC SVC)
         {
             if(svc.getText().equals("")){
-                m= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
+                member= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
                         passwordField.getText(), creditcardField.getText(), -1, avatar);
             }
             else{
-                m= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
+                member= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
                         passwordField.getText(), creditcardField.getText(), Integer.parseInt(svc.getText()), avatar);
  
             }

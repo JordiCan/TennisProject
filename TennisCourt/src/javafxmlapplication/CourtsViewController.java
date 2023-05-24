@@ -51,6 +51,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static javafxmlapplication.JavaFXMLApplication.member;
 import model.Booking;
 import model.Club;
 import model.ClubDAOException;
@@ -84,7 +85,6 @@ public class CourtsViewController implements Initializable {
     @FXML
     private Text accountProfile;
     
-    private Member m = null;
     
     private String court;
     
@@ -195,6 +195,7 @@ public class CourtsViewController implements Initializable {
         int max6 = 0;
         
         
+        
         //---------------------------------------------------------------------
         //inicializa el DatePicker al dia actual
         day.setValue(LocalDate.now());        
@@ -219,13 +220,13 @@ public class CourtsViewController implements Initializable {
 
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
-                    Image i2 = new Image("/img/pista3labuena.jpg");
+                    Image i2 = new Image("/img/pista5labuena.jpg");
                     pista2.setImage(i2);
-                    Image i3 = new Image("/img/pista5labuena.jpg");
+                    Image i3 = new Image("/img/pista6labuena.jpeg");
                     pista3.setImage(i3);
-                    Image i4 = new Image("/img/pista2labuena.jpg");
+                    Image i4 = new Image("/img/pista3labuena.jpg");
                     pista4.setImage(i4);
-                    Image i5 = new Image("/img/pista6labuena.jpeg");
+                    Image i5 = new Image("/img/pista2labuena.jpg");
                     pista5.setImage(i5);
                     Image i6 = new Image("/img/mario tennislabuena.jpg");
                     pista6.setImage(i6);  
@@ -528,8 +529,8 @@ public class CourtsViewController implements Initializable {
         
         informationMessage.visibleProperty().bind(nueveadiezpm.selectedProperty());
         
-        if(m != null){
-            accountProfile.setText(m.getNickName()); 
+        if(member != null){
+            accountProfile.setText("Check here your bookings "+member.getNickName()+"!"); 
         }
         else{
             accountProfile.setText("You want to make a reservation? Log In!");
@@ -584,7 +585,7 @@ public class CourtsViewController implements Initializable {
     @FXML
     private void irAlRegister(MouseEvent event) throws Exception {
         
-        if(m == null){
+        if(member == null){
             FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
             Parent root = loader.load();
             Scene nueva = new Scene(root);
@@ -595,7 +596,7 @@ public class CourtsViewController implements Initializable {
             stage.show();
         }
         else{
-            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Bookings.fxml"));
             Parent root = loader.load();
             Scene nueva = new Scene(root);
             Node n = (Node) homeButton;
@@ -613,32 +614,34 @@ public class CourtsViewController implements Initializable {
     
     }
     
-    public void setMember(Member member){
-        this.m = member;
-    }
+
 
     @FXML
     private void reservaPista1(MouseEvent event) throws ClubDAOException{
         Alert a;
         System.out.print("Hola hola holaaa");
-        if(p1 && max1 < 2 && m != null){
+        c = club.getCourt("p0");        
+        if(p1 && max1 < 2 && member != null && MenuItems.getSelectedToggle() != null 
+                && !pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
             max1++;
-            club.registerBooking(now, daySelected, timeBegin,false, c, m);
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
             a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
+            Image mismuertos = new Image("/img/wiilabuenaBooked.png");
+            pista1.setImage(mismuertos);
         
         }
-        else if(m == null){
+        else if(member == null){
             a = new Alert(AlertType.ERROR);
             a.setTitle("No member registered");
             a.setHeaderText("Member resgistry error");
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else{
+        else if(max1 == 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -647,50 +650,236 @@ public class CourtsViewController implements Initializable {
         
         
         }
+        else if(pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
+            System.out.print("eres tonto esta reservada");
+        
+        }
+        else{
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        }
     }
 
     @FXML
-    private void reservaPista4(MouseEvent event) {
-        court = "court 4";
-        c = club.getCourt(court);
+    private void reservaPista4(MouseEvent event) throws ClubDAOException {
+        Alert a;
+        c = club.getCourt("p3");
+        System.out.print("Hola hola holaaa");
+        if(p4 && max4 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+            max4++;
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+            Image locaconmitigre = new Image("/img/pista3labuenaBooked.jpg");
+            pista4.setImage(locaconmitigre);
+            p4 = false;            
+        
+        }
+        else if(member == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
 
+        }
+        else if (max4 == 2){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        }
+        else if(pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
+            System.out.print("eres tonto esta reservada");
+        
+        }        
+        else{            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        }
     
     
     }
 
     @FXML
-    private void reservaPista2(MouseEvent event) {
-        court = "court 2";
-        c = club.getCourt(court);
-
+    private void reservaPista2(MouseEvent event) throws ClubDAOException {
+        Alert a;
+        c = club.getCourt("p1");
+        System.out.print("Hola hola holaaa");
+        if(p2 && max2 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+            max2++;
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+            Image loca = new Image("/img/pista5labuenaBooked.jpg");
+            pista2.setImage(loca);
+            p2 = false;
+        
+        }
+        else if(member == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
+        }
+        else if(max2 == 2){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        }
+        else{            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        
+        }
     
     
     }
 
     @FXML
-    private void reservaPista5(MouseEvent event) {
-        court = "court 5";
+    private void reservaPista5(MouseEvent event) throws ClubDAOException {
+        court = "p4";
         c = club.getCourt(court);
-
+        Alert a;
+       if(p5 && max5 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+            max5++;
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+            Image loca = new Image("/img/pista2labuenaBooked.jpg");
+            pista5.setImage(loca);
+            p5 = false;
+        
+        }
+        else if(member == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
+        }
+        else if(max5 == 2){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        }
+        else{
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        
+        }
     
     
     }
 
     @FXML
-    private void reservaPista3(MouseEvent event) {
-        court = "court 3";
+    private void reservaPista3(MouseEvent event) throws ClubDAOException {
+        court = "p2";
         c = club.getCourt(court);
-
+     Alert a;
+       if(p3 && max3 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+            max3++;
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+            Image loca = new Image("/img/pista6labuenaBooked.jpeg");
+            pista3.setImage(loca);
+            p3 = false;
+        
+        }
+        else if(member == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
+        }
+        else if(max3 == 2){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        }
+        else{
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        
+        }
     
     
     }
 
     @FXML
-    private void reservaPista6(MouseEvent event) {
-        court = "court 6";
+    private void reservaPista6(MouseEvent event) throws ClubDAOException {
+        court = "p5";
         c = club.getCourt(court);
-
-    
+     Alert a;
+       if(p6 && max6 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+            max6++;
+            club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            a = new Alert(AlertType.INFORMATION);
+            a.setTitle("Hola guapo");
+            a.setHeaderText("Book confirmation");
+            a.setContentText("Your book has been realised correctly");
+            a.showAndWait();
+            Image loca = new Image("/img/pistaMarioReservada.jpg");
+            pista6.setImage(loca);
+            p6 = false;
+        
+        }
+        else if(member == null){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No member registered");
+            a.setHeaderText("Member resgistry error");
+            a.setContentText("You need to register in order to make your book");
+            a.showAndWait();
+        }
+        else if(max6 == 2){
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("Maximum hours exceeded");
+            a.setHeaderText("Hours exceeded error");
+            a.setContentText("You have exceeded the maximum hours permitted for this court");
+            a.showAndWait();
+        }
+        else{
+            a = new Alert(AlertType.ERROR);
+            a.setTitle("No hour selected error");
+            a.setHeaderText("No hour selected error");
+            a.setContentText("You must select an hour in order to make your book");
+            a.showAndWait();
+        }
     
     }
     
