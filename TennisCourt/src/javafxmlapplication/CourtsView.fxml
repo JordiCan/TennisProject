@@ -101,7 +101,7 @@
                         <Insets left="80.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista4" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista4" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="25.0" top="20.0" />
                      </VBox.margin>
@@ -118,7 +118,7 @@
             </VBox>
             <VBox prefHeight="300.0" prefWidth="224.0">
                <children>
-                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista2" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista2" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="50.0" top="30.0" />
                      </VBox.margin>
@@ -131,7 +131,7 @@
                         <Insets left="110.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista5" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista5" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="50.0" top="20.0" />
                      </VBox.margin>
@@ -148,7 +148,7 @@
             </VBox>
             <VBox prefHeight="300.0" prefWidth="202.0">
                <children>
-                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista3" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista3" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets left="30.0" top="30.0" />
                      </VBox.margin>
