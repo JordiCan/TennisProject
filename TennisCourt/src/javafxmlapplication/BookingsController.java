@@ -6,11 +6,15 @@ package javafxmlapplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,15 +63,23 @@ public class BookingsController implements Initializable {
     private Label nameField;
     @FXML
     private ImageView imageMember;
+    @FXML
+    private Button cancelButton;
+    @FXML
+    private Label errorLabel;
     
-
+   
     /**
      * Initializes the controller class.
      */
+    
+    public static LocalDateTime bookTime = null;
+    public static LocalDateTime currentTime=LocalDateTime.now();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            // TODO
+           // TODO
+            
         nameField.setVisible(true);
         nameField.setText(member.getNickName());
         Image jiji = member.getImage();
@@ -85,6 +97,15 @@ public class BookingsController implements Initializable {
         paidColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getPaid().toString()));
         
         TableView.setItems(bookingList);
+        /*cancelButton.disableProperty().bind(Bindings.or(
+                Bindings.or(
+                Utils.checkTime(TableView.getSelectionModel.getSelectedItem().getBookingDate())
+                bookingList.size().isEqualTo(0)))),
+                TableView.getSelectionModel().selectedIndexProperty().isEqualTo(-1))
+        );
+        */
+        
+        
     }    
 
     @FXML
@@ -98,6 +119,18 @@ public class BookingsController implements Initializable {
         stage.setResizable(true);
         stage.show();
     
+    }
+
+    @FXML
+    private void cancelBooking(ActionEvent event) throws ClubDAOException, IOException {
+        Club c= Club.getInstance();
+        c.removeBooking(TableView.getSelectionModel().getSelectedItem());
+        
+        bookingList.remove(TableView.getSelectionModel().getSelectedItem());
+        TableView.setItems(bookingList);
+        
+        
+        
     }
     
 }

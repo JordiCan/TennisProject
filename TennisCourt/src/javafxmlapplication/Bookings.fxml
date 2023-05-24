@@ -44,10 +44,10 @@
                <children>
                   <TableView fx:id="TableView" prefHeight="234.0" prefWidth="430.0">
                     <columns>
-                      <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-                      <TableColumn fx:id="hourColumn" prefWidth="75.0" text="Hour" />
-                        <TableColumn fx:id="courtColumn" prefWidth="75.0" text="Court" />
-                        <TableColumn fx:id="paidColumn" prefWidth="75.0" text="Paid" />
+                      <TableColumn fx:id="dateColumn" prefWidth="109.5999813079834" text="Date" />
+                      <TableColumn fx:id="hourColumn" prefWidth="87.20001220703125" text="Hour" />
+                        <TableColumn fx:id="courtColumn" prefWidth="109.60003662109375" text="Court" />
+                        <TableColumn fx:id="paidColumn" prefWidth="124.0" text="Paid" />
                     </columns>
                      <VBox.margin>
                         <Insets left="20.0" />
@@ -57,7 +57,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" minWidth="150.0" prefHeight="200.0" prefWidth="415.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" text="Cancel boooking" />
+                  <Button fx:id="cancelButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel boooking" />
                </children>
             </VBox>
          </children>
@@ -66,6 +66,15 @@
    <bottom>
       <HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="580.0">
          <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="553.0">
+               <children>
+                  <Label fx:id="errorLabel" visible="false">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#goMainMenu">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
