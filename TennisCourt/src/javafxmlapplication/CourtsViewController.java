@@ -220,13 +220,13 @@ public class CourtsViewController implements Initializable {
 
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
-                    Image i2 = new Image("/img/pista5labuena.jpg");
+                    Image i2 = new Image("/img/pista3labuena.jpg");
                     pista2.setImage(i2);
-                    Image i3 = new Image("/img/pista6labuena.jpeg");
+                    Image i3 = new Image("/img/pista5labuena.jpg");
                     pista3.setImage(i3);
-                    Image i4 = new Image("/img/pista3labuena.jpg");
+                    Image i4 = new Image("/img/pista2labuena.jpg");
                     pista4.setImage(i4);
-                    Image i5 = new Image("/img/pista2labuena.jpg");
+                    Image i5 = new Image("/img/pista6labuena.jpeg");
                     pista5.setImage(i5);
                     Image i6 = new Image("/img/mario tennislabuena.jpg");
                     pista6.setImage(i6);  
@@ -258,14 +258,14 @@ public class CourtsViewController implements Initializable {
                                 case "p1":
                                     System.out.println("falla p1");                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
-                                    pista2.setImage(i2);
+                                    pista3.setImage(i2);
                                     p2 = false;
                                 break;
                                 case "p2":
                                 System.out.println("falla p2");
                                     
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
-                                    pista2.setImage(i3);
+                                    pista5.setImage(i3);
                                     p3 = false;
                                 break;
                                 case "p3":
@@ -279,7 +279,7 @@ public class CourtsViewController implements Initializable {
                                 System.out.println("falla p4");
                                     
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
-                                    pista2.setImage(i5);
+                                    pista4.setImage(i5);
                                     p5 = false;
                                 break; 
                                 case "p5":
@@ -454,25 +454,25 @@ public class CourtsViewController implements Initializable {
                                 case "p1":
                                     System.out.println("falla p1");                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
-                                    pista2.setImage(i2);
+                                    pista3.setImage(i2);
                                 break;
                                 case "p2":
                                 System.out.println("falla p2");
                                     
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
-                                    pista3.setImage(i3);
+                                    pista5.setImage(i3);
                                 break;
                                 case "p3":
                                 System.out.println("falla p3");
                                     
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
-                                    pista4.setImage(i4);
+                                    pista2.setImage(i4);
                                 break;
                                 case "p4":
                                 System.out.println("falla p4");
                                     
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
-                                    pista5.setImage(i5);
+                                    pista4.setImage(i5);
                                 break; 
                                 case "p5":
                                 System.out.println("falla p5");
