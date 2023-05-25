@@ -212,7 +212,7 @@ public class ProfileController implements Initializable {
         try {
             Club c = Club.getInstance();
             //m = c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
-            
+            m=member;
             name.setText(m.getName());
             surname.setText(m.getSurname());
             telephone.setText(m.getTelephone());
@@ -237,21 +237,7 @@ public class ProfileController implements Initializable {
         stage.setScene(nueva);
         stage.show();
     } 
-    
-    public void EditProfile_Pic(ActionEvent event) throws Exception{
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select images");
-        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
-        fileChooser.getExtensionFilters().add(imageFilter);
-        File file = fileChooser.showOpenDialog(pic.getScene().getWindow());
-        if (file != null) {
-            FileInputStream fis = new FileInputStream(file);
-            Image avatar = new Image(fis);
-            Image.imageProperty().setValue(avatar);
-        
-        }
-    }  
-    
+ 
     public void EditProfile_Action(ActionEvent event) throws Exception{
         //Button pic = new Button("pic");
         //Button EditProfile = new Button ("Edit profile");
@@ -344,11 +330,41 @@ public class ProfileController implements Initializable {
     }
 
     @FXML
-    private void EditProfile_Pic(javafx.event.ActionEvent event) {
+    private void EditProfile_Pic(javafx.event.ActionEvent event) throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select images");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File file = fileChooser.showOpenDialog(pic.getScene().getWindow());
+        if (file != null) {
+            FileInputStream fis = new FileInputStream(file);
+            Image avatar = new Image(fis);
+            Image.imageProperty().setValue(avatar);
+        
+        }
+        
     }
 
     @FXML
     private void EditProfile_Action(javafx.event.ActionEvent event) {
+         pic.setVisible(true);
+        save.setVisible(true);
+        
+        name.setBlendMode(BlendMode.SRC_OVER);
+        name.setEditable(true);
+        surname.setBlendMode(BlendMode.SRC_OVER);
+        surname.setEditable(true);
+        telephone.setBlendMode(BlendMode.SRC_OVER);
+        telephone.setEditable(true);
+        //nickname.setEditable(true); NO ES EDITABLE
+        password.setBlendMode(BlendMode.SRC_OVER);
+        password.setEditable(true);
+        creditcard.setBlendMode(BlendMode.SRC_OVER);
+        creditcard.setEditable(true);
+        csc.setBlendMode(BlendMode.SRC_OVER);
+        csc.setEditable(true);
+        svc1.setBlendMode(BlendMode.SRC_OVER);
+        svc1.setEditable(true);
     }
 }
 

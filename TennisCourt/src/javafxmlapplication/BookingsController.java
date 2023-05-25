@@ -55,8 +55,6 @@ public class BookingsController implements Initializable {
     @FXML
     private TableColumn<Booking, String> paidColumn;
     
-    public List<Booking> arrayBooking = new ArrayList<>();
-    public ObservableList<Booking> bookingList = FXCollections.observableArrayList(arrayBooking);
     @FXML
     private Button homeButton;
     @FXML
@@ -75,33 +73,38 @@ public class BookingsController implements Initializable {
     
     public static LocalDateTime bookTime = null;
     public static LocalDateTime currentTime=LocalDateTime.now();
+    
+    public List<Booking> arrayBooking = new ArrayList<>();
+   public ObservableList<Booking> bookingList;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
            // TODO
-            
+        Club c= Club.getInstance();
+        arrayBooking=c.getUserBookings(member.getNickName());
+        bookingList= FXCollections.observableArrayList(arrayBooking);
+        TableView.setItems(bookingList);
         nameField.setVisible(true);
         nameField.setText(member.getNickName());
         Image jiji = member.getImage();
         imageMember.setImage(jiji);
-        Club c= Club.getInstance();
+        
         arrayBooking= c.getUserBookings(member.getNickName());
-        } catch (ClubDAOException ex) {
-            Logger.getLogger(BookingsController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (ClubDAOException | IOException ex) {
             Logger.getLogger(BookingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         dateColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getMadeForDay().toString()));
         hourColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getFromTime().toString()));
         courtColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getCourt().getName()));
         paidColumn.setCellValueFactory(personaFila->new SimpleStringProperty(personaFila.getValue().getPaid().toString()));
         
-        TableView.setItems(bookingList);
+        
         cancelButton.disableProperty().bind(Bindings.or(
                 new SimpleBooleanProperty(bookingList.isEmpty()),Bindings.equal(TableView.getSelectionModel().selectedIndexProperty(), -1))
         );
         // new SimpleBooleanProperty(Utils.checkTime(TableView.getSelectionModel().getSelectedItem().getBookingDate())
-        
+        System.out.println(arrayBooking.size());
         
     }    
 
