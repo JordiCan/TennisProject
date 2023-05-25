@@ -235,7 +235,7 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="145.0" text="Password">
+                        <Label prefHeight="46.0" prefWidth="149.0" text="Password">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -243,7 +243,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false">
+                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="245.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
