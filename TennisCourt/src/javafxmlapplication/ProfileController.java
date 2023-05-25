@@ -199,7 +199,7 @@ public class ProfileController implements Initializable {
     @FXML
     private Text nameErr1;
     
-    public Member m;
+    
     
    
     
@@ -212,14 +212,14 @@ public class ProfileController implements Initializable {
         try {
             Club c = Club.getInstance();
             //m = c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
-            m=member;
-            name.setText(m.getName());
-            surname.setText(m.getSurname());
-            telephone.setText(m.getTelephone());
-            nickname.setText(m.getNickName());
-            password.setText(m.getPassword());
-            creditcard.setText(m.getCreditCard());
-            String svcString = Integer.toString(m.getSvc());
+            
+            name.setText(member.getName());
+            surname.setText(member.getSurname());
+            telephone.setText(member.getTelephone());
+            nickname.setText(member.getNickName());
+            password.setText(member.getPassword());
+            creditcard.setText(member.getCreditCard());
+            String svcString = Integer.toString(member.getSvc());
             svc1.setText(svcString);
             
         } catch (Exception e) {
@@ -237,93 +237,84 @@ public class ProfileController implements Initializable {
         stage.setScene(nueva);
         stage.show();
     } 
- 
-    public void EditProfile_Action(ActionEvent event) throws Exception{
-        //Button pic = new Button("pic");
-        //Button EditProfile = new Button ("Edit profile");
-        //pic.setVisible(false);
-        
-        //que permita editar los text fields
-        
-        
-        pic.setVisible(true);
-        save.setVisible(true);
-        
-        name.setBlendMode(BlendMode.SRC_OVER);
-        name.setEditable(true);
-        surname.setBlendMode(BlendMode.SRC_OVER);
-        surname.setEditable(true);
-        telephone.setBlendMode(BlendMode.SRC_OVER);
-        telephone.setEditable(true);
-        //nickname.setEditable(true); NO ES EDITABLE
-        password.setBlendMode(BlendMode.SRC_OVER);
-        password.setEditable(true);
-        creditcard.setBlendMode(BlendMode.SRC_OVER);
-        creditcard.setEditable(true);
-        csc.setBlendMode(BlendMode.SRC_OVER);
-        csc.setEditable(true);
-        svc1.setBlendMode(BlendMode.SRC_OVER);
-        svc1.setEditable(true);
-    }
     
     @FXML
     public void Save_ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
-        
-        
-        
-        
-       /* name.textProperty().addListener((observable, oldValue, newValue) -> {
-        if (newValue != oldValue && Utils.checkUser()){
-            System.out.println("ok");
-            }
-        }); */
     
+        
         save.setOnMouseClicked(event -> {
            
+           boolean tFots = true; //si es true entonces lo guardamos
            if (!Utils.checkUser(name.getText())){
+               tFots = false;
                 nameErr.setVisible(true);
-                name.setText(""); //AQUI QUIERO QUE ME PONGA LA ORIGINAL 
+                name.setText(member.getName()); //AQUI QUIERO QUE ME PONGA LA ORIGINAL
+                
             }
            else{nameErr.setVisible(false);}
            
             if (!Utils.checkSurname(surname.getText())){
                 surnErr.setVisible(true);
-                surname.setText("");
+                surname.setText(member.getSurname());
+                tFots = false;
             }
             else {surnErr.setVisible(false);}
             
             if (!Utils.checkTelephone(telephone.getText())){
                 telErr.setVisible(true);
-                telephone.setText("");
+                telephone.setText(member.getTelephone());
+                tFots = false;
             }
             else {telErr.setVisible(false);}
             
             if (!Utils.checkPassword(password.getText())){
                 passErr.setVisible(true);
-                password.setText("");
+                password.setText(member.getPassword());
+                tFots = false;
             }
             else {passErr.setVisible(false);}
 
             if (!Utils.checkCard(creditcard.getText())){
                 cardErr.setVisible(true);
-                creditcard.setText("");
+                creditcard.setText(member.getCreditCard());
+                tFots = false;
             }
             else {cardErr.setVisible(false);}
             
-            if (!Utils.checkCSC(csc.getText())){
-                cscErr.setVisible(true);
-                csc.setText("");
-            }
-            else {cscErr.setVisible(false);}
-            
-             //me falta ver si son numeros o letras
             if (!Utils.checkSVC(svc.getText())){
                 svcErr1.setVisible(true);
-                svc.setText("");
+                String svcString = Integer.toString(member.getSvc());
+                svc.setText(svcString);
             }
             else {svcErr1.setVisible(false);}
+            
+            
+            if (tFots == true){
+                //lo guardamos si no son iguales
+                if (name.getText() != member.getName()){
+                    member.setName(name.getText()); 
+                }
+                if (surname.getText() != member.getSurname()){
+                    member.setSurname(surname.getText());
+                }
+                if (telephone.getText() != member.getTelephone()){
+                    member.setTelephone(telephone.getText());
+                }
+                if(password.getText() != member.getPassword()){
+                    member.setPassword(password.getText());
+                }
+                if(creditcard.getText() != member.getCreditCard()){
+                    member.setCreditCard(creditcard.getText());
+                }
+                if(svc.getText() != Integer.toString(member.getSvc())){
+                    int svc3 = Integer.parseInt(svc.getText());
+                    member.setSvc(svc3);
+                }
+            } 
+            
+            
             
            
         });  
