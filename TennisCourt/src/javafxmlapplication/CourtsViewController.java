@@ -220,13 +220,13 @@ public class CourtsViewController implements Initializable {
 
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
-                    Image i2 = new Image("/img/pista3labuena.jpg");
+                    Image i2 = new Image("/img/pista5labuena.jpg");
                     pista2.setImage(i2);
-                    Image i3 = new Image("/img/pista5labuena.jpg");
+                    Image i3 = new Image("/img/pista6labuena.jpeg");
                     pista3.setImage(i3);
-                    Image i4 = new Image("/img/pista2labuena.jpg");
+                    Image i4 = new Image("/img/pista3labuena.jpg");
                     pista4.setImage(i4);
-                    Image i5 = new Image("/img/pista6labuena.jpeg");
+                    Image i5 = new Image("/img/pista2labuena.jpg");
                     pista5.setImage(i5);
                     Image i6 = new Image("/img/mario tennislabuena.jpg");
                     pista6.setImage(i6);  
@@ -258,28 +258,28 @@ public class CourtsViewController implements Initializable {
                                 case "p1":
                                     System.out.println("falla p1");                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
-                                    pista3.setImage(i2);
+                                    pista2.setImage(i2);
                                     p2 = false;
                                 break;
                                 case "p2":
                                 System.out.println("falla p2");
                                     
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
-                                    pista5.setImage(i3);
+                                    pista3.setImage(i3);
                                     p3 = false;
                                 break;
                                 case "p3":
                                 System.out.println("falla p3");
                                     
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
-                                    pista2.setImage(i4);
+                                    pista4.setImage(i4);
                                     p4 = false;
                                 break;
                                 case "p4":
                                 System.out.println("falla p4");
                                     
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
-                                    pista4.setImage(i5);
+                                    pista5.setImage(i5);
                                     p5 = false;
                                 break; 
                                 case "p5":
@@ -429,13 +429,13 @@ public class CourtsViewController implements Initializable {
 //poner las imagenes al sitio                    
                     Image i1 = new Image("/img/wiilabuena.png");
                     pista1.setImage(i1);
-                    Image i2 = new Image("/img/pista3labuena.jpg");
+                    Image i2 = new Image("/img/pista5labuena.jpg");
                     pista2.setImage(i2);
-                    Image i3 = new Image("/img/pista5labuena.jpg");
+                    Image i3 = new Image("/img/pista6labuena.jpeg");
                     pista3.setImage(i3);
-                    Image i4 = new Image("/img/pista2labuena.jpg");
+                    Image i4 = new Image("/img/pista3labuena.jpg");
                     pista4.setImage(i4);
-                    Image i5 = new Image("/img/pista6labuena.jpeg");
+                    Image i5 = new Image("/img/pista2labuena.jpg");
                     pista5.setImage(i5);
                     Image i6 = new Image("/img/mario tennislabuena.jpg");
                     pista6.setImage(i6);                    
@@ -450,29 +450,34 @@ public class CourtsViewController implements Initializable {
                                 case "p0":
                                     i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    p1 = false;
                                 break;
                                 case "p1":
                                     System.out.println("falla p1");                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
-                                    pista3.setImage(i2);
+                                    pista2.setImage(i2);
+                                    p2 = false;
                                 break;
                                 case "p2":
                                 System.out.println("falla p2");
                                     
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
-                                    pista5.setImage(i3);
+                                    pista3.setImage(i3);
+                                    p3 = false;
                                 break;
                                 case "p3":
                                 System.out.println("falla p3");
                                     
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
-                                    pista2.setImage(i4);
+                                    pista4.setImage(i4);
+                                    p4 = false;
                                 break;
                                 case "p4":
                                 System.out.println("falla p4");
                                     
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
-                                    pista4.setImage(i5);
+                                    pista5.setImage(i5);
+                                    p5 = false;
                                 break; 
                                 case "p5":
                                 System.out.println("falla p5");
@@ -480,6 +485,7 @@ public class CourtsViewController implements Initializable {
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
                                     System.out.println("xs");
+                                    p6 = false;
                                 break;                                 
                             }
                         
@@ -514,13 +520,13 @@ public class CourtsViewController implements Initializable {
         
         Image image1 = new Image("/img/wiilabuena.png");
         pista1.setImage(image1);
-        Image image2 = new Image("/img/pista3labuena.jpg");
+        Image image2 = new Image("/img/pista5labuena.jpg");
         pista2.setImage(image2);
-        Image image3 = new Image("/img/pista5labuena.jpg");
+        Image image3 = new Image("/img/pista6labuena.jpeg");
         pista3.setImage(image3);
-        Image image4 = new Image("/img/pista2labuena.jpg");
+        Image image4 = new Image("/img/pista3labuena.jpg");
         pista4.setImage(image4);
-        Image image5 = new Image("/img/pista6labuena.jpeg");
+        Image image5 = new Image("/img/pista2labuena.jpg");
         pista5.setImage(image5);
         Image image6 = new Image("/img/mario tennislabuena.jpg");
         pista6.setImage(image6);
@@ -621,8 +627,7 @@ public class CourtsViewController implements Initializable {
         Alert a;
         System.out.print("Hola hola holaaa");
         c = club.getCourt("p0");        
-        if(p1 && max1 < 2 && member != null && MenuItems.getSelectedToggle() != null 
-                && !pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
+        if(p1 && max1 < 2 && member != null && MenuItems.getSelectedToggle() != null ){
             max1++;
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             a = new Alert(AlertType.INFORMATION);
@@ -650,8 +655,12 @@ public class CourtsViewController implements Initializable {
         
         
         }
-        else if(pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
-            System.out.print("eres tonto esta reservada");
+        else if(!p1){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();
         
         }
         else{
