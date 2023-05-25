@@ -4,6 +4,8 @@
  */
 package javafxmlapplication;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Court;
@@ -93,7 +95,13 @@ public class Utils {
      
     }
     
-
+    public static Boolean checkTime(LocalDateTime time){
+        LocalDateTime nowTime= LocalDateTime.now();
+        if(Duration.between(time, nowTime).getSeconds()<86400){
+            return false;
+        }
+        else{return true;}
+    }
    
     
 }
