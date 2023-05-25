@@ -69,11 +69,7 @@
                               <RadioMenuItem fx:id="seisasiete" mnemonicParsing="false" text="18:00 - 19:00" toggleGroup="$MenuItems" />
                               <RadioMenuItem fx:id="sieteaocho" mnemonicParsing="false" text="19:00 - 20:00" toggleGroup="$MenuItems" />
                               <RadioMenuItem fx:id="ochoanueve" mnemonicParsing="false" text="20:00 - 21:00" toggleGroup="$MenuItems" />
-                              <RadioMenuItem fx:id="nueveadiezpm" mnemonicParsing="false" text="21:00 - 22:00">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="MenuItems1" />
-                                 </toggleGroup>
-                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="nueveadiezpm" mnemonicParsing="false" text="21:00 - 22:00" toggleGroup="$MenuItems" />
                            </items>
                         </SplitMenuButton>
                      </children>

@@ -52,6 +52,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import static javafxmlapplication.JavaFXMLApplication.member;
+import javafxmlapplication.MaxBookingDuration;
 import model.Booking;
 import model.Club;
 import model.ClubDAOException;
@@ -163,16 +164,14 @@ public class CourtsViewController implements Initializable {
     @FXML
     private RadioMenuItem ochoanueve;
     
-    private int max1 = 0;
-    private int max2 = 0;
-    private int max3 = 0;
-    private int max4 = 0;
-    private int max5 = 0;
-    private int max6 = 0;
+
     @FXML
     private RadioMenuItem nueveadiezpm;
     @FXML
     private ToggleGroup MenuItems1;
+    
+    private List<MaxBookingDuration> maxBookingsCourts = new ArrayList<>();
+    
     
     
     
@@ -203,6 +202,8 @@ public class CourtsViewController implements Initializable {
         day.valueProperty().addListener((observable, oldvalue, newvalue)->{
             daySelected = newvalue;
             System.out.print(daySelected.getDayOfMonth());
+            
+            
 //AQUI VIENE LO TOCHO
             
             System.out.println("Que esta pasando");
@@ -627,15 +628,28 @@ public class CourtsViewController implements Initializable {
         Alert a;
         System.out.print("Hola hola holaaa");
         c = club.getCourt("p0");        
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max1 = 0;        
+        if(maxBookingsCourts.contains(maxb)){
+            max1 = maxb.getHoursBooked();
+        }
+        else{
+            maxb.increaseHoursBooked();
+            maxBookingsCourts.add(maxb);
+        }
+        
         if(p1 && max1 < 2 && member != null && MenuItems.getSelectedToggle() != null ){
-            max1++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
-            a = new Alert(AlertType.INFORMATION);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }            a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image mismuertos = new Image("/img/wiilabuenaBooked.png");
+            Image mismuertos = new Image("/img/wiilabuenatupista.png");
             pista1.setImage(mismuertos);
         
         }
@@ -677,15 +691,27 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p3");
         System.out.print("Hola hola holaaa");
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max4 = 0;        
+        if(maxBookingsCourts.contains(maxb)){
+            max4 = maxb.getHoursBooked();
+        }
+        else{
+            maxb.increaseHoursBooked();
+            maxBookingsCourts.add(maxb);
+        }        
         if(p4 && max4 < 2 && member != null && MenuItems.getSelectedToggle() != null){
-            max4++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
-            a = new Alert(AlertType.INFORMATION);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }            a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image locaconmitigre = new Image("/img/pista3labuenaBooked.jpg");
+            Image locaconmitigre = new Image("/img/pista3labuenatupista.jpg");
             pista4.setImage(locaconmitigre);
             p4 = false;            
         
@@ -705,9 +731,12 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You have exceeded the maximum hours permitted for this court");
             a.showAndWait();
         }
-        else if(pista1.getImage().getUrl().equals("/img/wiilabuenaBooked.png")){
-            System.out.print("eres tonto esta reservada");
-        
+        else if(!p4){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();
         }        
         else{            a = new Alert(AlertType.ERROR);
             a.setTitle("No hour selected error");
@@ -724,15 +753,27 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p1");
         System.out.print("Hola hola holaaa");
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max2 = 0;        
+        if(maxBookingsCourts.contains(maxb)){
+            max2 = maxb.getHoursBooked();
+        }
+        else{
+            maxb.increaseHoursBooked();
+            maxBookingsCourts.add(maxb);
+        }        
         if(p2 && max2 < 2 && member != null && MenuItems.getSelectedToggle() != null){
-            max2++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
-            a = new Alert(AlertType.INFORMATION);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }            a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image loca = new Image("/img/pista5labuenaBooked.jpg");
+            Image loca = new Image("/img/pista5labuenatupista.jpg");
             pista2.setImage(loca);
             p2 = false;
         
@@ -751,6 +792,12 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You have exceeded the maximum hours permitted for this court");
             a.showAndWait();
         }
+        else if(!p2){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();}        
         else{            a = new Alert(AlertType.ERROR);
             a.setTitle("No hour selected error");
             a.setHeaderText("No hour selected error");
@@ -767,15 +814,27 @@ public class CourtsViewController implements Initializable {
         court = "p4";
         c = club.getCourt(court);
         Alert a;
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max5 = 0;        
+        if(maxBookingsCourts.contains(maxb)){
+            max5 = maxb.getHoursBooked();
+        }
+        else{
+            maxb.increaseHoursBooked();
+            maxBookingsCourts.add(maxb);
+        }        
        if(p5 && max5 < 2 && member != null && MenuItems.getSelectedToggle() != null){
-            max5++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
-            a = new Alert(AlertType.INFORMATION);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }            a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image loca = new Image("/img/pista2labuenaBooked.jpg");
+            Image loca = new Image("/img/pista2labuenatupista.jpg");
             pista5.setImage(loca);
             p5 = false;
         
@@ -794,6 +853,13 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You have exceeded the maximum hours permitted for this court");
             a.showAndWait();
         }
+        else if(!p5){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();
+        }
         else{
             a = new Alert(AlertType.ERROR);
             a.setTitle("No hour selected error");
@@ -810,16 +876,28 @@ public class CourtsViewController implements Initializable {
     private void reservaPista3(MouseEvent event) throws ClubDAOException {
         court = "p2";
         c = club.getCourt(court);
-     Alert a;
+        Alert a;
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max3 = 0;        
+        if(maxBookingsCourts.contains(maxb)){
+            max3 = maxb.getHoursBooked();
+        }
+        else{
+            maxb.increaseHoursBooked();
+            maxBookingsCourts.add(maxb);
+        }        
        if(p3 && max3 < 2 && member != null && MenuItems.getSelectedToggle() != null){
-            max3++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
-            a = new Alert(AlertType.INFORMATION);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }            a = new Alert(AlertType.INFORMATION);
             a.setTitle("Hola guapo");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image loca = new Image("/img/pista6labuenaBooked.jpeg");
+            Image loca = new Image("/img/pista6labuenatupista.jpeg");
             pista3.setImage(loca);
             p3 = false;
         
@@ -838,6 +916,13 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You have exceeded the maximum hours permitted for this court");
             a.showAndWait();
         }
+        else if(!p3){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();
+        }
         else{
             a = new Alert(AlertType.ERROR);
             a.setTitle("No hour selected error");
@@ -854,16 +939,23 @@ public class CourtsViewController implements Initializable {
     private void reservaPista6(MouseEvent event) throws ClubDAOException {
         court = "p5";
         c = club.getCourt(court);
-     Alert a;
+        Alert a;
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        int max6 = containHours(maxBookingsCourts,maxb);
+      
        if(p6 && max6 < 2 && member != null && MenuItems.getSelectedToggle() != null){
-            max6++;
+            if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
+            }
+            else{
+            club.registerBooking(now, daySelected, timeBegin,true, c, member);            
+            }
             a = new Alert(AlertType.INFORMATION);
-            a.setTitle("Hola guapo");
+            a.setTitle("Book completed");
             a.setHeaderText("Book confirmation");
             a.setContentText("Your book has been realised correctly");
             a.showAndWait();
-            Image loca = new Image("/img/pistaMarioReservada.jpg");
+            Image loca = new Image("/img/mario tennislabuenatupista.jpg");
             pista6.setImage(loca);
             p6 = false;
         
@@ -875,14 +967,20 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max6 == 2){
+        else if(max6 >= 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
             a.setContentText("You have exceeded the maximum hours permitted for this court");
             a.showAndWait();
         }
-        else{
+        else if(!p6){
+                a = new Alert(AlertType.ERROR);
+                a.setTitle("Court already booked");
+                a.setHeaderText("Court booked error");
+                a.setContentText("This court is not available for the moment");
+                a.showAndWait();        
+        }else{
             a = new Alert(AlertType.ERROR);
             a.setTitle("No hour selected error");
             a.setHeaderText("No hour selected error");
@@ -892,6 +990,21 @@ public class CourtsViewController implements Initializable {
     
     }
     
+    
+    protected int containHours(List<MaxBookingDuration>  l, MaxBookingDuration m){
+        for(int i = 0; i < l.size(); i++){
+            MaxBookingDuration b = l.get(i);
+            if(b.equalsM(m)){
+                l.remove(b);                
+                b.increaseHoursBooked();
+                l.add(b);
+                System.out.println(b.getHoursBooked());
+                return b.getHoursBooked();}
+        
+        }
+        return 0;
+    
+    }
 
     
  
