@@ -14,14 +14,15 @@ import model.Court;
  * @author Alma
  */
 public class MaxBookingDuration {
-   private   LocalDate day;
+   private   int day;
    private  int h = 0;
    private Court c;
     
    
-   public MaxBookingDuration(LocalDate d, Court c){
-    day = d;
+   public MaxBookingDuration(int day, Court c, int h){
+    this.day = day;
     this.c = c;
+    this.h = h;
 }
 
 public int getHoursBooked(){
@@ -32,7 +33,7 @@ public void increaseHoursBooked(){
     h++;
 }
 
-public LocalDate getDay(){
+public int getDay(){
     return day;
 
 }
@@ -41,10 +42,7 @@ public Court getCourt(){
     return c;
 }
 
-public boolean equalsM(MaxBookingDuration b){
-    return b.getDay() == this.getDay() && b.getCourt() == this.getCourt() ;
 
-}
 
 
 

@@ -87,9 +87,9 @@
       </VBox>
    </left>
    <center>
-      <HBox fx:id="hbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #A9D0F5;" BorderPane.alignment="CENTER">
+      <HBox fx:id="hbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="322.0" prefWidth="508.0" style="-fx-background-color: #A9D0F5;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="court" fitHeight="321.0" fitWidth="547.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+            <ImageView fx:id="court" fitHeight="321.0" fitWidth="547.0" nodeOrientation="INHERIT" pickOnBounds="true" HBox.hgrow="ALWAYS">
                <image>
                   <Image url="@../img/upv%20pista.jpeg" />
                </image>
@@ -101,6 +101,9 @@
                </HBox.margin>
             </ImageView>
          </children>
+         <BorderPane.margin>
+            <Insets left="60.0" />
+         </BorderPane.margin>
       </HBox>
    </center>
 </BorderPane>

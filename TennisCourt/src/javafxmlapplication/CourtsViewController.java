@@ -131,6 +131,7 @@ public class CourtsViewController implements Initializable {
     private boolean p5 = true;
     private boolean p6 = true;
     
+    private List<Booking> memberBooking = new ArrayList<>();
     
 
     /**
@@ -185,16 +186,9 @@ public class CourtsViewController implements Initializable {
         
         }
         catch(Exception e){}
- //ponemos el max time a 0
-        int max1 = 0;
-        int max2 = 0;
-        int max3 = 0;
-        int max4 = 0;
-        int max5 = 0;
-        int max6 = 0;
-        
-        
-        
+        LocalDate n = LocalDate.ofEpochDay(3);
+        Court court = new Court("jeje");
+
         //---------------------------------------------------------------------
         //inicializa el DatePicker al dia actual
         day.setValue(LocalDate.now());        
@@ -203,10 +197,8 @@ public class CourtsViewController implements Initializable {
             daySelected = newvalue;
             System.out.print(daySelected.getDayOfMonth());
             
-            
 //AQUI VIENE LO TOCHO
             
-            System.out.println("Que esta pasando");
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
                     System.out.print(l.size());
@@ -217,6 +209,10 @@ public class CourtsViewController implements Initializable {
                        courts.get(i).setName("p"+i);
 
                     }
+                    if(member != null){
+                    memberBooking = club.getUserBookings(member.getNickName());
+                    }
+                    else{memberBooking = null;}
 //poner las imagenes bien para luego cambiarlas
 
                     Image i1 = new Image("/img/wiilabuena.png");
@@ -246,49 +242,80 @@ public class CourtsViewController implements Initializable {
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
-                        System.out.println("Memuero");
                         
                         if(begin.equals(timeBegin)){
                             System.out.println("Hasta aqui bien");
                             switch(courtname){
                                 case "p0":
-                                    i1 = new Image("/img/wiilabuenaBooked.png");
+                                    
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p0")){
+                                        i1 = new Image("/img/wiilabuenatupista.png");
+                                        pista1.setImage(i1);
+                                    
+                                    }
+                                    else{i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    }
                                     p1 = false;
                                 break;
                                 case "p1":
-                                    System.out.println("falla p1");                                    
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p1")){
+                                        i2 = new Image("/img/pista5labuenatupista.jpg");
+                                        pista2.setImage(i2);
+                                    
+                                    }
+                                    else{                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
+                                    }
                                     p2 = false;
                                 break;
                                 case "p2":
-                                System.out.println("falla p2");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p2")){
+                                        i3 = new Image("/img/pista6labuenatupista.jpeg");
+                                        pista3.setImage(i3);
                                     
+                                    }
+                                    else{                                    
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
                                     pista3.setImage(i3);
+                                    }
                                     p3 = false;
                                 break;
                                 case "p3":
-                                System.out.println("falla p3");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p3")){
+                                        i4 = new Image("/img/pista3tupista.jpg");
+                                        pista4.setImage(i4);
                                     
+                                    }
+                                    else{                                    
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
                                     pista4.setImage(i4);
+                                    }
                                     p4 = false;
                                 break;
                                 case "p4":
-                                System.out.println("falla p4");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p4")){
+                                        i5 = new Image("/img/pista2labuenatupista.jpg");
+                                        pista5.setImage(i5);
                                     
+                                    }
+                                    else{                                
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
                                     pista5.setImage(i5);
+                                    }
                                     p5 = false;
                                 break; 
                                 case "p5":
-                                System.out.println("falla p5");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p5")){
+                                        i6 = new Image("/img/mario tennislabuenatupista.jpg");
+                                        pista6.setImage(i6);
                                     
+                                    }
+                                    else{                                    
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
-                                    System.out.println("xs");
+                                    }
                                     p6 = false;
                                 break;                                 
                             }
@@ -418,6 +445,10 @@ public class CourtsViewController implements Initializable {
                        courts.get(i).setName("p"+i);
 
                     }
+                    if(member != null){
+                    memberBooking = club.getUserBookings(member.getNickName());
+                    }
+               else{memberBooking = null;}
                     
 //poner a true todas las variables otra vez
                     p1 = true;
@@ -443,62 +474,84 @@ public class CourtsViewController implements Initializable {
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
-                        System.out.println("Memuero");
                         
                         if(begin.equals(timeBegin)){
                             System.out.println("Hasta aqui bien");
                             switch(courtname){
                                 case "p0":
-                                    i1 = new Image("/img/wiilabuenaBooked.png");
+                                    
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p0")){
+                                        i1 = new Image("/img/wiilabuenatupista.png");
+                                        pista1.setImage(i1);
+                                    
+                                    }
+                                    else{i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    }
                                     p1 = false;
                                 break;
                                 case "p1":
-                                    System.out.println("falla p1");                                    
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p1")){
+                                        i2 = new Image("/img/pista5labuenatupista.jpg");
+                                        pista2.setImage(i2);
+                                    
+                                    }
+                                    else{                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
+                                    }
                                     p2 = false;
                                 break;
                                 case "p2":
-                                System.out.println("falla p2");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p2")){
+                                        i3 = new Image("/img/pista6labuenatupista.jpeg");
+                                        pista3.setImage(i3);
                                     
+                                    }
+                                    else{                                    
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
                                     pista3.setImage(i3);
+                                    }
                                     p3 = false;
                                 break;
                                 case "p3":
-                                System.out.println("falla p3");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p3")){
+                                        i4 = new Image("/img/pista3tupista.jpg");
+                                        pista4.setImage(i4);
                                     
+                                    }
+                                    else{                                    
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
                                     pista4.setImage(i4);
+                                    }
                                     p4 = false;
                                 break;
                                 case "p4":
-                                System.out.println("falla p4");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p4")){
+                                        i5 = new Image("/img/pista2labuenatupista.jpg");
+                                        pista5.setImage(i5);
                                     
+                                    }
+                                    else{                                
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
                                     pista5.setImage(i5);
+                                    }
                                     p5 = false;
                                 break; 
                                 case "p5":
-                                System.out.println("falla p5");
+                                    if(inTheMemberBookings(memberBooking,timeBegin,"p5")){
+                                        i6 = new Image("/img/mario tennislabuenatupista.jpg");
+                                        pista6.setImage(i6);
                                     
+                                    }
+                                    else{                                    
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
-                                    System.out.println("xs");
+                                    }
                                     p6 = false;
                                 break;                                 
                             }
-                        
-                        
-                        
-                        
-                    
-                    
-                    
-                    
                         }
-                    
                     
                     
                     
@@ -628,17 +681,11 @@ public class CourtsViewController implements Initializable {
         Alert a;
         System.out.print("Hola hola holaaa");
         c = club.getCourt("p0");        
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
-        int max1 = 0;        
-        if(maxBookingsCourts.contains(maxb)){
-            max1 = maxb.getHoursBooked();
-        }
-        else{
-            maxb.increaseHoursBooked();
-            maxBookingsCourts.add(maxb);
-        }
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        int max1 = containHours(maxBookingsCourts, maxb);
+
         
-        if(p1 && max1 < 2 && member != null && MenuItems.getSelectedToggle() != null ){
+        if(p1 && max1 <= 2 && member != null && MenuItems.getSelectedToggle() != null ){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -660,7 +707,7 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max1 == 2){
+        else if(max1 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -691,16 +738,10 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p3");
         System.out.print("Hola hola holaaa");
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
-        int max4 = 0;        
-        if(maxBookingsCourts.contains(maxb)){
-            max4 = maxb.getHoursBooked();
-        }
-        else{
-            maxb.increaseHoursBooked();
-            maxBookingsCourts.add(maxb);
-        }        
-        if(p4 && max4 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        int max4 = containHours(maxBookingsCourts, maxb);        
+       
+        if(p4 && max4 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -724,7 +765,7 @@ public class CourtsViewController implements Initializable {
             a.showAndWait();
 
         }
-        else if (max4 == 2){
+        else if (max4 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -753,16 +794,10 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p1");
         System.out.print("Hola hola holaaa");
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
-        int max2 = 0;        
-        if(maxBookingsCourts.contains(maxb)){
-            max2 = maxb.getHoursBooked();
-        }
-        else{
-            maxb.increaseHoursBooked();
-            maxBookingsCourts.add(maxb);
-        }        
-        if(p2 && max2 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        int max2 = containHours(maxBookingsCourts, maxb);        
+      
+        if(p2 && max2 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -785,7 +820,7 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max2 == 2){
+        else if(max2 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -814,16 +849,10 @@ public class CourtsViewController implements Initializable {
         court = "p4";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
-        int max5 = 0;        
-        if(maxBookingsCourts.contains(maxb)){
-            max5 = maxb.getHoursBooked();
-        }
-        else{
-            maxb.increaseHoursBooked();
-            maxBookingsCourts.add(maxb);
-        }        
-       if(p5 && max5 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        int max5 = containHours(maxBookingsCourts, maxb);        
+        
+       if(p5 && max5 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -846,7 +875,7 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max5 == 2){
+        else if(max5 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -877,16 +906,10 @@ public class CourtsViewController implements Initializable {
         court = "p2";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
-        int max3 = 0;        
-        if(maxBookingsCourts.contains(maxb)){
-            max3 = maxb.getHoursBooked();
-        }
-        else{
-            maxb.increaseHoursBooked();
-            maxBookingsCourts.add(maxb);
-        }        
-       if(p3 && max3 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        int max3 = containHours(maxBookingsCourts, maxb);        
+       
+       if(p3 && max3 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -909,7 +932,7 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max3 == 2){
+        else if(max3 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -940,10 +963,10 @@ public class CourtsViewController implements Initializable {
         court = "p5";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c, 1);
         int max6 = containHours(maxBookingsCourts,maxb);
       
-       if(p6 && max6 < 2 && member != null && MenuItems.getSelectedToggle() != null){
+       if(p6 && max6 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
             }
@@ -967,7 +990,7 @@ public class CourtsViewController implements Initializable {
             a.setContentText("You need to register in order to make your book");
             a.showAndWait();
         }
-        else if(max6 >= 2){
+        else if(max6 > 2){
             a = new Alert(AlertType.ERROR);
             a.setTitle("Maximum hours exceeded");
             a.setHeaderText("Hours exceeded error");
@@ -994,15 +1017,31 @@ public class CourtsViewController implements Initializable {
     protected int containHours(List<MaxBookingDuration>  l, MaxBookingDuration m){
         for(int i = 0; i < l.size(); i++){
             MaxBookingDuration b = l.get(i);
-            if(b.equalsM(m)){
-                l.remove(b);                
+            if(b.getDay() == m.getDay() && b.getCourt().equals(m.getCourt())){
                 b.increaseHoursBooked();
-                l.add(b);
-                System.out.println(b.getHoursBooked());
-                return b.getHoursBooked();}
+                System.out.println(b.getHoursBooked() + "Ha reconocido que hay una pista igual");
+                return b.getHoursBooked();
+            }
+
+            
+        }
+        l.add(m);
+        return 0;
+    }
+    
+    protected boolean inTheMemberBookings(List<Booking> memberBooking,LocalTime timeBegin,String courtName){
+        
+        if(memberBooking == null){return false;}
+        Court courtxd = club.getCourt(courtName);
+        for(int i = 0; i < memberBooking.size(); i++){
+            Booking b = memberBooking.get(i);
+            if(b.getFromTime().equals(timeBegin) && b.getCourt().equals(courtxd)){
+                return true;
+            }
+        
         
         }
-        return 0;
+        return false;
     
     }
 
