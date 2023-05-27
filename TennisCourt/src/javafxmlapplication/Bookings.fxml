@@ -10,26 +10,33 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.BookingsController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="100.0" prefWidth="847.0">
                <children>
-                  <Label text="Bookings" />
+                  <Label text="Bookings" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="19.0" />
+                     </VBox.margin></Label>
                </children>
             </VBox>
             <VBox prefHeight="100.0" prefWidth="523.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <ImageView fx:id="imageMember" fitHeight="51.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
-                        <Label fx:id="nameField" text="Label" />
+                        <Label fx:id="nameField" />
                      </children>
                   </HBox>
                </children>
@@ -38,16 +45,16 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="362.0" prefWidth="602.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="300.0" prefWidth="831.0">
                <children>
-                  <TableView fx:id="TableView" prefHeight="234.0" prefWidth="430.0">
+                  <TableView fx:id="TableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="431.0">
                     <columns>
-                      <TableColumn fx:id="dateColumn" prefWidth="109.5999813079834" text="Date" />
-                      <TableColumn fx:id="hourColumn" prefWidth="87.20001220703125" text="Hour" />
-                        <TableColumn fx:id="courtColumn" prefWidth="109.60003662109375" text="Court" />
-                        <TableColumn fx:id="paidColumn" prefWidth="124.0" text="Paid" />
+                      <TableColumn fx:id="dateColumn" prefWidth="104.80002784729004" text="Date" />
+                      <TableColumn fx:id="hourColumn" prefWidth="106.40003204345703" text="Hour" />
+                        <TableColumn fx:id="courtColumn" prefWidth="116.79997253417969" text="Court" />
+                        <TableColumn fx:id="paidColumn" minWidth="-Infinity" prefWidth="105.5999755859375" text="Paid" />
                     </columns>
                      <VBox.margin>
                         <Insets left="20.0" />
@@ -61,6 +68,9 @@
                </children>
             </VBox>
          </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
       </HBox>
    </center>
    <bottom>
@@ -75,7 +85,7 @@
                   </Label>
                </children>
             </VBox>
-            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#goMainMenu">
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#goMainMenu" style="-fx-background-color: #3b95c1;">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>

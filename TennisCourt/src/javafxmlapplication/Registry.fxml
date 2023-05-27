@@ -92,9 +92,9 @@
                               <Insets left="90.0" />
                            </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="acceptLogo" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../img/accept_white.png" />
+                                    <Image url="@../img/accept_white.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -104,9 +104,9 @@
                               <Insets left="15.0" />
                            </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="cancelLogo" fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../img/cancel_white.png" />
+                                    <Image url="@../img/cancel_white.png" />
                                  </image>
                               </ImageView>
                            </graphic>
