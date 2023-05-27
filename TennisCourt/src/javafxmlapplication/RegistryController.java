@@ -59,27 +59,32 @@ public class RegistryController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    String temp;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Image im = new Image("/img/pelotazasazules.png");
-        pelotazas.setImage(im);
+            pelotazas.setImage(im);
+        Image image= new Image("/img/accept_white.png");
+            acceptLogo.setImage(image);
+        Image image2= new Image("/img/cancel_white.png");
+            cancelLogo.setImage(image2);
     }    
 
     @FXML
     private void handleAcceptOnAction(ActionEvent event) throws ClubDAOException, IOException{
 
             Club c= Club.getInstance();
-            Image image= new Image("/img/accept_white.png");
-            acceptLogo.setImage(image);
-            Image image2= new Image("/img/cancel_white.png");
-            cancelLogo.setImage(image2);
+            try{
             if(c.existsLogin(UserField.getText())){
                 System.out.println("Entra");
-                String temp;
+                
+                try{
                 member= c.getMemberByCredentials(UserField.getText(), PasswordField.getText());
                                 System.out.println("Entra2");
                 temp= member.getPassword();
+                }
+                catch(Exception e){ errorMessage.setVisible(true);}
                                 System.out.println(temp);
                 if(!member.equals(null)&&temp.equals(PasswordField.getText())){
                    
@@ -107,6 +112,9 @@ public class RegistryController implements Initializable {
                 UserField.setText("");
                 PasswordField.setText("");
                 }
+            }
+            catch(IOException | NumberFormatException  e){}
+            
         }
 
     @FXML
