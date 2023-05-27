@@ -43,7 +43,7 @@ public class JavaFXMLApplication extends Application {
        
  
         
-       club.setInitialData();
+       //club.setInitialData();
         
         club.addSimpleData();
         
