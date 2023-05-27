@@ -681,7 +681,7 @@ public class CourtsViewController implements Initializable {
         Alert a;
         System.out.print("Hola hola holaaa");
         c = club.getCourt("p0");        
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c,timeBegin);
         int max1 = containHours(maxBookingsCourts, maxb);
 
         
@@ -738,7 +738,7 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p3");
         System.out.print("Hola hola holaaa");
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c,timeBegin);
         int max4 = containHours(maxBookingsCourts, maxb);        
        
         if(p4 && max4 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
@@ -794,7 +794,7 @@ public class CourtsViewController implements Initializable {
         Alert a;
         c = club.getCourt("p1");
         System.out.print("Hola hola holaaa");
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c,timeBegin);
         int max2 = containHours(maxBookingsCourts, maxb);        
       
         if(p2 && max2 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
@@ -849,7 +849,7 @@ public class CourtsViewController implements Initializable {
         court = "p4";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c,timeBegin);
         int max5 = containHours(maxBookingsCourts, maxb);        
         
        if(p5 && max5 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
@@ -906,7 +906,7 @@ public class CourtsViewController implements Initializable {
         court = "p2";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c,0);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c,timeBegin);
         int max3 = containHours(maxBookingsCourts, maxb);        
        
        if(p3 && max3 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
@@ -963,9 +963,9 @@ public class CourtsViewController implements Initializable {
         court = "p5";
         c = club.getCourt(court);
         Alert a;
-        MaxBookingDuration maxb = new MaxBookingDuration(daySelected.getDayOfMonth(), c, 1);
+        MaxBookingDuration maxb = new MaxBookingDuration(daySelected, c, timeBegin);
         int max6 = containHours(maxBookingsCourts,maxb);
-      
+        System.out.println("Esto es lo que esta fallando" +max6);
        if(p6 && max6 <= 2 && member != null && MenuItems.getSelectedToggle() != null){
             if(member.getCreditCard().equals("")){
             club.registerBooking(now, daySelected, timeBegin,false, c, member);
@@ -1015,18 +1015,44 @@ public class CourtsViewController implements Initializable {
     
     
     protected int containHours(List<MaxBookingDuration>  l, MaxBookingDuration m){
-        for(int i = 0; i < l.size(); i++){
-            MaxBookingDuration b = l.get(i);
-            if(b.getDay() == m.getDay() && b.getCourt().equals(m.getCourt())){
-                b.increaseHoursBooked();
-                System.out.println(b.getHoursBooked() + "Ha reconocido que hay una pista igual");
-                return b.getHoursBooked();
-            }
-
-            
+        if(member != null){
+            memberBooking = club.getUserBookings(member.getNickName());
         }
-        l.add(m);
+        else{memberBooking = null; return 6;}
+        for(int i = 0; i < memberBooking.size(); i++){
+            Booking b1 = memberBooking.get(i);
+            System.out.println("Entra al bucle");
+            for(int j = i+1; j < memberBooking.size(); j++){
+                Booking b2 = memberBooking.get(j);
+                if(b1.getCourt().equals(b2.getCourt()) && b2.getCourt().equals(m.getCourt())){
+                    System.out.println("Entra en el primer if");
+                    if(b1.getMadeForDay().equals(b2.getMadeForDay()) && b1.getMadeForDay().equals(m.getDay())){
+                        System.out.println("Entra en el segundo if");
+                       if(Math.abs(b1.getFromTime().getHour()-b2.getFromTime().getHour()) == 2  &&
+                                Math.abs(b1.getFromTime().getHour()- m.getHoursBooked().getHour()) == 1
+                                    && Math.abs(b2.getFromTime().getHour() - m.getHoursBooked().getHour()) == 1){
+                            System.out.println("La locura en todo su explendor");
+                            return 52;
+                       }
+                       else if(Math.abs(b1.getFromTime().getHour() - b2.getFromTime().getHour()) == 1 &&
+                               (Math.abs(b1.getFromTime().getHour() - m.getHoursBooked().getHour()) == 1
+                               || Math.abs(b2.getFromTime().getHour()-m.getHoursBooked().getHour())== 1)){
+                               return 69;
+                       
+                       }
+                        
+
+                        }
+                    
+                    }
+                
+                }
+            }
+        
+        
+        
         return 0;
+
     }
     
     protected boolean inTheMemberBookings(List<Booking> memberBooking,LocalTime timeBegin,String courtName){

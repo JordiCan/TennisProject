@@ -5,6 +5,7 @@
 package javafxmlapplication;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import model.Court;
 
 
@@ -14,26 +15,23 @@ import model.Court;
  * @author Alma
  */
 public class MaxBookingDuration {
-   private   int day;
-   private  int h = 0;
+   private   LocalDate  day;
+   private  LocalTime h ;
    private Court c;
     
    
-   public MaxBookingDuration(int day, Court c, int h){
+   public MaxBookingDuration(LocalDate day, Court c, LocalTime h){
     this.day = day;
     this.c = c;
     this.h = h;
 }
 
-public int getHoursBooked(){
+public LocalTime  getHoursBooked(){
     return h;
 }
 
-public void increaseHoursBooked(){
-    h++;
-}
 
-public int getDay(){
+public LocalDate getDay(){
     return day;
 
 }
