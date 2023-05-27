@@ -75,14 +75,13 @@ public class BookingsController implements Initializable {
     public static LocalDateTime currentTime=LocalDateTime.now();
     
     public List<Booking> arrayBooking = new ArrayList<>();
-   public ObservableList<Booking> bookingList;
+   public ObservableList<Booking> bookingList= FXCollections.observableArrayList(arrayBooking);
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
            // TODO
         Club c= Club.getInstance();
-        arrayBooking=c.getUserBookings(member.getNickName());
-        bookingList= FXCollections.observableArrayList(arrayBooking);
+        recentBookings();
         TableView.setItems(bookingList);
         nameField.setVisible(true);
         nameField.setText(member.getNickName());
@@ -108,6 +107,14 @@ public class BookingsController implements Initializable {
         
     }    
 
+    public void recentBookings(){
+        for(int i = 0; i < arrayBooking.size(); i++){
+            if(arrayBooking.get(i).getBookingDate().compareTo(LocalDateTime.now()) > 0){
+                bookingList.add(arrayBooking.get(i));
+            }
+        }
+    }
+    
     @FXML
     private void goMainMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
@@ -128,8 +135,6 @@ public class BookingsController implements Initializable {
         
         bookingList.remove(TableView.getSelectionModel().getSelectedItem());
         TableView.setItems(bookingList);
-        
-        
         
     }
     

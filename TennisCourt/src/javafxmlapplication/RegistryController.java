@@ -52,6 +52,10 @@ public class RegistryController implements Initializable {
 
     @FXML
     private ImageView pelotazas;
+    @FXML
+    private ImageView acceptLogo;
+    @FXML
+    private ImageView cancelLogo;
     /**
      * Initializes the controller class.
      */
@@ -66,6 +70,10 @@ public class RegistryController implements Initializable {
     private void handleAcceptOnAction(ActionEvent event) throws ClubDAOException, IOException{
 
             Club c= Club.getInstance();
+            Image image= new Image("/img/accept_white.png");
+            acceptLogo.setImage(image);
+            Image image2= new Image("/img/cancel_white.png");
+            cancelLogo.setImage(image2);
             if(c.existsLogin(UserField.getText())){
                 System.out.println("Entra");
                 String temp;
