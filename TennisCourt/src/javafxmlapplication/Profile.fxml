@@ -88,7 +88,7 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
+                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -381,7 +381,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="svc1" blendMode="COLOR_BURN" editable="false">
+                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

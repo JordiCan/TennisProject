@@ -57,7 +57,7 @@ public class Utils {
           return false; 
         }
        // Required characters
-        String regex = "^[A-Za-z0-9]{8,15}";
+        String regex = "^[A-Za-z0-9]{6,15}";
         Pattern pattern = Pattern.compile(regex);
         // Match ReGex with value to check
         Matcher matcher = pattern.matcher(input);
