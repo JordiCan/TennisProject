@@ -162,9 +162,10 @@ public class ProfileController implements Initializable {
     
     @FXML
     private TextField csc;
-    
+    @FXML
     private TextField svc;
     
+    @FXML
     private Text nameErr;
     
     @FXML
@@ -182,7 +183,7 @@ public class ProfileController implements Initializable {
     @FXML
     private Text cscErr;
     
-    private Text svcErr;
+    
     
     @FXML
     private ImageView Image;
@@ -194,10 +195,7 @@ public class ProfileController implements Initializable {
     private Text svcErr1;
     @FXML
     private Button EditProfile;
-    @FXML
-    private TextField svc1;
-    @FXML
-    private Text nameErr1;
+ 
     
     
     
@@ -220,7 +218,7 @@ public class ProfileController implements Initializable {
             password.setText(member.getPassword());
             creditcard.setText(member.getCreditCard());
             String svcString = Integer.toString(member.getSvc());
-            svc1.setText(svcString);
+            svc.setText(svcString);
             
         } catch (Exception e) {
             name.setText("");
@@ -242,18 +240,27 @@ public class ProfileController implements Initializable {
     public void Save_ErroresData() {
         //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
         //cuando click el save 
-    
+    System.out.println("Aqui llega");
         
         save.setOnMouseClicked(event -> {
-           
+           System.out.println("Aqui entra");
            boolean tFots = true; //si es true entonces lo guardamos
+           System.out.println("Crea boolean");
+           System.out.println("Si que chequea las cosas" + name.getText());
+           System.out.println(!Utils.checkUser(name.getText()));
+           
            if (!Utils.checkUser(name.getText())){
+               System.out.println("Entra en el if");
                tFots = false;
                 nameErr.setVisible(true);
                 name.setText(member.getName()); //AQUI QUIERO QUE ME PONGA LA ORIGINAL
                 
             }
-           else{nameErr.setVisible(false);}
+           else{
+               System.out.println("Hace el primer fake");
+               nameErr.setVisible(false);
+           }
+           System.out.println("Hace el primer check");
            
             if (!Utils.checkSurname(surname.getText())){
                 surnErr.setVisible(true);
@@ -269,6 +276,9 @@ public class ProfileController implements Initializable {
             }
             else {telErr.setVisible(false);}
             
+            System.out.println("Password: " + password.getText());
+            
+            
             if (!Utils.checkPassword(password.getText())){
                 passErr.setVisible(true);
                 password.setText(member.getPassword());
@@ -276,6 +286,7 @@ public class ProfileController implements Initializable {
             }
             else {passErr.setVisible(false);}
 
+            System.out.println(Utils.checkCard(creditcard.getText())); 
             if (!Utils.checkCard(creditcard.getText())){
                 cardErr.setVisible(true);
                 creditcard.setText(member.getCreditCard());
@@ -283,13 +294,17 @@ public class ProfileController implements Initializable {
             }
             else {cardErr.setVisible(false);}
             
+            System.out.println("Credit card bien"); 
+            
+            System.out.println(svc.getText()); 
+            
             if (!Utils.checkSVC(svc.getText())){
                 svcErr1.setVisible(true);
                 String svcString = Integer.toString(member.getSvc());
                 svc.setText(svcString);
             }
             else {svcErr1.setVisible(false);}
-            
+            System.out.println("SVC card bien"); 
             
             if (tFots == true){
                 //lo guardamos si no son iguales
@@ -354,8 +369,8 @@ public class ProfileController implements Initializable {
         creditcard.setEditable(true);
         csc.setBlendMode(BlendMode.SRC_OVER);
         csc.setEditable(true);
-        svc1.setBlendMode(BlendMode.SRC_OVER);
-        svc1.setEditable(true);
+        svc.setBlendMode(BlendMode.SRC_OVER);
+        svc.setEditable(true);
     }
 }
 
