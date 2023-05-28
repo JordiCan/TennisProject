@@ -344,41 +344,38 @@ public class ProfileController implements Initializable {
                     int svc3 = Integer.parseInt(svc.getText());
                     member.setSvc(svc3);
                 }
+                
+                save.setVisible(false);
+                pic.setVisible(false);
+
+                name.setBlendMode(BlendMode.COLOR_BURN);
+                name.setEditable(false);
+                surname.setBlendMode(BlendMode.COLOR_BURN);
+                surname.setEditable(false);
+                telephone.setBlendMode(BlendMode.COLOR_BURN);
+                telephone.setEditable(false);
+                //nickname.setEditable(true); NO ES EDITABLE
+                password.setBlendMode(BlendMode.COLOR_BURN);
+                password.setEditable(false);
+                creditcard.setBlendMode(BlendMode.COLOR_BURN);
+                creditcard.setEditable(false);
+                csc.setBlendMode(BlendMode.COLOR_BURN);
+                csc.setEditable(false);
+                svc.setBlendMode(BlendMode.COLOR_BURN);
+                svc.setEditable(false);
+                
+                int visibilityDuration = 2000; // 3 seconds
+                oki.setVisible(true);
+                Timer timer = new Timer(visibilityDuration, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                       oki.setVisible(false);
+                    }
+                });
+                timer.setRepeats(false);
+                timer.start();
+                //warning jumps, but ive read it is safe  
             } 
-            
-            
-            save.setVisible(false);
-            pic.setVisible(false);
-            
-            name.setBlendMode(BlendMode.COLOR_BURN);
-            name.setEditable(false);
-            surname.setBlendMode(BlendMode.COLOR_BURN);
-            surname.setEditable(false);
-            telephone.setBlendMode(BlendMode.COLOR_BURN);
-            telephone.setEditable(false);
-            //nickname.setEditable(true); NO ES EDITABLE
-            password.setBlendMode(BlendMode.COLOR_BURN);
-            password.setEditable(false);
-            creditcard.setBlendMode(BlendMode.COLOR_BURN);
-            creditcard.setEditable(false);
-            csc.setBlendMode(BlendMode.COLOR_BURN);
-            csc.setEditable(false);
-            svc.setBlendMode(BlendMode.COLOR_BURN);
-            svc.setEditable(false);
-            
-            
-            
-            int visibilityDuration = 2000; // 3 seconds
-            oki.setVisible(true);
-            Timer timer = new Timer(visibilityDuration, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                   oki.setVisible(false);
-                }
-            });
-            timer.setRepeats(false);
-            timer.start();
-            //warning jumps, but ive read it is safe
   
         });  
     }
