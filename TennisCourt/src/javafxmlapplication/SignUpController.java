@@ -12,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -181,7 +183,7 @@ public class SignUpController implements Initializable {
             creditcardField.setText("");
         }
         else{cardErr.setVisible(false);}
-        
+
         if(Utils.checkUser(nameField.getText()) && Utils.checkSurname(surnameField.getText()) && 
         Utils.checkTelephone(telephoneField.getText()) && Utils.checkNickname(nicknameField.getText()) && Utils.checkNickname(nicknameField.getText())&& 
         !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())) //Falta CSC SVC)
@@ -196,27 +198,37 @@ public class SignUpController implements Initializable {
  
             }
 
-            FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
-            Parent root = loader.load();
-            Scene escena = new Scene(root);
-            Stage stage = (Stage) cancel.getScene().getWindow();
-            stage.setScene(escena);
-            stage.show();
-                
-        
-        }
-       
-
-        int visibilityDuration = 2000; 
+           
+            /*
+                        int visibilityDuration = 2000; 
                 oki.setVisible(true);
                 Timer timer = new Timer(visibilityDuration, new ActionListener() {
                     @Override
                     public void actionPerformed(java.awt.event.ActionEvent e) {
                        oki.setVisible(false);
+                       
                     }
-                });
-                timer.setRepeats(false);
-                timer.start();
+            });
+            timer.setRepeats(false);
+            timer.start();
+            */
+            
+
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+            Parent root;
+            root = loader.load();
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) cancel.getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+                
+     
+
+        
+        }
+       
+
+        
         
     }
     
