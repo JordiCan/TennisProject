@@ -51,7 +51,6 @@
          <children>
             <StackPane prefHeight="477.0" prefWidth="1163.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                   <GridPane prefHeight="477.0" prefWidth="559.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="32.0" />
@@ -169,6 +168,11 @@
                         <TextField fx:id="creditcardField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
+                  <ImageView fx:id="oki" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/iconoOki.gif" />
+                     </image>
+                  </ImageView>
                </children>
             </StackPane>
          </children>

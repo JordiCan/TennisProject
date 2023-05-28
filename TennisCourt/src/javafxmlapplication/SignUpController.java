@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package javafxmlapplication;
+import java.awt.event.ActionListener;
 import static javafxmlapplication.JavaFXMLApplication.member;
 
 import java.io.File;
@@ -26,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.Timer;
 import model.Club;
 import model.ClubDAOException;
 import model.Member;
@@ -79,7 +81,8 @@ public class SignUpController implements Initializable {
     private Button LoginButton;
     @FXML
     private ImageView Image;
-    
+    @FXML
+    private ImageView oki;
 
     Image avatar= new Image("/img/default.png");
     Member m;
@@ -204,7 +207,16 @@ public class SignUpController implements Initializable {
         }
        
 
-        
+        int visibilityDuration = 2000; 
+                oki.setVisible(true);
+                Timer timer = new Timer(visibilityDuration, new ActionListener() {
+                    @Override
+                    public void actionPerformed(java.awt.event.ActionEvent e) {
+                       oki.setVisible(false);
+                    }
+                });
+                timer.setRepeats(false);
+                timer.start();
         
     }
     
