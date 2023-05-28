@@ -8,7 +8,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -45,259 +49,128 @@
    <center>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="480.0" prefWidth="550.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="477.0" prefWidth="69.0" />
-            <VBox alignment="CENTER" prefHeight="340.0" prefWidth="480.0">
+            <StackPane prefHeight="477.0" prefWidth="1163.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <GridPane prefHeight="477.0" prefWidth="559.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="32.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="41.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="133.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="224.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="114.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 16 digits" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" GridPane.columnIndex="4" />
+                        <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" GridPane.columnIndex="4" />
+                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 8 characters, including at least a capital letter and a number" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <TextField fx:id="nicknameField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="telephoneField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="surnameField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="nameField" alignment="TOP_LEFT" GridPane.columnIndex="3" />
+                        <PasswordField fx:id="passwordField" prefHeight="24.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                            <image>
-                              <Image url="@../img/chaval.png" />
+                              <Image url="@../img/chavalOscuro.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="55.0" text="Name">
+                        <Label prefHeight="50.0" prefWidth="55.0" text="Name" GridPane.columnIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="nameField" alignment="TOP_LEFT">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <image>
-                              <Image url="@../img/chaval.png" />
+                              <Image url="@../img/telOscuro.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="83.0" text="Surname">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../img/chavalOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../img/chavalOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../img/keyOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../img/cardOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../img/cardOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <image>
+                              <Image url="@../img/svcOswcuro.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                        <TextField fx:id="svc" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                        <Label prefHeight="50.0" prefWidth="38.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="7">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="surnameField">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transPhone.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="40.0" prefWidth="97.0" text="Telephone">
+                        <Label prefHeight="50.0" prefWidth="83.0" text="Surname" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="telephoneField">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 9 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/chaval.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="124.0" text="Nickname">
+                        <Label prefHeight="50.0" prefWidth="135.0" text="Credit card" GridPane.columnIndex="2" GridPane.rowIndex="5">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="nicknameField">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" />
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transkey.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="87.0" text="Password">
+                        <Label prefHeight="50.0" prefWidth="192.0" text="CSC (optional)" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <PasswordField fx:id="passwordField" prefHeight="24.0" prefWidth="171.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </PasswordField>
-                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 8 characters, including at least a capital letter and a number" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transcard.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="135.0" text="Credit card">
+                        <Label prefHeight="50.0" prefWidth="87.0" text="Password" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="creditcardField">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 16 digits" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transcard.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="192.0" text="CSC (optional)">
+                        <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Label prefHeight="40.0" prefWidth="97.0" text="Telephone" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="csc" prefHeight="24.0" prefWidth="181.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transver.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="38.0" text="SVC">
+                        <TextField fx:id="csc" prefHeight="24.0" prefWidth="181.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <Label prefHeight="50.0" prefWidth="124.0" text="Nickname" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="svc">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
+                        <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 9 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="creditcardField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                      </children>
-                  </HBox>
+                  </GridPane>
                </children>
-            </VBox>
+            </StackPane>
          </children>
       </HBox>
    </center>
@@ -322,8 +195,8 @@
                <children>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="54.0" prefWidth="190.0">
                      <children>
-                        <Button fx:id="save" mnemonicParsing="false" onAction="#CreateProfile" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
-                        <Button fx:id="cancel" mnemonicParsing="false" onAction="#CancelButton" text="Cancel">
+                        <Button fx:id="save" mnemonicParsing="false" onAction="#CreateProfile" prefHeight="24.0" prefWidth="52.0" styleClass="profile-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" />
+                        <Button fx:id="cancel" mnemonicParsing="false" onAction="#CancelButton" styleClass="cancel-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Cancel">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
