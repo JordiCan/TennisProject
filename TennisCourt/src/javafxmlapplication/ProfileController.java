@@ -237,6 +237,7 @@ public class ProfileController implements Initializable {
             creditcard.setText(member.getCreditCard());
             String svcString = Integer.toString(member.getSvc());
             svc.setText(svcString);
+            Image.setImage(member.getImage());
             
         } catch (Exception e) {
             name.setText("");
@@ -267,6 +268,7 @@ public class ProfileController implements Initializable {
            System.out.println("Crea boolean");
            System.out.println("Si que chequea las cosas" + name.getText());
            System.out.println(!Utils.checkUser(name.getText()));
+
            
            if (!Utils.checkUser(name.getText())){
                System.out.println("Entra en el if");
@@ -346,6 +348,10 @@ public class ProfileController implements Initializable {
                     int svc3 = Integer.parseInt(svc.getText());
                     member.setSvc(svc3);
                 }
+                if (Image.getImage() != member.getImage()){
+                    member.setImage(Image.getImage());
+                }
+                
                 
                 save.setVisible(false);
                 pic.setVisible(false);
