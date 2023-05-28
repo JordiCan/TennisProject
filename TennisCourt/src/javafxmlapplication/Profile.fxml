@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -48,367 +49,375 @@
    <center>
       <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="475.0" prefWidth="71.0" />
-            <VBox alignment="CENTER" prefHeight="426.0" prefWidth="484.0" spacing="10.0">
+            <StackPane prefHeight="488.0" prefWidth="623.0">
                <children>
-                  <HBox prefHeight="15.0" prefWidth="482.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                  <ImageView fx:id="oki" fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/iconoOki.gif" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="488.0" prefWidth="382.0" spacing="10.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/chaval.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="45.0" prefWidth="116.0" text="Name">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
+                        <HBox prefHeight="15.0" prefWidth="482.0" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/chaval.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="45.0" prefWidth="116.0" text="Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
                               <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo">
-                           <HBox.margin>
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="43.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/chaval.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="43.0" prefWidth="157.0" text="Surname">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
                               <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <opaqueInsets>
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/transPhone.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="43.0" prefWidth="170.0" text="Telephone">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
                               <Insets />
-                           </opaqueInsets>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
-                           <HBox.margin>
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/chaval.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="50.0" prefWidth="98.0" text="Nickname">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
                               <Insets />
-                           </HBox.margin>
-                        </Text>
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/transkey.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="46.0" prefWidth="149.0" text="Password">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="245.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </PasswordField>
+                              <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/transcard.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="1.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="46.0" prefWidth="168.0" text="Credit card">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/transcard.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="1.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/transver.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="46.0" prefWidth="76.0" text="SVC">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextField>
+                              <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="15.0" prefWidth="482.0" />
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="43.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/chaval.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="43.0" prefWidth="157.0" text="Surname">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transPhone.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="43.0" prefWidth="170.0" text="Telephone">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/chaval.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="98.0" text="Nickname">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transkey.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="149.0" text="Password">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="245.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </PasswordField>
-                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transcard.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="1.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="168.0" text="Credit card">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transcard.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="1.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transver.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="76.0" text="SVC">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="15.0" prefWidth="482.0" />
+                  </VBox>
                </children>
-            </VBox>
+            </StackPane>
          </children>
       </HBox>
    </center>

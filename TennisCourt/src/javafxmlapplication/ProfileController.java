@@ -88,6 +88,20 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -182,6 +196,8 @@ public class ProfileController implements Initializable {
     
     @FXML
     private Text cscErr;
+    @FXML
+    private ImageView oki;
     
     
     
@@ -243,6 +259,7 @@ public class ProfileController implements Initializable {
     System.out.println("Aqui llega");
         
         save.setOnMouseClicked(event -> {
+            
            System.out.println("Aqui entra");
            boolean tFots = true; //si es true entonces lo guardamos
            System.out.println("Crea boolean");
@@ -350,7 +367,19 @@ public class ProfileController implements Initializable {
             svc.setEditable(false);
             
             
-           
+            
+            int visibilityDuration = 2000; // 3 seconds
+            oki.setVisible(true);
+            Timer timer = new Timer(visibilityDuration, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                   oki.setVisible(false);
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
+            //warning jumps, but ive read it is safe
+  
         });  
     }
 
