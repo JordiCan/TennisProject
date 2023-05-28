@@ -151,6 +151,9 @@ public class ProfileController implements Initializable {
     private Button pic;
     
     @FXML
+    private Button EditProfile;
+    
+    @FXML
     private Button cancel;
     
     @FXML
@@ -209,8 +212,7 @@ public class ProfileController implements Initializable {
     
     @FXML
     private Text svcErr1;
-    @FXML
-    private Button EditProfile;
+    
  
     
     
@@ -374,14 +376,17 @@ public class ProfileController implements Initializable {
                 });
                 timer.setRepeats(false);
                 timer.start();
-                //warning jumps, but ive read it is safe  
+                //warning jumps, but ive read it is safe 
+                EditProfile.setVisible(true);
             } 
+            
   
         });  
     }
 
     @FXML
     private void EditProfile_Pic(javafx.event.ActionEvent event) throws FileNotFoundException {
+        
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select images");
         FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
@@ -398,7 +403,8 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void EditProfile_Action(javafx.event.ActionEvent event) {
-         pic.setVisible(true);
+        EditProfile.setVisible(false);
+        pic.setVisible(true);
         save.setVisible(true);
         
         name.setBlendMode(BlendMode.SRC_OVER);
