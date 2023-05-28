@@ -88,6 +88,20 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -137,6 +151,9 @@ public class ProfileController implements Initializable {
     private Button pic;
     
     @FXML
+    private Button EditProfile;
+    
+    @FXML
     private Button cancel;
     
     @FXML
@@ -182,6 +199,8 @@ public class ProfileController implements Initializable {
     
     @FXML
     private Text cscErr;
+    @FXML
+    private ImageView oki;
     
     
     
@@ -193,8 +212,7 @@ public class ProfileController implements Initializable {
     
     @FXML
     private Text svcErr1;
-    @FXML
-    private Button EditProfile;
+    
  
     
     
@@ -219,6 +237,7 @@ public class ProfileController implements Initializable {
             creditcard.setText(member.getCreditCard());
             String svcString = Integer.toString(member.getSvc());
             svc.setText(svcString);
+            Image.setImage(member.getImage());
             
         } catch (Exception e) {
             name.setText("");
@@ -238,16 +257,17 @@ public class ProfileController implements Initializable {
     
     @FXML
     public void Save_ErroresData() {
-        //esta parte la hago mañana con Jordi creo, pero la vamos haciendo 
-        //cuando click el save 
+        
     System.out.println("Aqui llega");
         
         save.setOnMouseClicked(event -> {
+            
            System.out.println("Aqui entra");
            boolean tFots = true; //si es true entonces lo guardamos
            System.out.println("Crea boolean");
            System.out.println("Si que chequea las cosas" + name.getText());
            System.out.println(!Utils.checkUser(name.getText()));
+
            
            if (!Utils.checkUser(name.getText())){
                System.out.println("Entra en el if");
@@ -327,16 +347,51 @@ public class ProfileController implements Initializable {
                     int svc3 = Integer.parseInt(svc.getText());
                     member.setSvc(svc3);
                 }
+                if (Image.getImage() != member.getImage()){
+                    member.setImage(Image.getImage());
+                }
+                
+                
+                save.setVisible(false);
+                pic.setVisible(false);
+
+                name.setBlendMode(BlendMode.COLOR_BURN);
+                name.setEditable(false);
+                surname.setBlendMode(BlendMode.COLOR_BURN);
+                surname.setEditable(false);
+                telephone.setBlendMode(BlendMode.COLOR_BURN);
+                telephone.setEditable(false);
+                //nickname.setEditable(true); NO ES EDITABLE
+                password.setBlendMode(BlendMode.COLOR_BURN);
+                password.setEditable(false);
+                creditcard.setBlendMode(BlendMode.COLOR_BURN);
+                creditcard.setEditable(false);
+                csc.setBlendMode(BlendMode.COLOR_BURN);
+                csc.setEditable(false);
+                svc.setBlendMode(BlendMode.COLOR_BURN);
+                svc.setEditable(false);
+                
+                int visibilityDuration = 2000; 
+                oki.setVisible(true);
+                Timer timer = new Timer(visibilityDuration, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                       oki.setVisible(false);
+                    }
+                });
+                timer.setRepeats(false);
+                timer.start();
+                //warning jumps, but ive read it is safe 
+                EditProfile.setVisible(true);
             } 
             
-            
-            
-           
+  
         });  
     }
 
     @FXML
     private void EditProfile_Pic(javafx.event.ActionEvent event) throws FileNotFoundException {
+        
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select images");
         FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.png", "*.gif", "*.bmp");
@@ -353,7 +408,8 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void EditProfile_Action(javafx.event.ActionEvent event) {
-         pic.setVisible(true);
+        EditProfile.setVisible(false);
+        pic.setVisible(true);
         save.setVisible(true);
         
         name.setBlendMode(BlendMode.SRC_OVER);
@@ -374,20 +430,3 @@ public class ProfileController implements Initializable {
     }
 }
 
-//DUDAS
-//Button accept: que se registren los datos si no hay error. Acceder base de datos. 
-//TextFields tengan los campos anteriormente registrados, es decir lo del password y el nickname varibles no locales.
-
- /*   ActionListener oyente = new ActionListener(){
-                
-                @Overrride
-                public void actionPerformed(ActionEvent e){
-                }
-            }
-        }); */ 
-    
-//hacer
-//QUIERO QUE ME PONGA LA ORIGINAL EN EL TEXTFIELD al hacer error y al inicio el prompt text
-//Ademas la original tm si hay algun error, para que al hacer save 
-//me falta chequear si ese tio ya esta registrado
-//listener

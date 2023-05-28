@@ -11,7 +11,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -27,7 +31,7 @@
                         <Image url="@../img/chaval.png" />
                      </image>
                      <VBox.margin>
-                        <Insets left="15.0" />
+                        <Insets />
                      </VBox.margin>
                   </ImageView>
                   <Button fx:id="pic" alignment="CENTER" mnemonicParsing="false" onAction="#EditProfile_Pic" prefHeight="26.0" prefWidth="51.0" styleClass="profile-button" text="pic" visible="false" />
@@ -48,29 +52,43 @@
    <center>
       <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="550.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="475.0" prefWidth="71.0" />
-            <VBox alignment="CENTER" prefHeight="426.0" prefWidth="484.0" spacing="10.0">
+            <StackPane prefHeight="488.0" prefWidth="623.0">
                <children>
-                  <HBox prefHeight="15.0" prefWidth="482.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
+                  <ImageView fx:id="oki" fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/iconoOki.gif" />
+                     </image>
+                  </ImageView>
+                  <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="34.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="54.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="134.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.0" minWidth="10.0" prefWidth="181.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="145.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                            <image>
-                              <Image url="@../img/chaval.png" />
+                              <Image url="@../img/chavalOscuro.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="45.0" prefWidth="116.0" text="Name">
+                        <Label prefHeight="45.0" prefWidth="58.0" text="Name" GridPane.columnIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="name" alignment="TOP_LEFT" blendMode="COLOR_BURN" editable="false" text="Ejemplo" GridPane.columnIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -88,35 +106,28 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="43.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Input more than five characters please" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" GridPane.columnIndex="4" />
+                        <ImageView fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <image>
-                              <Image url="@../img/chaval.png" />
+                              <Image url="@../img/chavalOscuro.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="43.0" prefWidth="157.0" text="Surname">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../img/telOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../img/chavalOscuro.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="43.0" prefWidth="157.0" text="Surname" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="surname" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -131,38 +142,13 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/transPhone.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="43.0" prefWidth="170.0" text="Telephone">
+                        <Text fx:id="surnErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="143.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Label prefHeight="43.0" prefWidth="170.0" text="Telephone" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="telephone" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -177,35 +163,13 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/chaval.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="50.0" prefWidth="98.0" text="Nickname">
+                        <Text fx:id="telErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again " textAlignment="JUSTIFY" visible="false" wrappingWidth="145.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Label prefHeight="50.0" prefWidth="98.0" text="Nickname" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="nickname" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -220,33 +184,17 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <image>
-                              <Image url="@../img/transkey.png" />
+                              <Image url="@../img/keyOscuro.png" />
                            </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="149.0" text="Password">
+                        <Label prefHeight="46.0" prefWidth="149.0" text="Password" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="245.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <PasswordField fx:id="password" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="245.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -261,38 +209,18 @@
                               </Lighting>
                            </effect>
                         </PasswordField>
-                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                        <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 6 or more chars or integers" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <image>
-                              <Image url="@../img/transcard.png" />
+                              <Image url="@../img/cardOscuro.png" />
                            </image>
-                           <HBox.margin>
-                              <Insets left="1.0" />
-                           </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="168.0" text="Credit card">
+                        <Label prefHeight="46.0" prefWidth="168.0" text="Credit card" GridPane.columnIndex="2" GridPane.rowIndex="5">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="creditcard" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="5">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -307,38 +235,19 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                        <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <image>
-                              <Image url="@../img/transcard.png" />
+                              <Image url="@../img/cardOscuro.png" />
                            </image>
-                           <HBox.margin>
-                              <Insets left="1.0" />
-                           </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)">
+                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -353,38 +262,17 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="50.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <image>
-                              <Image url="@../img/transver.png" />
+                              <Image url="@../img/svcOswcuro.png" />
                            </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="76.0" text="SVC">
+                        <Label prefHeight="46.0" prefWidth="76.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="7">
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -399,16 +287,11 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
+                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="7" />
                      </children>
-                  </HBox>
-                  <HBox prefHeight="15.0" prefWidth="482.0" />
+                  </GridPane>
                </children>
-            </VBox>
+            </StackPane>
          </children>
       </HBox>
    </center>
@@ -417,15 +300,15 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="178.0">
                <children>
-                  <Button fx:id="save" mnemonicParsing="false" onAction="#Save_ErroresData" prefHeight="24.0" prefWidth="71.0" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
+                  <Button fx:id="save" mnemonicParsing="false" onAction="#Save_ErroresData" prefHeight="24.0" prefWidth="71.0" styleClass="profile-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="cancel" alignment="CENTER" mnemonicParsing="false" onAction="#CancelButton" prefHeight="24.0" prefWidth="74.0" text="Cancel" textAlignment="CENTER" />
+                  <Button fx:id="cancel" alignment="CENTER" mnemonicParsing="false" onAction="#CancelButton" prefHeight="28.0" prefWidth="76.0" styleClass="cancel-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Cancel" textAlignment="CENTER" />
                </children>
             </HBox>
-            <Button fx:id="EditProfile" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" style="-fx-background-radius: 30;" styleClass="profile-color" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="EditProfile" alignment="CENTER_RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#EditProfile_Action" prefHeight="32.0" prefWidth="113.0" styleClass="profile-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Edit profile" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
