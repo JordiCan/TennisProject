@@ -24,6 +24,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import static javafxmlapplication.JavaFXMLApplication.member;
@@ -47,9 +50,7 @@ public class MainStageController  implements Initializable{
     private MenuItem fieldsScene;
     @FXML
     private ImageView logo;
-    @FXML
-    private ImageView court;
-    
+   
     
     @FXML
     private Text accountInfo;
@@ -59,6 +60,8 @@ public class MainStageController  implements Initializable{
     private HBox hbox;
     @FXML
     private MenuItem bookings;
+    @FXML
+    private MediaView video;
     
     
     
@@ -72,15 +75,15 @@ public class MainStageController  implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+        /*Media v = new Media("/videos/videomario.mp4");
+        MediaPlayer mp = new MediaPlayer(v);
+        video.setMediaPlayer(mp);
+        mp.play();*/
+        
         bookings.setDisable(true);
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
-        Image im = new Image("/img/upv pista.jpeg");
-        court.setImage(im);
-        
-        court.setPreserveRatio(true);
-        court.setSmooth(true);
-        
+
         
         try{
         Club club = Club.getInstance();
