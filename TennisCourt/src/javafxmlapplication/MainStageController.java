@@ -60,8 +60,6 @@ public class MainStageController  implements Initializable{
     private HBox hbox;
     @FXML
     private MenuItem bookings;
-    @FXML
-    private MediaView video;
     
     
     
