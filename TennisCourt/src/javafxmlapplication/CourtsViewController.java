@@ -131,6 +131,8 @@ public class CourtsViewController implements Initializable {
     private boolean p5 = true;
     private boolean p6 = true;
     
+    private Member localMember;
+    
     private List<Booking> memberBooking = new ArrayList<>();
     
 
@@ -168,10 +170,20 @@ public class CourtsViewController implements Initializable {
 
     @FXML
     private RadioMenuItem nueveadiezpm;
-    @FXML
-    private ToggleGroup MenuItems1;
     
     private List<MaxBookingDuration> maxBookingsCourts = new ArrayList<>();
+    @FXML
+    private Text member1;
+    @FXML
+    private Text member4;
+    @FXML
+    private Text member2;
+    @FXML
+    private Text member5;
+    @FXML
+    private Text member3;
+    @FXML
+    private Text member6;
     
     
     
@@ -186,6 +198,15 @@ public class CourtsViewController implements Initializable {
         
         }
         catch(Exception e){}
+        
+        member1.setVisible(false);
+        member2.setVisible(false);
+        member3.setVisible(false);
+        member4.setVisible(false);
+        member5.setVisible(false);
+        member6.setVisible(false);
+        
+        
         LocalDate n = LocalDate.ofEpochDay(3);
         Court court = new Court("jeje");
 
@@ -202,6 +223,15 @@ public class CourtsViewController implements Initializable {
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
                     System.out.print(l.size());
+                    
+//No existen los bookings
+                        member1.setVisible(false);
+                        member2.setVisible(false);
+                        member3.setVisible(false);
+                        member4.setVisible(false);
+                        member5.setVisible(false);
+                        member6.setVisible(false);
+                    
                     
 //poner nombre a las pistas                    
                     List<Court> courts = club.getCourts();
@@ -242,19 +272,23 @@ public class CourtsViewController implements Initializable {
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
+                        String nickname = books.get(i).getMember().getNickName();
+                        System.out.println("El nickname es " + nickname);
                         
                         if(begin.equals(timeBegin)){
-                            System.out.println("Hasta aqui bien");
                             switch(courtname){
                                 case "p0":
                                     
                                     if(inTheMemberBookings(memberBooking,timeBegin,"p0")){
                                         i1 = new Image("/img/wiilabuenatupista.png");
                                         pista1.setImage(i1);
+
                                     
                                     }
                                     else{i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    member1.setVisible(true);
+                                    member1.setText("Booked by: " +nickname);                                    
                                     }
                                     p1 = false;
                                 break;
@@ -267,6 +301,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
+                                    member2.setVisible(true);
+                                    member2.setText("Booked by: " +nickname);                                         
                                     }
                                     p2 = false;
                                 break;
@@ -274,11 +310,15 @@ public class CourtsViewController implements Initializable {
                                     if(inTheMemberBookings(memberBooking,timeBegin,"p2")){
                                         i3 = new Image("/img/pista6labuenatupista.jpeg");
                                         pista3.setImage(i3);
+                                    member3.setVisible(true);
+                                    member3.setText("Booked by: " +nickname);                                         
                                     
                                     }
                                     else{                                    
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
                                     pista3.setImage(i3);
+                                    member3.setVisible(true);
+                                    member3.setText("Booked by: " +nickname);                                     
                                     }
                                     p3 = false;
                                 break;
@@ -286,11 +326,12 @@ public class CourtsViewController implements Initializable {
                                     if(inTheMemberBookings(memberBooking,timeBegin,"p3")){
                                         i4 = new Image("/img/pista3tupista.jpg");
                                         pista4.setImage(i4);
-                                    
                                     }
                                     else{                                    
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
                                     pista4.setImage(i4);
+                                    member4.setVisible(true);
+                                    member4.setText("Booked by: " +nickname);                                                                         
                                     }
                                     p4 = false;
                                 break;
@@ -303,6 +344,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
                                     pista5.setImage(i5);
+                                    member5.setVisible(true);
+                                    member5.setText("Booked by: " +nickname);                                     
                                     }
                                     p5 = false;
                                 break; 
@@ -315,6 +358,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
+                                    member6.setVisible(true);
+                                    member6.setText("Booked by: " +nickname);                                     
                                     }
                                     p6 = false;
                                 break;                                 
@@ -437,7 +482,6 @@ public class CourtsViewController implements Initializable {
                 System.out.println("Que esta pasando");
                     l = club.getForDayBookings(daySelected);
                     books = FXCollections.observableArrayList(l);
-                    System.out.print(l.size());
                    
 //poner nombre a las pistas                    
                     List<Court> courts = club.getCourts();
@@ -457,6 +501,15 @@ public class CourtsViewController implements Initializable {
                     p4 = true;
                     p5 = true;
                     p6 = true;
+                    
+//para reiniciar los textos 
+                        member1.setVisible(false);
+                        member2.setVisible(false);
+                        member3.setVisible(false);
+                        member4.setVisible(false);
+                        member5.setVisible(false);
+                        member6.setVisible(false);
+                    
 
 //poner las imagenes al sitio                    
                     Image i1 = new Image("/img/wiilabuena.png");
@@ -474,7 +527,7 @@ public class CourtsViewController implements Initializable {
                     for(int i =0; i < l.size(); i++){
                         String courtname = books.get(i).getCourt().getName();
                         LocalTime begin = books.get(i).getFromTime();
-                        
+                        String nickname = books.get(i).getMember().getNickName();
                         if(begin.equals(timeBegin)){
                             System.out.println("Hasta aqui bien");
                             switch(courtname){
@@ -487,6 +540,8 @@ public class CourtsViewController implements Initializable {
                                     }
                                     else{i1 = new Image("/img/wiilabuenaBooked.png");
                                     pista1.setImage(i1);
+                                    member1.setVisible(true);
+                                    member1.setText("Booked by: " +nickname);                                     
                                     }
                                     p1 = false;
                                 break;
@@ -499,6 +554,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i2 = new Image("/img/pista5labuenaBooked.jpg");
                                     pista2.setImage(i2);
+                                    member2.setVisible(true);
+                                    member2.setText("Booked by: " +nickname);                                     
                                     }
                                     p2 = false;
                                 break;
@@ -511,6 +568,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i3 = new Image("/img/pista6labuenaBooked.jpeg");
                                     pista3.setImage(i3);
+                                    member3.setVisible(true);
+                                    member3.setText("Booked by: " +nickname);                                     
                                     }
                                     p3 = false;
                                 break;
@@ -523,6 +582,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i4 = new Image("/img/pista3labuenaBooked.jpg");
                                     pista4.setImage(i4);
+                                    member4.setVisible(true);
+                                    member4.setText("Booked by: " +nickname);                                     
                                     }
                                     p4 = false;
                                 break;
@@ -530,11 +591,14 @@ public class CourtsViewController implements Initializable {
                                     if(inTheMemberBookings(memberBooking,timeBegin,"p4")){
                                         i5 = new Image("/img/pista2labuenatupista.jpg");
                                         pista5.setImage(i5);
+                                         
                                     
                                     }
                                     else{                                
                                     i5 = new Image("/img/pista2labuenaBooked.jpg");
                                     pista5.setImage(i5);
+                                    member5.setVisible(true);
+                                    member5.setText("Booked by: " +nickname);                                    
                                     }
                                     p5 = false;
                                 break; 
@@ -547,6 +611,8 @@ public class CourtsViewController implements Initializable {
                                     else{                                    
                                     i6 = new Image("/img/pistaMarioReservada.jpg");
                                     pista6.setImage(i6);
+                                    member6.setVisible(true);
+                                    member6.setText("Booked by: " +nickname);                                    
                                     }
                                     p6 = false;
                                 break;                                 
