@@ -54,11 +54,6 @@
          <children>
             <StackPane prefHeight="488.0" prefWidth="623.0">
                <children>
-                  <ImageView fx:id="oki" fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../img/iconoOki.gif" />
-                     </image>
-                  </ImageView>
                   <GridPane>
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="34.0" />
@@ -290,6 +285,11 @@
                         <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="7" />
                      </children>
                   </GridPane>
+                  <ImageView fx:id="oki" fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/iconoOki.gif" />
+                     </image>
+                  </ImageView>
                </children>
             </StackPane>
          </children>
