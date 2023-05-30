@@ -92,7 +92,7 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <MediaView fx:id="video" fitHeight="302.0" fitWidth="476.0" preserveRatio="false" />
+            <MediaView fx:id="mediaView" fitHeight="302.0" fitWidth="476.0" />
          </children>
       </HBox>
    </center>
