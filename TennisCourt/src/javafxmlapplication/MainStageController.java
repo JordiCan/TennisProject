@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
@@ -61,7 +63,7 @@ public class MainStageController  implements Initializable{
     @FXML
     private MenuItem bookings;
     @FXML
-    private MediaView video;
+    private MediaView mediaView;
     
     
     
@@ -74,15 +76,27 @@ public class MainStageController  implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-        /*Media v = new Media("/videos/videomario.mp4");
-        MediaPlayer mp = new MediaPlayer(v);
-        video.setMediaPlayer(mp);
-        mp.play();*/
+         try{
+            String videofile = "src//video//videomario.mp4";
+            File file = new File(videofile);
+             Media media = new Media(file.toURI().toString());
+             MediaPlayer mediaPlayer = new MediaPlayer(media);
+             mediaView.setMediaPlayer(mediaPlayer);
+             mediaPlayer.setAutoPlay(true);
+             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);              
+         }
+         catch(MediaException e){System.out.println("No coge bien el path");}
         
         bookings.setDisable(true);
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
+        
+        hbox.heightProperty().addListener((observable, oldvalue, newvalue)->{
+            mediaView.setFitHeight((double) newvalue);
+        });
+        hbox.widthProperty().addListener((observable, oldvalue, newvalue)->{
+            mediaView.setFitWidth((double) newvalue);
+        });        
 
         
         try{
@@ -190,15 +204,7 @@ public class MainStageController  implements Initializable{
 
     }
     
-    public void setMember(Member member){
-        /*this.m = member;
-        accountInfo.setVisible(true);
-        accountInfo.setText(member.getNickName());
-        Image jiji = member.getImage();
-        imageProfile.setImage(jiji);
-        bookings.setDisable(false);
-        */
-    }
+
 
     @FXML
     private void changeToBooking(ActionEvent event) throws Exception {
