@@ -95,7 +95,8 @@ public class ProfileController implements Initializable {
     private Text cscErr;
     @FXML
     private ImageView oki;
-    
+    @FXML
+    private Button logoutB;
     
     
     @FXML
@@ -148,6 +149,18 @@ public class ProfileController implements Initializable {
         stage.setScene(nueva);
         stage.show();
     } 
+    
+    @FXML
+    public void LogearseOut() throws Exception {
+        member = null; 
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.show();
+    } 
+    
     
     @FXML
     public void Save_ErroresData() {

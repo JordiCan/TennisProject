@@ -298,12 +298,26 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="43.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="178.0">
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="62.0">
+               <children>
+                  <Button fx:id="logoutB" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#LogearseOut" prefHeight="37.0" prefWidth="37.0">
+                     <graphic>
+                        <ImageView fitHeight="69.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/logoutColor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="33.0" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="160.0">
                <children>
                   <Button fx:id="save" mnemonicParsing="false" onAction="#Save_ErroresData" prefHeight="24.0" prefWidth="71.0" styleClass="profile-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Save" visible="false" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="168.0">
                <children>
                   <Button fx:id="cancel" alignment="CENTER" mnemonicParsing="false" onAction="#CancelButton" prefHeight="28.0" prefWidth="76.0" styleClass="cancel-button" stylesheets="@../css/style%20-%20ejemplo_1.css" text="Cancel" textAlignment="CENTER" />
                </children>
