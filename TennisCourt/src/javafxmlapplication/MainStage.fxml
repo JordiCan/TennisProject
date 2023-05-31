@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.image.Image?>
@@ -96,7 +97,19 @@
                      <font>
                         <Font size="11.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </Text>
+                  <Button fx:id="logOutButton" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#logOutAction" prefHeight="30.0" prefWidth="30.0">
+                     <graphic>
+                        <ImageView fx:id="imageLogOut" fitHeight="69.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/logoutColor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
          </children>
