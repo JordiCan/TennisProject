@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -48,7 +49,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import static javafxmlapplication.JavaFXMLApplication.member;
@@ -184,6 +188,22 @@ public class CourtsViewController implements Initializable {
     private Text member3;
     @FXML
     private Text member6;
+    @FXML
+    private HBox hboxcourts;
+    @FXML
+    private HBox hboxbottom;
+    @FXML
+    private HBox hboxpistas;
+    @FXML
+    private VBox v1;
+    @FXML
+    private VBox v2;
+    @FXML
+    private VBox v3;
+    @FXML
+    private HBox buttonbox;
+    @FXML
+    private ImageView home;
     
     
     
@@ -205,6 +225,59 @@ public class CourtsViewController implements Initializable {
         member4.setVisible(false);
         member5.setVisible(false);
         member6.setVisible(false);
+        
+        double initialWidth = 150;
+        
+        
+        //RESIZABLE
+        hboxpistas.heightProperty().addListener((observable, oldvalue, newvalue)->{
+
+        if(newvalue.doubleValue()/3 < 140){
+            pista1.setFitHeight(newvalue.doubleValue()/3);
+            pista2.setFitHeight(newvalue.doubleValue()/3);
+            pista3.setFitHeight(newvalue.doubleValue()/3);
+            pista4.setFitHeight(newvalue.doubleValue()/3);
+            pista5.setFitHeight(newvalue.doubleValue()/3);
+            pista6.setFitHeight(newvalue.doubleValue()/3);
+        }
+                   
+        });
+        
+        hboxpistas.widthProperty().addListener((obervable, oldvalue, newvalue)->{
+            if(newvalue.doubleValue()/4 < 192.4){ 
+                pista1.setFitWidth(newvalue.doubleValue()/4);
+                pista2.setFitWidth(newvalue.doubleValue()/4);
+                pista3.setFitWidth(newvalue.doubleValue()/4);
+                pista4.setFitWidth(newvalue.doubleValue()/4);
+                pista5.setFitWidth(newvalue.doubleValue()/4);
+                pista6.setFitWidth(newvalue.doubleValue()/4);
+                
+                
+                
+                double fontSize = newvalue.doubleValue() *0.02;
+                member1.setFont(Font.font("System",fontSize));
+                member2.setFont(Font.font("System",fontSize));
+                member3.setFont(Font.font("System",fontSize));
+                member4.setFont(Font.font("System",fontSize));
+                member5.setFont(Font.font("System",fontSize));
+                member6.setFont(Font.font("System",fontSize));
+        
+           }
+        
+        });
+        
+
+        
+        hboxbottom.widthProperty().addListener((obervable, oldvalue, newvalue)->{
+            double fontSize = newvalue.doubleValue() *0.015;
+            accountProfile.setFont(Font.font("System", fontSize));
+            home.setFitWidth(newvalue.doubleValue()/2);
+        
+        });
+        hboxbottom.heightProperty().addListener((onservable,oldvalue, newvalue)->{
+            home.setFitHeight(newvalue.doubleValue()/2);
+        
+        });
         
         
         LocalDate n = LocalDate.ofEpochDay(3);

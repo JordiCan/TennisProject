@@ -9,134 +9,28 @@
  */
 package javafxmlapplication;
 
-import java.net.URL;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import java.util.ResourceBundle;
-import model.Club;
-import javafx.fxml.Initializable;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionListener;
-import javafx.fxml.FXML;
-import java.net.URL;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.fxml.FXMLLoader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import javax.swing.JTextField;
-import javax.swing.JFrame;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import model.ClubDAOException;
-import model.Member;
-import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import model.Club;
-import model.ClubDAOException;
-import model.Member;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import java.io.File;
-import java.io.IOException;
-import java.awt.Desktop;
 import java.io.FileInputStream;
-import javax.swing.*;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-
-import java.awt.Dimension;
-import java.awt.Graphics;
-
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
-
-
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import model.Club;
-import model.ClubDAOException;
-import model.Member;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import static javafxmlapplication.JavaFXMLApplication.*;
-import model.*;
-import javafx.stage.Stage;
 import model.Club;
 import javafx.scene.effect.BlendMode;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import model.ClubDAOException;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -201,7 +95,8 @@ public class ProfileController implements Initializable {
     private Text cscErr;
     @FXML
     private ImageView oki;
-    
+    @FXML
+    private Button logoutB;
     
     
     @FXML
@@ -254,6 +149,18 @@ public class ProfileController implements Initializable {
         stage.setScene(nueva);
         stage.show();
     } 
+    
+    @FXML
+    public void LogearseOut() throws Exception {
+        member = null; 
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+        Parent root = loader.load();
+        Scene nueva = new Scene(root);
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.setScene(nueva);
+        stage.show();
+    } 
+    
     
     @FXML
     public void Save_ErroresData() {

@@ -4,7 +4,9 @@
  */
 package javafxmlapplication;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -16,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -24,7 +27,11 @@ import javafx.stage.Window;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaException;
 import javafx.scene.media.MediaPlayer;
@@ -59,13 +66,26 @@ public class MainStageController  implements Initializable{
     @FXML
     private ImageView imageProfile;
     @FXML
-    private HBox hbox;
-    @FXML
     private MenuItem bookings;
     @FXML
     private MediaView mediaView;
+    @FXML
+    private Text nombre;
+    @FXML
+    private SplitMenuButton home;
+    @FXML
+    private HBox hboxverdadera;
+    @FXML
+    private VBox vbox;
+    private VBox vboxxd;
+    @FXML
+    private HBox hboxpane;
+    @FXML
+    private Text paginadecathlon;
+    @FXML
+    private BorderPane borderPane;
     
-    
+    private MediaPlayer mediaPlayer;
     
 
     
@@ -80,25 +100,19 @@ public class MainStageController  implements Initializable{
             String videofile = "src//video//videomario.mp4";
             File file = new File(videofile);
              Media media = new Media(file.toURI().toString());
-             MediaPlayer mediaPlayer = new MediaPlayer(media);
+             mediaPlayer = new MediaPlayer(media);
              mediaView.setMediaPlayer(mediaPlayer);
+             mediaPlayer.setMute(false);             
              mediaPlayer.setAutoPlay(true);
-             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);              
+             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+             mediaView.setFitHeight(hboxverdadera.getHeight());
+             mediaView.setFitWidth(hboxverdadera.getWidth());
          }
          catch(MediaException e){System.out.println("No coge bien el path");}
-        
         bookings.setDisable(true);
         Image image = new Image("/img/logo.png");
         logo.setImage(image);
-        
-        hbox.heightProperty().addListener((observable, oldvalue, newvalue)->{
-            mediaView.setFitHeight((double) newvalue);
-        });
-        hbox.widthProperty().addListener((observable, oldvalue, newvalue)->{
-            mediaView.setFitWidth((double) newvalue);
-        });        
 
-        
         try{
         Club club = Club.getInstance();
         }
@@ -113,7 +127,13 @@ public class MainStageController  implements Initializable{
             bookings.setDisable(false);
        }
        
-
+       
+       //RESIZABLE  
+        
+       mediaView.fitHeightProperty().bind(hboxverdadera.heightProperty());
+       mediaView.fitWidthProperty().bind(hboxverdadera.widthProperty());
+       
+       
 
 
     }   
@@ -124,6 +144,7 @@ public class MainStageController  implements Initializable{
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("SignUp.fxml"));
         Parent root = loader.load();
         Scene escena = new Scene(root);
+        mediaPlayer.setMute(true);
      
         Node n = (Node) signUpScene.getParentPopup().getOwnerNode();
         Stage nuevaVentana = (Stage) n.getScene().getWindow();
@@ -140,6 +161,9 @@ public class MainStageController  implements Initializable{
         
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("Registry.fxml"));
         Parent root = loader.load();
+        mediaPlayer.setMute(true);
+        
+        
         Scene nueva = new Scene(root);
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
@@ -158,6 +182,8 @@ public class MainStageController  implements Initializable{
         
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("CourtsView.fxml"));
         Parent root = loader.load();
+        mediaPlayer.setMute(true);
+        
         Scene nueva = new Scene(root);
         Node n = registerScene.getParentPopup().getOwnerNode();
         Stage stage = (Stage) n.getScene().getWindow();
@@ -180,6 +206,8 @@ public class MainStageController  implements Initializable{
         FXMLLoader loader = new  FXMLLoader(getClass().getResource("Profile.fxml"));
         Parent root = loader.load();
         Scene nueva = new Scene(root);
+        mediaPlayer.setMute(true);
+        
         Node n = accountInfo.getParent();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.setScene(nueva);
@@ -212,6 +240,8 @@ public class MainStageController  implements Initializable{
 
             FXMLLoader loader = new  FXMLLoader(getClass().getResource("Bookings.fxml"));
             Parent root = loader.load();
+            mediaPlayer.setMute(true);
+            
             Scene nueva = new Scene(root);
             Node n = bookings.getParentPopup().getOwnerNode();
             Stage stage = (Stage) n.getScene().getWindow();
@@ -228,6 +258,31 @@ public class MainStageController  implements Initializable{
         }
         
         
+    }
+
+    @FXML
+    private void quitarSubrayadoDecathlon(MouseEvent event) {
+        paginadecathlon.setUnderline(false);
+        
+    }
+
+    @FXML
+    private void subrayarDecathlon(MouseEvent event) {
+        paginadecathlon.setUnderline(true);
+    
+    }
+
+    @FXML
+    private void irADecathlon(MouseEvent event) {
+        String direccion = "https://www.decathlon.es/es/sport/c0-deportes/c1-tenis/_/N-77r6sc";
+        try{
+            Desktop.getDesktop().browse(new URI(direccion));
+        
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        
+        }
     }
  
     

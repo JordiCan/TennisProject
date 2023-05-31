@@ -16,17 +16,21 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CourtsViewController">
    <top>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="TOP_CENTER">
+      <HBox fx:id="hboxcourts" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #3b95c1;" BorderPane.alignment="TOP_LEFT">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Courts" textAlignment="RIGHT" wrappingWidth="243.78753662109375">
-               <font>
-                  <Font size="72.0" />
-               </font>
+            <HBox alignment="CENTER">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
-            </Text>
-            <VBox alignment="CENTER_LEFT" prefHeight="95.0" prefWidth="335.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Courts" textAlignment="RIGHT" wrappingWidth="243.78753662109375">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="95.0" prefWidth="335.0">
                <children>
                   <HBox alignment="BASELINE_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -80,13 +84,13 @@
       </HBox>
    </top>
    <center>
-      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+      <HBox fx:id="hboxpistas" alignment="TOP_CENTER" minHeight="21.0" minWidth="50.0" prefHeight="279.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="v1" alignment="CENTER" minHeight="20.0" minWidth="10.0" prefHeight="292.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista1" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista1" fitHeight="100.0" fitWidth="153.0" onMouseClicked="#reservaPista1" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="25.0" top="20.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/wiilabuena.png" />
@@ -94,20 +98,20 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 1">
                      <VBox.margin>
-                        <Insets left="80.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member1" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="151.08522021770477">
                      <VBox.margin>
-                        <Insets left="25.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista4" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista4" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#reservaPista4" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="25.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista3labuena.jpg" />
@@ -115,12 +119,12 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 4">
                      <VBox.margin>
-                        <Insets left="80.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member4" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="151.08522021770477">
                      <VBox.margin>
-                        <Insets left="25.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="10.0" />
@@ -128,11 +132,11 @@
                   </Text>
                </children>
             </VBox>
-            <VBox prefHeight="300.0" prefWidth="224.0">
+            <VBox fx:id="v2" alignment="CENTER" minHeight="20.0" minWidth="10.0" prefHeight="300.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista2" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista2" fitHeight="100.0" fitWidth="151.0" onMouseClicked="#reservaPista2" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista5labuena.jpg" />
@@ -140,20 +144,20 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 2">
                      <VBox.margin>
-                        <Insets left="110.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member2" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="151.08522021770477">
                      <VBox.margin>
-                        <Insets left="50.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista5" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista5" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#reservaPista5" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="50.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista2labuena.jpg" />
@@ -161,12 +165,12 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 5">
                      <VBox.margin>
-                        <Insets left="110.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member5" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="151.08522021770477">
                      <VBox.margin>
-                        <Insets left="50.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="10.0" />
@@ -174,11 +178,11 @@
                   </Text>
                </children>
             </VBox>
-            <VBox prefHeight="300.0" prefWidth="202.0">
+            <VBox fx:id="v3" alignment="CENTER" minHeight="20.0" minWidth="10.0" prefHeight="300.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista3" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista3" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#reservaPista3" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" top="20.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/pista6labuena.jpeg" />
@@ -186,7 +190,7 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 3">
                      <VBox.margin>
-                        <Insets left="90.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member3" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="151.08522021770477">
@@ -194,12 +198,12 @@
                         <Font size="10.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="pista6" fitHeight="100.0" fitWidth="180.0" onMouseClicked="#reservaPista6" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pista6" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#reservaPista6" pickOnBounds="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets left="30.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../img/mario%20tennislabuena.jpg" />
@@ -207,7 +211,7 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Court 6">
                      <VBox.margin>
-                        <Insets left="90.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                   <Text fx:id="member6" fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked by: " textAlignment="JUSTIFY" wrappingWidth="132.68519580364227">
@@ -215,7 +219,7 @@
                         <Font size="10.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </Text>
                </children>
@@ -227,16 +231,16 @@
       </HBox>
    </center>
    <bottom>
-      <HBox alignment="TOP_CENTER" BorderPane.alignment="TOP_RIGHT">
+      <HBox fx:id="hboxbottom" alignment="TOP_CENTER" minHeight="5.0" minWidth="100.0" prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="TOP_RIGHT">
          <BorderPane.margin>
             <Insets bottom="5.0" right="10.0" />
          </BorderPane.margin>
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="570.0">
+            <HBox alignment="CENTER_LEFT" minWidth="50.0" prefHeight="30.0" prefWidth="570.0">
                <children>
-                  <Text fx:id="accountProfile" fill="#716d6d" onMouseClicked="#irAlRegister" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayarTexto" strokeType="OUTSIDE" strokeWidth="0.0" text="You want to make a reservation? Log in!" textAlignment="CENTER" wrappingWidth="218.1367530822754">
+                  <Text fx:id="accountProfile" fill="#716d6d" onMouseClicked="#irAlRegister" onMouseEntered="#subrayarTexto" onMouseExited="#quitarSubrayarTexto" strokeType="OUTSIDE" strokeWidth="0.0" text="You want to make a reservation? Log in!" wrappingWidth="559.1367530822754">
                      <HBox.margin>
-                        <Insets top="15.0" />
+                        <Insets left="5.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font size="11.0" />
@@ -247,14 +251,14 @@
                   <Insets />
                </HBox.margin>
             </HBox>
-            <HBox>
+            <HBox fx:id="buttonbox">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
                <children>
                   <Button fx:id="homeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleActionGoMainStage" prefHeight="14.0" prefWidth="14.0" style="-fx-background-color: #3b95c1;" textAlignment="CENTER" textFill="WHITE">
                      <graphic>
-                        <ImageView fitHeight="11.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="home" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/white-home%20la%20buena.png" />
                            </image>

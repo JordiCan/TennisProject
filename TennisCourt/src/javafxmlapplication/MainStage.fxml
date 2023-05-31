@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.MainStageController">
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.MainStageController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E8F8F5;">
+      <HBox fx:id="hboxpane" prefHeight="104.0" prefWidth="600.0" style="-fx-background-color: #E8F8F5;" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -27,7 +27,7 @@
             </HBox>
             <HBox prefHeight="104.0" prefWidth="592.0">
                <children>
-                  <Text fill="#3b95c1f7" strokeType="OUTSIDE" strokeWidth="0.0" text="UPV TENNIS COURT " textAlignment="JUSTIFY">
+                  <Text fx:id="nombre" fill="#3b95c1f7" strokeType="OUTSIDE" strokeWidth="0.0" text="UPV TENNIS COURT " textAlignment="JUSTIFY">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
@@ -61,38 +61,51 @@
       </HBox>
    </top>
    <left>
-      <VBox style="-fx-background-color: #E8F8F5;">
+      <VBox fx:id="vbox" prefHeight="296.0" prefWidth="130.0" style="-fx-background-color: #E8F8F5;" BorderPane.alignment="CENTER">
          <children>
-            <SplitMenuButton mnemonicParsing="false" text="Home" textFill="#3b95c1">
-              <items>
-                <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Sign Up" />
-                <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Register" />
-                  <MenuItem fx:id="fieldsScene" mnemonicParsing="false" onAction="#changeToFields" text="View Courts" />
-                  <MenuItem fx:id="bookings" mnemonicParsing="false" onAction="#changeToBooking" text="Bookings" />
-              </items>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            <VBox alignment="BASELINE_CENTER" prefHeight="307.0" prefWidth="110.0">
                <VBox.margin>
-                  <Insets left="20.0" top="50.0" />
+                  <Insets />
                </VBox.margin>
-            </SplitMenuButton>
+               <children>
+                  <SplitMenuButton fx:id="home" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" text="Home" textFill="#3b95c1">
+                    <items>
+                      <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Sign Up" />
+                      <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Log in" />
+                        <MenuItem fx:id="fieldsScene" mnemonicParsing="false" onAction="#changeToFields" text="View Courts" />
+                        <MenuItem fx:id="bookings" mnemonicParsing="false" onAction="#changeToBooking" text="Bookings" />
+                    </items>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </SplitMenuButton>
+               </children>
+            </VBox>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="153.0" prefWidth="130.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <children>
+                  <Text fx:id="paginadecathlon" fill="#898989" onMouseClicked="#irADecathlon" onMouseEntered="#subrayarDecathlon" onMouseExited="#quitarSubrayadoDecathlon" strokeType="OUTSIDE" strokeWidth="0.0" text="Find material here" textAlignment="CENTER" wrappingWidth="84.26013946533203">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
-         <padding>
-            <Insets right="20.0" />
-         </padding>
       </VBox>
    </left>
    <center>
-      <HBox fx:id="hbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="302.0" prefWidth="476.0" style="-fx-background-color: #A9D0F5;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
+      <HBox fx:id="hboxverdadera" minHeight="32.0" minWidth="50.0" BorderPane.alignment="CENTER">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="302.0" fitWidth="476.0" />
+            <MediaView fx:id="mediaView" fitHeight="302.0" fitWidth="472.0" preserveRatio="false" />
          </children>
       </HBox>
    </center>
