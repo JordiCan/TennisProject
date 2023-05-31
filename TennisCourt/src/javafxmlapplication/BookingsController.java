@@ -114,7 +114,7 @@ public class BookingsController implements Initializable {
         
         int c=0;
         for(int i = 0; i < arrayBooking.size(); i++,c++){
-            if(c<=10&&arrayBooking.get(i).getMadeForDay().compareTo(LocalDate.now()) > 0){
+            if(c<=10&&arrayBooking.get(i).getMadeForDay().compareTo(LocalDate.now()) >= 0){
                 bookingList.add(arrayBooking.get(i));
             }
         }
