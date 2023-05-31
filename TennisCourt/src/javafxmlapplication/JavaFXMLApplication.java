@@ -58,6 +58,8 @@ public class JavaFXMLApplication extends Application {
 
         stage.show();
         
+        stage.setMinHeight(200);
+        stage.setMinWidth(400);
         
     }
 
