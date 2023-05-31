@@ -125,7 +125,12 @@ public class MainStageController  implements Initializable{
             Image jiji = member.getImage();
             imageProfile.setImage(jiji);
             bookings.setDisable(false);
+            signUpScene.setDisable(true);
+            registerScene.setDisable(true);
        }
+       
+       signUpScene.setDisable(false);
+       registerScene.setDisable(false);
        
        
        //RESIZABLE  
