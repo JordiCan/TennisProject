@@ -69,7 +69,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -233,41 +232,15 @@
                         <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please try again" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                         <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <image>
-                              <Image url="@../img/cardOscuro.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                        <Label prefHeight="46.0" prefWidth="261.0" text="CSC (optional)" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="csc" blendMode="COLOR_BURN" editable="false" prefHeight="33.0" prefWidth="244.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </TextField>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <image>
                               <Image url="@../img/svcOswcuro.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="76.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                        <Label prefHeight="46.0" prefWidth="76.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                        <TextField fx:id="svc" blendMode="COLOR_BURN" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -282,7 +255,7 @@
                               </Lighting>
                            </effect>
                         </TextField>
-                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong data, please input 3 numbers " textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                   <ImageView fx:id="oki" fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" visible="false">
