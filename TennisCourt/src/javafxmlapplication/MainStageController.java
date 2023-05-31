@@ -9,6 +9,8 @@ import java.io.File;
 import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
@@ -86,6 +91,10 @@ public class MainStageController  implements Initializable{
     private BorderPane borderPane;
     
     private MediaPlayer mediaPlayer;
+    @FXML
+    private Button logOutButton;
+    @FXML
+    private ImageView imageLogOut;
     
 
     
@@ -111,6 +120,8 @@ public class MainStageController  implements Initializable{
          catch(MediaException e){System.out.println("No coge bien el path");}
         bookings.setDisable(true);
         Image image = new Image("/img/logo.png");
+        Image i = new Image("/img/logoutColor.png");
+        imageLogOut.setImage(i);
         logo.setImage(image);
 
         try{
@@ -118,8 +129,11 @@ public class MainStageController  implements Initializable{
         }
         catch(Exception e){}
         
+       signUpScene.setDisable(false);
+       registerScene.setDisable(false);
+        
         //accountInfo.visbleProperty().addListener((observable,oldvalue,newvalue)->{});
-       if(member!=null){
+       if(member != null){
             accountInfo.setVisible(true);
             accountInfo.setText(member.getNickName());
             Image jiji = member.getImage();
@@ -128,11 +142,7 @@ public class MainStageController  implements Initializable{
             signUpScene.setDisable(true);
             registerScene.setDisable(true);
        }
-       
-       signUpScene.setDisable(false);
-       registerScene.setDisable(false);
-       
-       
+
        //RESIZABLE  
         
        mediaView.fitHeightProperty().bind(hboxverdadera.heightProperty());
@@ -288,6 +298,31 @@ public class MainStageController  implements Initializable{
             e.printStackTrace();
         
         }
+    }
+
+    @FXML
+    private void logOutAction(ActionEvent event) throws Exception {
+        if(member == null){
+            Alert a = new Alert(AlertType.ERROR);
+            a.setHeaderText("Inavlid action");
+            a.setContentText("You can not log out if you have not logged in");
+            a.showAndWait();
+        }
+        else{
+            member = null;
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
+            Parent root = loader.load();
+            mediaPlayer.setMute(true);
+            
+            Scene nueva = new Scene(root);
+            Stage stage = (Stage) logOutButton.getScene().getWindow();
+            stage.setScene(nueva);
+            stage.setResizable(true);
+            stage.show();            
+            
+        
+        }
+    
     }
  
     
