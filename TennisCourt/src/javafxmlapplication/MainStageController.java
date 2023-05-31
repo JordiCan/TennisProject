@@ -133,6 +133,8 @@ public class MainStageController  implements Initializable{
            registerScene.setDisable(true);
        }
        
+       signUpScene.setDisable(false);
+       registerScene.setDisable(false);
        
        //RESIZABLE
         
