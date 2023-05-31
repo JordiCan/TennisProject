@@ -128,7 +128,7 @@ public class MainStageController  implements Initializable{
        }
        
        
-       //RESIZABLE
+       //RESIZABLE  
         
        mediaView.fitHeightProperty().bind(hboxverdadera.heightProperty());
        mediaView.fitWidthProperty().bind(hboxverdadera.widthProperty());
