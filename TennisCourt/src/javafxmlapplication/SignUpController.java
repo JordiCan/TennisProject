@@ -165,12 +165,15 @@ public class SignUpController implements Initializable {
         
         if(!Utils.checkNickname(nicknameField.getText())){
             nameErr1.setVisible(true);
-            nicknameField.setText("");
+            nameErr1.setText("Required field");
         }
+        nameErr1.setVisible(false);
+        
         if(c.existsLogin(nicknameField.getText())){
             nameErr1.setText("Name already in use");
+            nameErr1.setVisible(true);
         }
-        //else{nameErr1.setVisible(false);}
+        else{nameErr1.setVisible(false);}
             
         if(!Utils.checkPassword(passwordField.getText())){
             passErr.setVisible(true);
