@@ -71,7 +71,7 @@
                   <SplitMenuButton fx:id="home" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" text="Home" textFill="#3b95c1">
                     <items>
                       <MenuItem fx:id="signUpScene" mnemonicParsing="false" onAction="#changeToSignUp" text="Sign Up" />
-                      <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Register" />
+                      <MenuItem fx:id="registerScene" mnemonicParsing="false" onAction="#changeToRegister" text="Log In" />
                         <MenuItem fx:id="fieldsScene" mnemonicParsing="false" onAction="#changeToFields" text="View Courts" />
                         <MenuItem fx:id="bookings" mnemonicParsing="false" onAction="#changeToBooking" text="Bookings" />
                     </items>

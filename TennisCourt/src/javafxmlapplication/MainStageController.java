@@ -118,13 +118,19 @@ public class MainStageController  implements Initializable{
         }
         catch(Exception e){}
         
-        //accountInfo.visbleProperty().addListener((observable,oldvalue,newvalue)->{});
        if(member!=null){
             accountInfo.setVisible(true);
             accountInfo.setText(member.getNickName());
             Image jiji = member.getImage();
             imageProfile.setImage(jiji);
             bookings.setDisable(false);
+            
+            signUpScene.setDisable(true);
+            registerScene.setDisable(true);
+       }
+       else{
+           signUpScene.setDisable(false);
+           registerScene.setDisable(true);
        }
        
        
