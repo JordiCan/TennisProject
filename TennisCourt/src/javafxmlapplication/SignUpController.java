@@ -71,13 +71,7 @@ public class SignUpController implements Initializable {
     @FXML
     private Text cardErr;
     @FXML
-    private TextField csc;
-    @FXML
-    private Text cscErr;
-    @FXML
     private TextField svc;
-    @FXML
-    private Text svcErr1;
     @FXML
     private Button pictureButton;
     @FXML
@@ -88,6 +82,8 @@ public class SignUpController implements Initializable {
     private ImageView oki;
     Image avatar= new Image("/img/default.png");
     Member m;
+    @FXML
+    private Text svcErr;
     /**
      * Initializes the controller class.
      */
@@ -191,12 +187,19 @@ public class SignUpController implements Initializable {
             creditcardField.setText("");
         }
         else{cardErr.setVisible(false);}
+        if(!Utils.checkSVC(svc.getText())){
+            svcErr.setVisible(true);
+            svcErr.setText("SVC code contains 3 digits");
+        }
+        else{svcErr.setVisible(false);}
+        
 
         if(Utils.checkUser(nameField.getText()) && Utils.checkSurname(surnameField.getText()) && 
         Utils.checkTelephone(telephoneField.getText()) && Utils.checkNickname(nicknameField.getText()) && Utils.checkNickname(nicknameField.getText())&& 
-        !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())) //Falta CSC SVC)
+        !c.existsLogin(nicknameField.getText()) && Utils.checkPassword(passwordField.getText()) && Utils.checkCard(creditcardField.getText())&&Utils.checkSVC(svc.getText())) 
         {
             if(svc.getText().equals("")){
+                
                 member= c.registerMember(nameField.getText(), surnameField.getText(), telephoneField.getText(), nicknameField.getText(),
                         passwordField.getText(), creditcardField.getText(), -1, avatar);
             }
