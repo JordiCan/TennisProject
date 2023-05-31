@@ -71,10 +71,6 @@ public class SignUpController implements Initializable {
     @FXML
     private Text cardErr;
     @FXML
-    private TextField csc;
-    @FXML
-    private Text cscErr;
-    @FXML
     private TextField svc;
     @FXML
     private Text svcErr1;

@@ -67,22 +67,19 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Text fx:id="cardErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 16 digits" textAlignment="JUSTIFY" visible="false" wrappingWidth="140.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                         <Text fx:id="nameErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" GridPane.columnIndex="4" />
                         <Text fx:id="nameErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Required field" textAlignment="JUSTIFY" visible="false" wrappingWidth="163.7294921875" GridPane.columnIndex="4" />
                         <Text fx:id="passErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 8 characters, including at least a capital letter and a number" textAlignment="JUSTIFY" visible="false" wrappingWidth="148.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <Text fx:id="cscErr" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                         <TextField fx:id="nameField" alignment="TOP_LEFT" GridPane.columnIndex="3" />
                         <TextField fx:id="surnameField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <TextField fx:id="telephoneField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="nicknameField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <PasswordField fx:id="passwordField" prefHeight="24.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                         <TextField fx:id="creditcardField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <TextField fx:id="csc" prefHeight="24.0" prefWidth="181.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                        <TextField fx:id="svc" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                        <TextField fx:id="svc" GridPane.columnIndex="3" GridPane.rowIndex="6" />
                         <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                            <image>
                               <Image url="@../img/chavalOscuro.png" />
@@ -120,16 +117,11 @@
                         </ImageView>
                         <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <image>
-                              <Image url="@../img/cardOscuro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <image>
                               <Image url="@../img/svcOswcuro.png" />
                            </image>
                         </ImageView>
-                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                        <Label prefHeight="50.0" prefWidth="38.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                        <Text fx:id="svcErr1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Must contain 3 numbers" textAlignment="JUSTIFY" visible="false" wrappingWidth="158.4892578125" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <Label prefHeight="50.0" prefWidth="38.0" text="SVC" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -140,11 +132,6 @@
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="135.0" text="Credit card" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="50.0" prefWidth="192.0" text="CSC (optional)" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
