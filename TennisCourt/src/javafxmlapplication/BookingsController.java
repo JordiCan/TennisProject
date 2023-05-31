@@ -6,7 +6,9 @@ package javafxmlapplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +27,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -75,20 +79,19 @@ public class BookingsController implements Initializable {
     public static LocalDateTime currentTime=LocalDateTime.now();
     
     public List<Booking> arrayBooking = new ArrayList<>();
-   public ObservableList<Booking> bookingList= FXCollections.observableArrayList(arrayBooking);
+   public ObservableList<Booking> bookingList= FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
            // TODO
         Club c= Club.getInstance();
+        arrayBooking= c.getUserBookings(member.getNickName());
         recentBookings();
         TableView.setItems(bookingList);
         nameField.setVisible(true);
         nameField.setText(member.getNickName());
         Image jiji = member.getImage();
         imageMember.setImage(jiji);
-        
-        arrayBooking= c.getUserBookings(member.getNickName());
         } catch (ClubDAOException | IOException ex) {
             Logger.getLogger(BookingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -108,8 +111,10 @@ public class BookingsController implements Initializable {
     }    
 
     public void recentBookings(){
-        for(int i = 0; i < arrayBooking.size(); i++){
-            if(arrayBooking.get(i).getBookingDate().compareTo(LocalDateTime.now()) > 0){
+        
+        int c=0;
+        for(int i = 0; i < arrayBooking.size(); i++,c++){
+            if(c<=10&&arrayBooking.get(i).getMadeForDay().compareTo(LocalDate.now()) > 0){
                 bookingList.add(arrayBooking.get(i));
             }
         }
@@ -131,10 +136,41 @@ public class BookingsController implements Initializable {
     @FXML
     private void cancelBooking(ActionEvent event) throws ClubDAOException, IOException {
         Club c= Club.getInstance();
-        c.removeBooking(TableView.getSelectionModel().getSelectedItem());
         
-        bookingList.remove(TableView.getSelectionModel().getSelectedItem());
-        TableView.setItems(bookingList);
+        
+        LocalDate reservationDay =TableView.getSelectionModel().getSelectedItem().getMadeForDay();
+        LocalDate nowDate= LocalDate.now();
+        LocalTime reservationTime= TableView.getSelectionModel().getSelectedItem().getFromTime();
+        LocalTime nowTime= LocalTime.now();
+        
+        if(reservationDay.isEqual(nowDate)){
+            Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("You cannot cancel this booking"); 
+                alert.setHeaderText("Dear Sir/Madam "+member.getNickName()+ " we regret to inform you that it is not possible to cancel the track you have selected, as there are less than 24 hours remaining until the scheduled time of the reservation.");
+                alert.setContentText("1");
+                alert.showAndWait();
+        }
+        else{
+            if(reservationDay.isEqual(nowDate.plusDays(1))&&reservationTime.compareTo(nowTime)<=0){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("You cannot cancel this booking"); 
+                alert.setHeaderText("Is not possible to cancel the track you have selected, less than 24 hours remaining until the scheduled time of the reservation.");
+                alert.setContentText("Any further assistance, please do not hesitate to contact us either through the email or mobile phone number provided below\n\nPhone: 878767657\nEmail: clubassitance@gmail.com");
+                alert.showAndWait();
+            }
+            else{
+                c.removeBooking(TableView.getSelectionModel().getSelectedItem());
+                bookingList.remove(TableView.getSelectionModel().getSelectedItem());
+                TableView.setItems(bookingList);
+            }
+            
+        }
+           
+                
+                
+           
+            
+        
         
     }
     

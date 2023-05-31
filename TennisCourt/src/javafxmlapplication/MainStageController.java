@@ -136,7 +136,7 @@ public class MainStageController  implements Initializable{
        signUpScene.setDisable(false);
        registerScene.setDisable(false);
        
-       //RESIZABLE
+       //RESIZABLE  
         
        mediaView.fitHeightProperty().bind(hboxverdadera.heightProperty());
        mediaView.fitWidthProperty().bind(hboxverdadera.widthProperty());

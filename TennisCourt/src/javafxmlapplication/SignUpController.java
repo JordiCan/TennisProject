@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,7 +86,6 @@ public class SignUpController implements Initializable {
     private ImageView Image;
     @FXML
     private ImageView oki;
-
     Image avatar= new Image("/img/default.png");
     Member m;
     /**
@@ -197,22 +197,6 @@ public class SignUpController implements Initializable {
                         passwordField.getText(), creditcardField.getText(), Integer.parseInt(svc.getText()), avatar);
  
             }
-
-           
-            /*
-                        int visibilityDuration = 2000; 
-                oki.setVisible(true);
-                Timer timer = new Timer(visibilityDuration, new ActionListener() {
-                    @Override
-                    public void actionPerformed(java.awt.event.ActionEvent e) {
-                       oki.setVisible(false);
-                       
-                    }
-            });
-            timer.setRepeats(false);
-            timer.start();
-            */
-            
 
             FXMLLoader loader = new  FXMLLoader(getClass().getResource("MainStage.fxml"));
             Parent root;

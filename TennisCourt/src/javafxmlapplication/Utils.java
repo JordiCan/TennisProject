@@ -6,6 +6,8 @@ package javafxmlapplication;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Court;
@@ -95,12 +97,19 @@ public class Utils {
      
     }
     
-    public static Boolean checkTime(LocalDateTime time){
-        LocalDateTime nowTime= LocalDateTime.now();
-        if(Duration.between(time, nowTime).getSeconds()<86400){
+    public static Boolean checkTime(LocalTime time){
+        LocalTime nowTime= LocalTime.now();
+        System.out.println(nowTime.toString());
+        System.out.println(time.toString());
+       
+        long difference = time.until(nowTime, ChronoUnit.HOURS);
+        if(difference<=1){return false;}
+        else{return true;}
+        /*if(Duration.between(time, nowTime).getSeconds()<86400){
             return false;
         }
-        else{return true;}
+        return true;
+*/
     }
    
     
