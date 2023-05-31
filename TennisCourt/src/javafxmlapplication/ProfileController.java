@@ -1,7 +1,4 @@
 
-//Hacr jordi estetica
-//Lo del password y todo eso 
-
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -42,6 +39,9 @@ public class ProfileController implements Initializable {
     
     
     @FXML
+    private Button logoutB;
+    
+    @FXML
     private Button pic;
     
     @FXML
@@ -72,8 +72,6 @@ public class ProfileController implements Initializable {
     private TextField creditcard;
     
     @FXML
-    private TextField csc;
-    @FXML
     private TextField svc;
     
     @FXML
@@ -92,12 +90,10 @@ public class ProfileController implements Initializable {
     private Text cardErr;
     
     @FXML
-    private Text cscErr;
+    private Text svcErr1;
+    
     @FXML
     private ImageView oki;
-    @FXML
-    private Button logoutB;
-    
     
     @FXML
     private ImageView Image;
@@ -105,8 +101,7 @@ public class ProfileController implements Initializable {
     public static Stage Main;
     public static Stage SignUp;
     
-    @FXML
-    private Text svcErr1;
+    
     
  
     
@@ -222,9 +217,7 @@ public class ProfileController implements Initializable {
             else {cardErr.setVisible(false);}
             
             System.out.println("Credit card bien"); 
-            
-            System.out.println(svc.getText()); 
-            
+
             if (!Utils.checkSVC(svc.getText())){
                 svcErr1.setVisible(true);
                 String svcString = Integer.toString(member.getSvc());
@@ -257,7 +250,7 @@ public class ProfileController implements Initializable {
                 if (Image.getImage() != member.getImage()){
                     member.setImage(Image.getImage());
                 }
-                
+
                 
                 save.setVisible(false);
                 pic.setVisible(false);
@@ -273,8 +266,6 @@ public class ProfileController implements Initializable {
                 password.setEditable(false);
                 creditcard.setBlendMode(BlendMode.COLOR_BURN);
                 creditcard.setEditable(false);
-                csc.setBlendMode(BlendMode.COLOR_BURN);
-                csc.setEditable(false);
                 svc.setBlendMode(BlendMode.COLOR_BURN);
                 svc.setEditable(false);
                 
@@ -291,8 +282,6 @@ public class ProfileController implements Initializable {
                 //warning jumps, but ive read it is safe 
                 EditProfile.setVisible(true);
             } 
-            
-  
         });  
     }
 
@@ -308,9 +297,7 @@ public class ProfileController implements Initializable {
             FileInputStream fis = new FileInputStream(file);
             Image avatar = new Image(fis);
             Image.imageProperty().setValue(avatar);
-        
-        }
-        
+        } 
     }
 
     @FXML
@@ -330,8 +317,6 @@ public class ProfileController implements Initializable {
         password.setEditable(true);
         creditcard.setBlendMode(BlendMode.SRC_OVER);
         creditcard.setEditable(true);
-        csc.setBlendMode(BlendMode.SRC_OVER);
-        csc.setEditable(true);
         svc.setBlendMode(BlendMode.SRC_OVER);
         svc.setEditable(true);
     }
